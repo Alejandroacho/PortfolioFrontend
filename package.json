@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "check-lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --ignore-path .gitignore",
     "format": "prettier --write src/",
+    "check-format": "prettier --check src/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
