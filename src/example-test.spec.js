@@ -1,7 +1,7 @@
-import { describe, it } from "vitest";
+import { describe, it } from 'vitest';
 
-describe("My First Test", () => {
-  it("test", () => {
+describe('My First Test', () => {
+  it('test', () => {
     null;
   });
 });
