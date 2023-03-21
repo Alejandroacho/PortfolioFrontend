@@ -1,0 +1,58 @@
+name: CI workflow
+
+on:
+  pull_request:
+    branches:
+      - 'master'
+      - 'staging'
+      - 'dev'
+
+jobs:
+  Check-Lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🔀 Checkout
+      uses: actions/checkout@v3
+    - name: ⚙️ Set up project
+      run: npm install
+    - name: 📝 Check lint
+      run:  npm run check-lint
+
+  Check-Imports:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🔀 Checkout
+      uses: actions/checkout@v3
+    - name: ⚙️ Set up project
+      run: npm install
+    - name: 🆎 Check imports order
+      run:  npm run check-format
+
+  Unit-Testing:
+    needs: [Check-Lint, Check-Imports]
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🔀 Checkout
+      uses: actions/checkout@v3
+    - name: ⚙️ Set up project
+      run: npm install
+    - name: ✅ Test
+      run: npm run test:unit
+
+  E2E-Testing:
+    needs: [Unit-Testing]
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🔀 Checkout
+      uses: actions/checkout@v3
+    - name: ⚙️ Set up project
+      run: npm install
+    - name: ✅ Test
+      run: npm run test:e2e
+
+  Done:
+    needs: [E2E-Testing]
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🎉 Congratulations
+      run: echo "Everything is okay! 🎉"
