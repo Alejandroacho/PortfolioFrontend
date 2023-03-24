@@ -49,3 +49,12 @@
     --color-text: var(--vt-c-text-dark-2);
   }
 }
+
+@font-face {
+  font-family: 'Site Font';
+  src: url('src/assets/font.woff') format('woff');
+}
+
+* {
+  font-family: 'Site Font', sans-serif;
+}
