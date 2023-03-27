@@ -6,11 +6,12 @@ export default {
   component: TechnologyBadge,
   argTypes: {
     language: {
-      description: 'Technology language.',
+      description: "Technology language.",
       table: {
         type: {
-          summary: 'String',
-          detail: 'In order to display the image, it must be a valid language (those are those in the "src/assets/icons/technologies").'
+          summary: "String",
+          detail:
+            'In order to display the image, it must be a valid language (those are those in the "src/assets/icons/technologies").',
         },
       },
     },
@@ -38,7 +39,9 @@ StoryWithExistentTechnology.parameters = {
     description: {
       component: "This is the component that displays any kind of images.",
     },
-    source: { code: generateSource(template, StoryWithExistentTechnology.args) },
+    source: {
+      code: generateSource(template, StoryWithExistentTechnology.args),
+    },
   },
 };
 
@@ -50,6 +53,8 @@ StoryWithNonExistentTechnology.args = {
 
 StoryWithNonExistentTechnology.parameters = {
   docs: {
-    source: { code: generateSource(template, StoryWithNonExistentTechnology.args) },
+    source: {
+      code: generateSource(template, StoryWithNonExistentTechnology.args),
+    },
   },
 };

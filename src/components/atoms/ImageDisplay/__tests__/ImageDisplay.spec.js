@@ -8,11 +8,11 @@ describe("ImageDisplay", () => {
     const image = {
       image: "public/design-system-light.png",
       description: "JavaScript",
-      type: "PC"
+      type: "PC",
     };
     const wrapper = mount(ImageDisplay, {
       props: {
-        image: image
+        image: image,
       },
     });
     expect(wrapper.props().image).toStrictEqual(image);
@@ -24,7 +24,7 @@ describe("ImageDisplay", () => {
     const wrapper = mount(ImageDisplay, {
       props: {
         image: {
-          type: "PC"
+          type: "PC",
         },
       },
     });
@@ -37,7 +37,7 @@ describe("ImageDisplay", () => {
         image: {
           image: "public/nonexistent.png",
           description: "JavaScript",
-          type: "PC"
+          type: "PC",
         },
       },
     });

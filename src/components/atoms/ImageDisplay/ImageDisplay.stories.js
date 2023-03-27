@@ -6,18 +6,19 @@ export default {
   component: ImageDisplay,
   argTypes: {
     image: {
-      description: 'Image object.',
+      description: "Image object.",
       table: {
         type: {
-          summary: 'Object',
-          detail: 'It must contain "image", "description" and "type" properties.'
+          summary: "Object",
+          detail:
+            'It must contain "image", "description" and "type" properties.',
         },
       },
     },
   },
 };
 
-const template = '<ImageDisplay v-bind="args" />'
+const template = '<ImageDisplay v-bind="args" />';
 
 const Template = (args) => ({
   components: { ImageDisplay },
@@ -33,14 +34,14 @@ StoryWithImage.args = {
   image: {
     image: "public/design-system-light.png",
     description: "JavaScript",
-    type: "PC"
-  }
+    type: "PC",
+  },
 };
 
 StoryWithImage.parameters = {
   docs: {
     description: {
-      component: 'This is the component that displays any kind of images.',
+      component: "This is the component that displays any kind of images.",
     },
     source: { code: generateSource(template, StoryWithImage.args) },
   },
