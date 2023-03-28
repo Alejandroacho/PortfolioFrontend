@@ -40,7 +40,7 @@ jobs:
       run: npm run test:unit
 
   E2E-Testing:
-    needs: [Unit-Testing]
+    needs: [Check-Lint, Check-Format]
     runs-on: ubuntu-latest
     steps:
     - name: 🔀 Checkout
@@ -51,7 +51,7 @@ jobs:
       run: npm run test:e2e
 
   Done:
-    needs: [E2E-Testing]
+    needs: [Unit-Testing, E2E-Testing]
     runs-on: ubuntu-latest
     steps:
     - name: 🎉 Congratulations
