@@ -23,7 +23,7 @@ export default {
   computed: {
     cssStyle() {
       const basicClass = "custom-button";
-      return `${basicClass}`;
+      return `${basicClass} ${this.type}`;
     },
   },
   methods: {
@@ -41,7 +41,7 @@ export default {
   cursor: pointer;
   padding: 10px;
   width: fit-content;
-  height: 15vh;
+  height: 45px;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -53,6 +53,7 @@ export default {
     box-shadow: 0 0 3px $secondary-color;
     background-color: $dark-gray;
     color: $white;
+    font-weight: bold;
   }
 
   &__message {
