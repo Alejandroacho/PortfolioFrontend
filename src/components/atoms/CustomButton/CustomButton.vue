@@ -45,14 +45,9 @@ export default {
   display: flex;
   align-items: center;
   border-radius: 10px;
-  background-color: $white;
-  border: 1px solid $secondary-color;
-  color: $secondary-color;
 
   &:hover {
     box-shadow: 0 0 3px $secondary-color;
-    background-color: $dark-gray;
-    color: $white;
     font-weight: bold;
   }
 
@@ -61,4 +56,32 @@ export default {
     margin: 0px;
   }
 }
+
+.primary{
+  background-color: $dark-gray;
+  border: 1px solid $dark-black;
+  color: $white;
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+.secondary{
+  background-color: $white;
+  border: 1px solid $secondary-color;
+  color: $secondary-color;
+}
+
+.text{
+  background-color: $white;
+  border: none;
+  color: $secondary-color;
+  padding: 0px;
+  height: 0px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 </style>
