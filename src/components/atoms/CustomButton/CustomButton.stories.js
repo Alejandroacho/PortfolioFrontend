@@ -14,7 +14,7 @@ export default {
       },
     },
     type: {
-      control: { type: "select", options: ["primary", "secondary", "text"] },
+      control: { type: "select", options: ["primary", "secondary", "text", "magic",] },
       description: "Button type.",
       table: {
         type: {
