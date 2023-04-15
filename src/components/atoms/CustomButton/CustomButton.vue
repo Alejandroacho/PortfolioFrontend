@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$emit("click");
+      this.$emit("handleClick");
     },
   },
 };
@@ -57,7 +57,8 @@ export default {
   }
 }
 
-.primary, .magic{
+.primary,
+.magic {
   background-color: $dark-gray;
   border: 1px solid $dark-black;
   color: $white;
@@ -66,13 +67,13 @@ export default {
   }
 }
 
-.secondary{
+.secondary {
   background-color: $white;
   border: 1px solid $secondary-color;
   color: $secondary-color;
 }
 
-.text{
+.text {
   background-color: $white;
   border: none;
   color: $secondary-color;
@@ -84,11 +85,11 @@ export default {
   }
 }
 
-.magic{
+.magic {
   position: relative;
 }
 
-.magic::before{
+.magic::before {
   content: "";
   position: absolute;
   top: 0;
@@ -96,7 +97,16 @@ export default {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, red, blue, deeppink, blue, red, deeppink, blue);
+  background: linear-gradient(
+    45deg,
+    red,
+    blue,
+    deeppink,
+    blue,
+    red,
+    deeppink,
+    blue
+  );
   background-size: 800%;
   border-radius: 10px;
   filter: blur(8px);
@@ -114,5 +124,4 @@ export default {
     background-position: 0 0;
   }
 }
-
 </style>

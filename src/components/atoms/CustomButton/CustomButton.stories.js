@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import CustomButton from "./CustomButton.vue";
 
 export default {
@@ -14,7 +15,8 @@ export default {
       },
     },
     type: {
-      control: { type: "select", options: ["primary", "secondary", "text", "magic",] },
+      control: "select",
+      options: ["primary", "secondary", "text", "magic"],
       description: "Button type.",
       table: {
         type: {
@@ -31,7 +33,8 @@ const Template = (args) => ({
   setup() {
     return { args };
   },
-  template: '<CustomButton v-bind="args"/>',
+  methods: { clicked: action("clicked") },
+  template: '<CustomButton v-bind="args" @handleClick="clicked"/>',
 });
 
 export const CustomButtonStory = Template.bind({});
