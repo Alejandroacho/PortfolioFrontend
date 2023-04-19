@@ -4,7 +4,6 @@ import { mount } from "@vue/test-utils";
 import CustomButton from "../CustomButton.vue";
 
 describe("CustomButton", () => {
-
   it("renders properly with message", () => {
     const message = "Button";
     const wrapper = mount(CustomButton, {
@@ -46,7 +45,7 @@ describe("CustomButton", () => {
     expect(wrapper.props().message).toBe(message);
     expect(wrapper.props().type).toBe("primary");
     expect(wrapper.find("button").classes()).toContain("primary");
-  })
+  });
 
   it("renders with secondary class", () => {
     const message = "Button";
@@ -59,7 +58,7 @@ describe("CustomButton", () => {
     expect(wrapper.props().message).toBe(message);
     expect(wrapper.props().type).toBe("secondary");
     expect(wrapper.find("button").classes()).toContain("secondary");
-  })
+  });
 
   it("renders with text class", () => {
     const message = "Button";
@@ -72,7 +71,7 @@ describe("CustomButton", () => {
     expect(wrapper.props().message).toBe(message);
     expect(wrapper.props().type).toBe("text");
     expect(wrapper.find("button").classes()).toContain("text");
-  })
+  });
 
   it("renders with magic class", () => {
     const message = "Button";
@@ -85,5 +84,5 @@ describe("CustomButton", () => {
     expect(wrapper.props().message).toBe(message);
     expect(wrapper.props().type).toBe("magic");
     expect(wrapper.find("button").classes()).toContain("magic");
-  })
+  });
 });
