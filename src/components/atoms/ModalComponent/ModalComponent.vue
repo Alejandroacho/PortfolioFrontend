@@ -61,7 +61,9 @@
 </script>
 
 
-<style>
+<style lang="scss">
+@import "../../../assets/colors.scss";
+
   .modal-backdrop {
     position: fixed;
     top: 0;
@@ -75,11 +77,14 @@
   }
 
   .modal {
+    border-radius: 10px;
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
     display: flex;
     flex-direction: column;
+    max-width: 90%;
+    max-height: 90%;
   }
 
   .modal-header,
@@ -91,7 +96,8 @@
   .modal-header {
     position: relative;
     border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
+    color: $secondary-color;
+    font-weight: bold;
     justify-content: space-between;
   }
 
