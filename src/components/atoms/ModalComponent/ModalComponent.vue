@@ -1,16 +1,14 @@
 
 <template>
-  <transition name="modal-fade">
-    <div class="modal-backdrop" v-if="showModal">
+  <transition name="fade">
+    <div class="backdrop" v-if="showModal">
       <div class="modal"
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalDescription"
       >
-        <header
-          class="modal-header"
-          id="modalTitle"
-        >
+
+        <header class="header" id="modalTitle">
           <slot name="header">
             This is the default tile!
           </slot>
@@ -24,20 +22,18 @@
           </button>
         </header>
 
-        <section
-          class="modal-body"
-          id="modalDescription"
-        >
+        <section class="body" id="modalDescription">
           <slot name="body">
             This is the default body!
           </slot>
         </section>
 
-        <footer class="modal-footer">
+        <footer class="footer">
           <slot name="footer">
             This is the default footer!
           </slot>
         </footer>
+
       </div>
     </div>
   </transition>
@@ -64,80 +60,71 @@
 <style lang="scss">
 @import "../../../assets/colors.scss";
 
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .modal {
-    border-radius: 10px;
-    background: #FFFFFF;
-    box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 90%;
-    max-height: 90%;
-  }
+.modal {
+  border-radius: 10px;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 20px 1px;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  max-height: 90%;
+}
 
-  .modal-header,
-  .modal-footer {
-    padding: 15px;
-    display: flex;
-  }
+.header {
+  padding: 15px;
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid #eeeeee;
+  color: $secondary-color;
+  font-weight: bold;
+  justify-content: space-between;
+}
 
-  .modal-header {
-    position: relative;
-    border-bottom: 1px solid #eeeeee;
-    color: $secondary-color;
-    font-weight: bold;
-    justify-content: space-between;
-  }
+.body {
+  position: relative;
+  padding: 20px 10px;
+}
 
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    flex-direction: column;
-  }
+.footer {
+  padding: 15px;
+  display: flex;
+  border-top: 1px solid #eeeeee;
+  flex-direction: column;
+}
 
-  .modal-body {
-    position: relative;
-    padding: 20px 10px;
-  }
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4AAE9B;
+  background: transparent;
+}
 
-  .btn-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    font-size: 20px;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4AAE9B;
-    background: transparent;
-  }
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 
-  .btn-green {
-    color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
-    border-radius: 2px;
-  }
-
-  .modal-fade-enter,
-  .modal-fade-leave-to {
-    opacity: 0;
-  }
-
-  .modal-fade-enter-active,
-  .modal-fade-leave-active {
-    transition: opacity .5s ease;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s ease;
+}
 </style>
