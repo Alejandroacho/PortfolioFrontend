@@ -6,7 +6,7 @@
 
         <header class="modal__header">
           <slot name="header">
-            This is the default tile!
+            This is the default title!
           </slot>
           <button @click="close" class="close-button">
             x
