@@ -6,7 +6,6 @@
 
         <header class="modal__header">
           <slot name="header">
-            This is the default title!
           </slot>
           <button @click="close" class="close-button">
             x
@@ -15,13 +14,11 @@
 
         <section class="modal__body">
           <slot name="body">
-            This is the default body!
           </slot>
         </section>
 
         <footer class="modal__footer">
           <slot name="footer">
-            This is the default footer!
           </slot>
         </footer>
 
@@ -72,12 +69,12 @@
   flex-direction: column;
   max-width: 90%;
   max-height: 90%;
+  min-width: 80%;
 
   &__header {
     padding: 15px;
     display: flex;
     position: relative;
-    border-bottom: 1px solid #eeeeee;
     color: $secondary-color;
     font-weight: bold;
     justify-content: space-between;
@@ -91,14 +88,12 @@
   &__footer {
     padding: 15px;
     display: flex;
-    border-top: 1px solid #eeeeee;
     flex-direction: column;
   }
 }
 
 .close-button {
   position: absolute;
-  top: 0;
   right: 0;
   border: none;
   font-size: 20px;
@@ -107,6 +102,7 @@
   font-weight: bold;
   color: $black;
   background: transparent;
+  margin-right: 2%;
 }
 
 .fade-enter,
