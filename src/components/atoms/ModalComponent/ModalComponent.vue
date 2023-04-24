@@ -2,33 +2,24 @@
 <template>
   <transition name="fade">
     <div class="backdrop" v-if="showModal">
-      <div class="modal"
-        role="dialog"
-        aria-labelledby="modalTitle"
-        aria-describedby="modalDescription"
-      >
+      <div class="modal" role="dialog">
 
-        <header class="header" id="modalTitle">
+        <header class="modal__header">
           <slot name="header">
             This is the default tile!
           </slot>
-          <button
-            type="button"
-            class="btn-close"
-            @click="close"
-            aria-label="Close modal"
-          >
+          <button @click="close" class="close-button">
             x
           </button>
         </header>
 
-        <section class="body" id="modalDescription">
+        <section class="modal__body">
           <slot name="body">
             This is the default body!
           </slot>
         </section>
 
-        <footer class="footer">
+        <footer class="modal__footer">
           <slot name="footer">
             This is the default footer!
           </slot>
@@ -81,31 +72,31 @@
   flex-direction: column;
   max-width: 90%;
   max-height: 90%;
+
+  &__header {
+    padding: 15px;
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+    color: $secondary-color;
+    font-weight: bold;
+    justify-content: space-between;
+  }
+
+  &__body {
+    position: relative;
+    padding: 20px 10px;
+  }
+
+  &__footer {
+    padding: 15px;
+    display: flex;
+    border-top: 1px solid #eeeeee;
+    flex-direction: column;
+  }
 }
 
-.header {
-  padding: 15px;
-  display: flex;
-  position: relative;
-  border-bottom: 1px solid #eeeeee;
-  color: $secondary-color;
-  font-weight: bold;
-  justify-content: space-between;
-}
-
-.body {
-  position: relative;
-  padding: 20px 10px;
-}
-
-.footer {
-  padding: 15px;
-  display: flex;
-  border-top: 1px solid #eeeeee;
-  flex-direction: column;
-}
-
-.btn-close {
+.close-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -114,7 +105,7 @@
   padding: 10px;
   cursor: pointer;
   font-weight: bold;
-  color: #4AAE9B;
+  color: $black;
   background: transparent;
 }
 
