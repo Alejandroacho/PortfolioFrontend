@@ -1,7 +1,7 @@
 
 <template>
   <transition name="fade">
-    <div class="backdrop" v-if="showModal">
+    <div class="backdrop" v-if="showModal && !hasBeenClosed">
       <div class="modal" role="dialog">
 
         <header class="modal__header">
@@ -32,12 +32,18 @@
     name: 'ModalComponent',
     data() {
       return {
-        showModal: true,
+        hasBeenClosed: false,
       };
+    },
+    props: {
+      showModal: {
+        type: Boolean,
+        required: true,
+      },
     },
     methods: {
       close() {
-        this.showModal = false;
+        this.hasBeenClosed = true;
         this.$emit('close');
       },
     },
