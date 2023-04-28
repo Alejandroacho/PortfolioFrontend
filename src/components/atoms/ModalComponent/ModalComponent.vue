@@ -1,55 +1,46 @@
-
 <template>
   <transition name="fade">
     <div class="backdrop" v-if="showModal && !hasBeenClosed">
       <div class="modal" role="dialog">
-
         <header class="modal__header">
-          <slot name="header">
-          </slot>
-          <button @click="close" class="close-button">
-            x
-          </button>
+          <slot name="header"> </slot>
+          <button @click="close" class="close-button">x</button>
         </header>
 
         <section class="modal__body">
-          <slot name="body">
-          </slot>
+          <slot name="body"> </slot>
         </section>
 
         <footer class="modal__footer">
-          <slot name="footer">
-          </slot>
+          <slot name="footer"> </slot>
         </footer>
-
       </div>
     </div>
   </transition>
 </template>
 
 <script>
-  export default {
-    name: 'ModalComponent',
-    data() {
-      return {
-        hasBeenClosed: false,
-      };
+export default {
+  name: "ModalComponent",
+  data() {
+    return {
+      hasBeenClosed: false,
+    };
+  },
+  props: {
+    showModal: {
+      type: Boolean,
+      required: true,
     },
-    props: {
-      showModal: {
-        type: Boolean,
-        required: true,
-      },
+  },
+  methods: {
+    close() {
+      this.hasBeenClosed = true;
+      this.$emit("close");
     },
-    methods: {
-      close() {
-        this.hasBeenClosed = true;
-        this.$emit('close');
-      },
-    },
-  };
+  },
+};
 </script>
-
 
 <style lang="scss">
 @import "../../../assets/colors.scss";
@@ -68,7 +59,7 @@
 
 .modal {
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 2px 2px 20px 1px;
   overflow-x: auto;
   display: flex;
@@ -118,6 +109,6 @@
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
 }
 </style>
