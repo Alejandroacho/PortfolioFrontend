@@ -1,35 +1,29 @@
 import { action } from "@storybook/addon-actions";
-import CustomButton from "./CustomButton.vue";
+import ProjectSection from "./ProjectSection.vue";
 
 export default {
-  title: "atoms/CustomButton",
-  component: CustomButton,
+  title: "molecules/ProjectSection",
+  component: ProjectSection,
   argTypes: {
     project: {
-      description: "Button message.",
-      table: {
-        type: {
-          summary: "String",
-          detail: "It must be a valid string.",
-        },
-      },
+      description: "This is a project that should come from the backend",
     },
   },
 };
 
 const Template = (args) => ({
-  components: { CustomButton },
+  components: { ProjectSection },
   setup() {
     return { args };
   },
   methods: { clicked: action("clicked") },
-  template: '<CustomButton v-bind="args" @handleClick="clicked"/>',
+  template: '<ProjectSection v-bind="args" @handleClick="clicked"/>',
 });
 
-export const CustomButtonStory = Template.bind({});
+export const ProjectSectionStory = Template.bind({});
 
-CustomButtonStory.args = {
-  project = {
+ProjectSectionStory.args = {
+  project: {
     id: 1,
     title: "Project 1",
     description: "Project 1 description",
