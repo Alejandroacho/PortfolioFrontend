@@ -44,5 +44,13 @@ ProjectSectionStory.args = {
         ],
       },
     ],
+    images: [
+      {
+        id: 1,
+        description: "Image 1",
+        type: "PC",
+        image: "public/design-system-light.png",
+      },
+    ],
   },
 };
