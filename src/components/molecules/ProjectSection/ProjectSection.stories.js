@@ -1,4 +1,3 @@
-import { action } from "@storybook/addon-actions";
 import ProjectSection from "./ProjectSection.vue";
 
 export default {
@@ -16,8 +15,7 @@ const Template = (args) => ({
   setup() {
     return { args };
   },
-  methods: { clicked: action("clicked") },
-  template: '<ProjectSection v-bind="args" @handleClick="clicked"/>',
+  template: '<ProjectSection v-bind="args"/>',
 });
 
 export const ProjectSectionStory = Template.bind({});
