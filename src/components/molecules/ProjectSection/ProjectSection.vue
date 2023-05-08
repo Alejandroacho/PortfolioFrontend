@@ -14,7 +14,7 @@ import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
 import CustomButton from "../../atoms/CustomButton/CustomButton.vue";
 
 export default {
-  name: "ImageDisplay",
+  name: "ProjectSection",
   components: {
     ImageDisplay,
     CustomButton,
