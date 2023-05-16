@@ -1,17 +1,21 @@
 <template>
   <div>
     <h2>{{ project.title }}</h2>
-    <ImageDisplay
-      v-for="image in projectImagesToDisplay"
-      :key="image.id"
-      :image="image"
-    />
-    <CustomButton
-      type="secondary"
-      message="See project"
-      @click="openProjectDetail"
-    />
-
+    <div class="images">
+      <ImageDisplay
+        v-for="image in projectImagesToDisplay"
+        :key="image.id"
+        :image="image"
+        class="image"
+      />
+    </div>
+    <div class="button-container">
+      <CustomButton
+        type="secondary"
+        message="See project"
+        @click="openProjectDetail"
+      />
+    </div>
     <ModalComponentVue
       :showModal="showProjectDetail"
       @close="closeProjectDetail"
@@ -63,4 +67,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.images{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+  height: 60vh;
+}
+.image{
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.button-container{
+  display: flex;
+  justify-content: center;
+}
 </style>
