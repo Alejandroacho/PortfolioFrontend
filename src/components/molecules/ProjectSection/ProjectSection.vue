@@ -30,14 +30,14 @@
 <script>
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
 import CustomButton from "../../atoms/CustomButton/CustomButton.vue";
-import ModalComponentVue from '../../atoms/ModalComponent/ModalComponent.vue';
+import ModalComponentVue from "../../atoms/ModalComponent/ModalComponent.vue";
 
 export default {
   name: "ProjectSection",
   components: {
     ImageDisplay,
     CustomButton,
-    ModalComponentVue
+    ModalComponentVue,
   },
   data() {
     return {
@@ -58,29 +58,29 @@ export default {
       this.showProjectDetail = false;
     },
   },
-  computed: {
+  computed: {
     projectImagesToDisplay() {
-      return this.project.images.filter(image => image.type !== 'OTHER');
-    }
-  }
+      return this.project.images.filter((image) => image.type !== "OTHER");
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.images{
+.images {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 2rem;
   height: 60vh;
 }
-.image{
+.image {
   display: block;
   width: auto;
   height: auto;
   object-fit: contain;
 }
-.button-container{
+.button-container {
   display: flex;
   justify-content: center;
 }
