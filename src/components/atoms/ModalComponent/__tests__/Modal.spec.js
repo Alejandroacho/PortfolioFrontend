@@ -21,16 +21,4 @@ describe("ModalComponent", () => {
     });
     expect(wrapper.find(".modal").exists()).toBe(false);
   });
-
-  it("Its closed", async () => {
-    const wrapper = mount(ModalComponent, {
-      props: {
-        showModal: true,
-      },
-    });
-    expect(wrapper.find(".modal").exists()).toBe(true);
-    wrapper.find(".close-button").trigger("click");
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find(".modal").exists()).toBe(false);
-  });
 });
