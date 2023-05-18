@@ -5,7 +5,7 @@ import ProjectSection from "../ProjectSection.vue";
 
 describe("ProjectSection", () => {
   it("renders properly", () => {
-    const project =  {
+    const project = {
       id: 1,
       title: "Project 1",
       description: "Project 1 description",
@@ -45,13 +45,13 @@ describe("ProjectSection", () => {
           type: "OTHER",
           image: "public/design-system-light.png",
         },
-      ]
-    }
+      ],
+    };
     const wrapper = mount(ProjectSection, {
       props: {
-        project: project
+        project: project,
       },
     });
-  expect(wrapper.find("h2").text()).toBe(project.title);
+    expect(wrapper.find("h2").text()).toBe(project.title);
   });
 });
