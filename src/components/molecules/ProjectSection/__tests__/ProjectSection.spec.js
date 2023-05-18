@@ -42,7 +42,7 @@ describe("ProjectSection", () => {
         {
           id: 3,
           description: "Image 3",
-          type: "OTHER",
+          type: "PC",
           image: "public/design-system-light.png",
         },
       ],
@@ -53,5 +53,6 @@ describe("ProjectSection", () => {
       },
     });
     expect(wrapper.find("h2").text()).toBe(project.title);
+    expect(wrapper.findAll("img").length).toBe(project.images.length);
   });
 });
