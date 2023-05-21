@@ -4,6 +4,13 @@ import TechnologyBadge from "./TechnologyBadge.vue";
 export default {
   title: "atoms/TechnologyBadge",
   component: TechnologyBadge,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Badge that can display images if you pass a valid technology (in the "src/assets/icons/technologies").'
+      },
+    },
+  },
   argTypes: {
     language: {
       description: "Technology language.",
@@ -11,7 +18,8 @@ export default {
         type: {
           summary: "String",
           detail:
-            'In order to display the image, it must be a valid language (those are those in the "src/assets/icons/technologies").',
+            'In order to display the image, it must be a valid language'
+            + '(those are those in the "src/assets/icons/technologies").',
         },
       },
     },
@@ -28,6 +36,9 @@ const Template = (args) => ({
   template: template,
 });
 
+/**
+* Badge that displays the technology icon.
+*/
 export const StoryWithExistentTechnology = Template.bind({});
 
 StoryWithExistentTechnology.args = {
@@ -45,6 +56,9 @@ StoryWithExistentTechnology.parameters = {
   },
 };
 
+/**
+* Badge that does not display the technology icon as it does not exist.
+*/
 export const StoryWithNonExistentTechnology = Template.bind({});
 
 StoryWithNonExistentTechnology.args = {
