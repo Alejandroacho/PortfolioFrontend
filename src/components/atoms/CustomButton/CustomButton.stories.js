@@ -16,21 +16,13 @@ export default {
   argTypes: {
     message: {
       description: "Button message.",
-      table: {
-        type: {
-          summary: "String",
-        },
-      },
+
     },
     type: {
       control: "select",
       options: ["primary", "secondary", "text", "magic"],
       description: "Button type.",
-      table: {
-        type: {
-          summary: "String",
-        },
-      },
+
     },
     handleClick: {
       description: "Button click event.",
