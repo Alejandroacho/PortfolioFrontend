@@ -4,13 +4,20 @@ import CustomButton from "./CustomButton.vue";
 export default {
   title: "atoms/CustomButton",
   component: CustomButton,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Button component with 4 types: primary, secondary, text and magic.'
+        + 'It expect a message and a click event. By default, the type is primary.'
+      },
+    },
+  },
   argTypes: {
     message: {
       description: "Button message.",
       table: {
         type: {
           summary: "String",
-          detail: "It must be a valid string.",
         },
       },
     },
@@ -21,7 +28,14 @@ export default {
       table: {
         type: {
           summary: "String",
-          detail: "It must be a valid string.",
+        },
+      },
+    },
+    handleClick: {
+      description: "Button click event.",
+      table: {
+        type: {
+          summary: "Function",
         },
       },
     },
@@ -37,9 +51,42 @@ const Template = (args) => ({
   template: '<CustomButton v-bind="args" @handleClick="clicked"/>',
 });
 
-export const CustomButtonStory = Template.bind({});
+/**
+* Button used for actions that are supposed to be the main action.
+*/
+export const PrimaryButton = Template.bind({});
 
-CustomButtonStory.args = {
+PrimaryButton.args = {
   message: "Hello World",
   type: "primary",
+};
+
+/**
+* Secondary button, used for actions that are not supposed to be the main action.
+*/
+export const SecondaryButton = Template.bind({});
+
+SecondaryButton.args = {
+  message: "Hello World",
+  type: "secondary",
+};
+
+/**
+* Text button, useful for links or actions that are not supposed to be buttons.
+*/
+export const TextButton = Template.bind({});
+
+TextButton.args = {
+  message: "Hello World",
+  type: "text",
+};
+
+/**
+* This type of button is used for unique actions that are supposed to be magic.
+*/
+export const MagicButton = Template.bind({});
+
+MagicButton.args = {
+  message: "Hello World",
+  type: "magic",
 };
