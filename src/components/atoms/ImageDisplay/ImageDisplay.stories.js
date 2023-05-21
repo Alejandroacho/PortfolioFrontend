@@ -36,6 +36,9 @@ const Template = (args) => ({
   template: codeTemplate,
 });
 
+/**
+* Image display with a correct image object.
+*/
 export const StoryWithImage = Template.bind({});
 
 StoryWithImage.args = {
@@ -52,6 +55,9 @@ StoryWithImage.parameters = {
   },
 };
 
+/**
+* Image display without an image object.
+*/
 export const StoryWithoutImage = Template.bind({});
 
 StoryWithoutImage.args = {
