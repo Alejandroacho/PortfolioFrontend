@@ -8,21 +8,20 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Button component with 4 types: primary, secondary, text and magic.'
-        + 'It expect a message and a click event. By default, the type is primary.'
+        component:
+          "Button component with 4 types: primary, secondary, text and magic." +
+          "It expect a message and a click event. By default, the type is primary.",
       },
     },
   },
   argTypes: {
     message: {
       description: "Button message.",
-
     },
     type: {
       control: "select",
       options: ["primary", "secondary", "text", "magic"],
       description: "Button type.",
-
     },
     handleClick: {
       description: "Button click event.",
@@ -35,8 +34,7 @@ export default {
   },
 };
 
-
-const codeTemplate = '<CustomButton v-bind="args" @handleClick="clicked"/>'
+const codeTemplate = '<CustomButton v-bind="args" @handleClick="clicked"/>';
 
 const Template = (args) => ({
   components: { CustomButton },
@@ -48,8 +46,8 @@ const Template = (args) => ({
 });
 
 /**
-* Button used for actions that are supposed to be the main action.
-*/
+ * Button used for actions that are supposed to be the main action.
+ */
 export const PrimaryButton = Template.bind({});
 
 PrimaryButton.args = {
@@ -64,8 +62,8 @@ PrimaryButton.parameters = {
 };
 
 /**
-* Secondary button, used for actions that are not supposed to be the main action.
-*/
+ * Secondary button, used for actions that are not supposed to be the main action.
+ */
 export const SecondaryButton = Template.bind({});
 
 SecondaryButton.args = {
@@ -80,8 +78,8 @@ SecondaryButton.parameters = {
 };
 
 /**
-* Text button, useful for links or actions that are not supposed to be buttons.
-*/
+ * Text button, useful for links or actions that are not supposed to be buttons.
+ */
 export const TextButton = Template.bind({});
 
 TextButton.args = {
@@ -96,8 +94,8 @@ TextButton.parameters = {
 };
 
 /**
-* This type of button is used for unique actions that are supposed to be magic.
-*/
+ * This type of button is used for unique actions that are supposed to be magic.
+ */
 export const MagicButton = Template.bind({});
 
 MagicButton.args = {

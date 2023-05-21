@@ -7,7 +7,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'This is a modal component, to show in a modal whatever is needed.'
+        component:
+          "This is a modal component, to show in a modal whatever is needed.",
       },
     },
   },
@@ -16,7 +17,8 @@ export default {
       description: "Boolean that toggles the modal visibility.",
     },
     close: {
-      description: "Function that should closes the modal, and do anything else.",
+      description:
+        "Function that should closes the modal, and do anything else.",
       table: {
         type: {
           summary: "Function",

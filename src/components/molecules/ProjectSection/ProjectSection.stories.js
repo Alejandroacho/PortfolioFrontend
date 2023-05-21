@@ -7,54 +7,57 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Project section that will display images and a button. The button should open the project detail section component.'
+        component:
+          "Project section that will display images and a button. The button should open the project detail section component.",
       },
     },
   },
   argTypes: {
     project: {
-      description: "This is a project object. It must follow the structure defined in the backend.",
+      description:
+        "This is a project object. It must follow the structure defined in the backend.",
       table: {
         type: {
-          summary: 'Object',
-          detail: 'The structure should look like the following: \n' +
-          '{\n' +
-          '  id: 1,\n' +
-          '  title: "Project 1",\n' +
-          '  description: "Project 1 description",\n' +
-          '  url: "https://www.google.com",\n' +
-          '  is_public: true,\n' +
-          '  repository: "https://www.github.com",\n' +
-          '  authors: [\n' +
-          '    {\n' +
-          '      id: 1,\n' +
-          '      first_name: "Author",\n' +
-          '      last_name: "Author",\n' +
-          '      social_networks: [\n' +
-          '        {\n' +
-          '          platform: "github",\n' +
-          '          url: "https://www.github.com",\n' +
-          '          nickname: "author",\n' +
-          '        },\n' +
-          '      ],\n' +
-          '    },\n' +
-          '  ],\n' +
-          '  images: [\n' +
-          '    {\n' +
-          '      id: 1,\n' +
-          '      description: "Image 1",\n' +
-          '      type: "PC",\n' +
-          '      image: "public/design-system-light.png",\n' +
-          '    },\n' +
-          '  ],\n' +
-          '}',
-        }
+          summary: "Object",
+          detail:
+            "The structure should look like the following: \n" +
+            "{\n" +
+            "  id: 1,\n" +
+            '  title: "Project 1",\n' +
+            '  description: "Project 1 description",\n' +
+            '  url: "https://www.google.com",\n' +
+            "  is_public: true,\n" +
+            '  repository: "https://www.github.com",\n' +
+            "  authors: [\n" +
+            "    {\n" +
+            "      id: 1,\n" +
+            '      first_name: "Author",\n' +
+            '      last_name: "Author",\n' +
+            "      social_networks: [\n" +
+            "        {\n" +
+            '          platform: "github",\n' +
+            '          url: "https://www.github.com",\n' +
+            '          nickname: "author",\n' +
+            "        },\n" +
+            "      ],\n" +
+            "    },\n" +
+            "  ],\n" +
+            "  images: [\n" +
+            "    {\n" +
+            "      id: 1,\n" +
+            '      description: "Image 1",\n' +
+            '      type: "PC",\n' +
+            '      image: "public/design-system-light.png",\n' +
+            "    },\n" +
+            "  ],\n" +
+            "}",
+        },
       },
     },
   },
 };
 
-const codeTemplate = '<ProjectSection v-bind="args"/>'
+const codeTemplate = '<ProjectSection v-bind="args"/>';
 
 const Template = (args) => ({
   components: { ProjectSection },

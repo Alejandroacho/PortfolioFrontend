@@ -7,7 +7,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Content loader, to show while the content is loading.'
+        component: "Content loader, to show while the content is loading.",
       },
     },
   },
@@ -18,7 +18,7 @@ export default {
   },
 };
 
-const codeTemplate = '<SpinningLoader v-bind="args"/>'
+const codeTemplate = '<SpinningLoader v-bind="args"/>';
 
 const Template = (args) => ({
   components: { SpinningLoader },
@@ -29,21 +29,23 @@ const Template = (args) => ({
 });
 
 /**
-* This is the default loader if you use it as it is.
-*/
+ * This is the default loader if you use it as it is.
+ */
 export const DefaultSpinningLoaderStory = Template.bind({});
 
 DefaultSpinningLoaderStory.args = {};
 
 DefaultSpinningLoaderStory.parameters = {
   docs: {
-    source: { code: generateSource(codeTemplate, DefaultSpinningLoaderStory.args) },
+    source: {
+      code: generateSource(codeTemplate, DefaultSpinningLoaderStory.args),
+    },
   },
 };
 
 /**
-* Loader with custom message would look like this.
-*/
+ * Loader with custom message would look like this.
+ */
 export const SpinningLoaderWithCustomTextStory = Template.bind({});
 
 SpinningLoaderWithCustomTextStory.args = {
@@ -52,6 +54,11 @@ SpinningLoaderWithCustomTextStory.args = {
 
 SpinningLoaderWithCustomTextStory.parameters = {
   docs: {
-    source: { code: generateSource(codeTemplate, SpinningLoaderWithCustomTextStory.args) },
+    source: {
+      code: generateSource(
+        codeTemplate,
+        SpinningLoaderWithCustomTextStory.args
+      ),
+    },
   },
 };

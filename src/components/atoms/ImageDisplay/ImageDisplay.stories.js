@@ -7,8 +7,9 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'This is the component that displays images, handling the alt text'
-        + ' and the type of image. If the images does not load, it will not be shown.'
+        component:
+          "This is the component that displays images, handling the alt text" +
+          " and the type of image. If the images does not load, it will not be shown.",
       },
     },
   },
@@ -37,8 +38,8 @@ const Template = (args) => ({
 });
 
 /**
-* Image display with a correct image object.
-*/
+ * Image display with a correct image object.
+ */
 export const StoryWithImage = Template.bind({});
 
 StoryWithImage.args = {
@@ -56,8 +57,8 @@ StoryWithImage.parameters = {
 };
 
 /**
-* Image display without an image object.
-*/
+ * Image display without an image object.
+ */
 export const StoryWithoutImage = Template.bind({});
 
 StoryWithoutImage.args = {
