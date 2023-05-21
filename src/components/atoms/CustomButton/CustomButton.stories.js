@@ -43,16 +43,17 @@ export default {
   },
 };
 
+
+const codeTemplate = '<CustomButton v-bind="args" @handleClick="clicked"/>'
+
 const Template = (args) => ({
   components: { CustomButton },
   setup() {
     return { args };
   },
   methods: { clicked: action("clicked") },
-  template: '<CustomButton v-bind="args" @handleClick="clicked"/>',
+  template: codeTemplate,
 });
-
-const codeTemplate = '<CustomButton v-bind="args" @handleClick="clicked"/>'
 
 /**
 * Button used for actions that are supposed to be the main action.
