@@ -1,17 +1,14 @@
-import { Meta, Story, ColorPalette } from '@storybook/addon-docs/blocks';
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <Meta
-  title="Documentation/Colours"
+  title="Documentation/Colors"
 />
 
 
 ### Primary Colors
 
-<ColorPalette
-  colors={[
-    { name: 'Primary', value: '#007bff' },
-    { name: 'Secondary', value: '#6c757d' },
-    { name: 'Success', value: '#28a745' },
-    { name: 'Danger', value: '#dc3545' },
-  ]}
-/>
+
+<ColorPalette>
+  <ColorItem title="primary" subtitle="Coral" colors={["#434449"]} />
+  <ColorItem title="secondary" subtitle="Blue" colors={["#434449"]} />
+</ColorPalette>
