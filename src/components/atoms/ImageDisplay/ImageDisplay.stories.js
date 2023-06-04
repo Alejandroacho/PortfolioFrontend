@@ -4,6 +4,15 @@ import ImageDisplay from "./ImageDisplay.vue";
 export default {
   title: "atoms/ImageDisplay",
   component: ImageDisplay,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "This is the component that displays images, handling the alt text" +
+          " and the type of image. If the images does not load, it will not be shown.",
+      },
+    },
+  },
   argTypes: {
     image: {
       description: "Image object.",
@@ -18,16 +27,19 @@ export default {
   },
 };
 
-const template = '<ImageDisplay v-bind="args" />';
+const codeTemplate = '<ImageDisplay v-bind="args" />';
 
 const Template = (args) => ({
   components: { ImageDisplay },
   setup() {
     return { args };
   },
-  template: template,
+  template: codeTemplate,
 });
 
+/**
+ * Image display with a correct image object.
+ */
 export const StoryWithImage = Template.bind({});
 
 StoryWithImage.args = {
@@ -40,9 +52,21 @@ StoryWithImage.args = {
 
 StoryWithImage.parameters = {
   docs: {
-    description: {
-      component: "This is the component that displays any kind of images.",
-    },
-    source: { code: generateSource(template, StoryWithImage.args) },
+    source: { code: generateSource(codeTemplate, StoryWithImage.args) },
+  },
+};
+
+/**
+ * Image display without an image object.
+ */
+export const StoryWithoutImage = Template.bind({});
+
+StoryWithoutImage.args = {
+  image: undefined,
+};
+
+StoryWithoutImage.parameters = {
+  docs: {
+    source: { code: generateSource(codeTemplate, StoryWithoutImage.args) },
   },
 };
