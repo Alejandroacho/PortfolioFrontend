@@ -6,7 +6,7 @@
                     class="carousel-item"
                     v-show="currentSlide === index"
                 >
-                    <img :src="slide" alt=""/>
+                    <img :src="slide" :alt="`Slide image ${index}`"/>
                 </div>
             </transition>
         </div>
