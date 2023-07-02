@@ -1,12 +1,12 @@
 <template>
     <div class="carousel">
         <div class="carousel-inner">
-            <transition :name="transitionEffect" v-for="(slide, index) in slides" v-bind:key="index">
+            <transition :name="transitionEffect" v-for="image in images" v-bind:key="images.id">
                 <div
                     class="carousel-item"
                     v-show="currentSlide === index"
                 >
-                    <img :src="slide" :alt="`Slide image ${index}`"/>
+                    <ImageDisplay :image="image"/>
                 </div>
             </transition>
         </div>
@@ -14,14 +14,16 @@
 </template>
 
 <script>
+import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
 
 export default {
     name: "ImageSlider",
+    components: {ImageDisplay},
     data: () => ({
         currentSlide: 0,
         slideInterval: null,
         direction: "right",
-        slides: ["https://picsum.photos/900/400", "https://picsum.photos/900/400"],
+        images: ["https://picsum.photos/900/400", "https://picsum.photos/900/400"],
         interval: 5000
     }),
     methods: {
