@@ -1,6 +1,6 @@
 <template>
   <div class="carousel">
-    <button class="carousel-control left" @click="prev">Prev</button>
+    <button class="carousel-control left" @click="prev">&lt;</button>
     <div class="carousel-inner">
       <transition
         :name="transitionEffect"
@@ -12,7 +12,7 @@
         </div>
       </transition>
     </div>
-    <button class="carousel-control right" @click="next">Next</button>
+    <button class="carousel-control right" @click="next">&gt;</button>
   </div>
 </template>
 
