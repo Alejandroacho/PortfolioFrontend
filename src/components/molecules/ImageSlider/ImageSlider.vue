@@ -150,8 +150,9 @@ export default {
   border: none;
   display: inline-block;
   position: absolute;
-  height: 50px;
-  width: 70px;
+  height: 40px;
+  aspect-ratio: 1;
+  border-radius: 100%;
   top: calc(50% - 25px);
   color: #f3f3f3;
   cursor: pointer;
