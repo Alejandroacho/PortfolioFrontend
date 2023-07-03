@@ -13,6 +13,15 @@
       </transition>
     </div>
     <button class="carousel-control right" @click="next">&gt;</button>
+    <div class="carousel-indicators">
+      <button
+        class="carousel-indicator-item"
+        :class="{ active: currentSlide === index }"
+        v-for="(item, index) in images.length"
+        :key="index"
+        @click="switchSlide(index)"
+      />
+    </div>
   </div>
 </template>
 
@@ -86,12 +95,9 @@ export default {
     },
 
     switchSlide(index) {
-      const step = index - this.currentSlide;
-      if (step > 0) {
-        this.next(step);
-      } else {
-        this.prev(step);
-      }
+      this.stopSlideTimer();
+      this.currentSlide = index;
+      this.startSlideTimer();
     },
   },
 
@@ -153,9 +159,31 @@ export default {
 .left {
   z-index: 999;
   left: 0;
+  cursor: pointer;
 }
 .right {
   z-index: 999;
   right: 0;
+  cursor: pointer;
+}
+.carousel-indicators {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 1.5em;
+  z-index: 2;
+}
+.carousel-indicator-item {
+  width: 15px;
+  height: 15px;
+  border: white solid 1px;
+  background: black;
+  opacity: 0.5;
+  margin: 0.2em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.active {
+  opacity: 1;
 }
 </style>
