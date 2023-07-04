@@ -20,6 +20,7 @@ export default {
   props: {
     language: {
       type: String,
+      required: true,
     },
   },
   data() {
