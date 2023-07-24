@@ -8,6 +8,10 @@ export default {
       description: {
         component: "Footer section component.",
       },
+      story: {
+        inline: false,
+        iframeHeight: 100,
+      },
     },
   },
 };
