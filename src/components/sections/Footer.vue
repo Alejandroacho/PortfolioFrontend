@@ -3,7 +3,11 @@
     <div class="footer-container">
       <div class="column">
         <div class="logo">
-          <img src="../../../public/logo.png" alt="Logo image" draggable="false"/>
+          <img
+            src="../../../public/logo.png"
+            alt="Logo image"
+            draggable="false"
+          />
           <h1>Alejandro Acho</h1>
         </div>
       </div>
@@ -26,7 +30,7 @@
 <script>
 export default {
   name: "FooterSection",
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -88,5 +92,4 @@ export default {
     text-decoration: none;
   }
 }
-
 </style>
