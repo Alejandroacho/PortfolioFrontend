@@ -1,6 +1,6 @@
 export class WaveTank {
   springs = [];
-  waveLength = 96;
+  waveLength = 100;
   k = 0.02;
   damping = 0.02;
   spread = 0.02;
