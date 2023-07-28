@@ -6,7 +6,20 @@
       draggable="false"
       class="logo"
     />
-    <div class="drop"></div>
+<!--    <div class="drop"></div>-->
+
+    <svg
+      width="100"
+      height="300"
+      viewBox="0 0 100 300"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Fresh logo"
+      class="dropy"
+    >
+      <circle cx="50" :cy="dropy" r="4" fill="white"></circle>
+    </svg>
   </div>
     <svg
       width="100%"
@@ -38,11 +51,14 @@ export default {
       grid: null,
       springsPath: null,
       requestIdRef: null,
-      wavePoints: null
+      wavePoints: null,
+      dropy: 60,
+      counter: 0,
     };
   },
   methods: {
     update(timestamp) {
+      this.updateJuice(timestamp)
       this.waveTank.update(this.waveTank.springs);
       this.springs = [...this.waveTank.springs];
       this.wavePoints = [
@@ -59,9 +75,28 @@ export default {
       }
       this.requestId = requestAnimationFrame(this.update);
     },
+
+    updateJuice(timestamp) {
+      const amp = 40;
+      const x = timestamp / 2000;
+      const saw = x - Math.floor(x);
+      if (saw < 0.6) {
+        this.counter = this.easeInCirc(saw) * amp;
+        this.dropy = -50;
+      } else {
+        this.counter = this.easeInCirc(1 - saw) * amp * 0.1;
+        this.dropy = Math.pow(saw - 0.6, 2) * 10000;
+      }
+    },
+
+    easeInCirc(x) {
+      return 1 - Math.sqrt(1 - Math.pow(x, 2));
+    },
+
     resize() {
       this.width = document.body.clientWidth;
     },
+
     drop() {
       const dropPosition = 50;
       this.waveTank.springs[dropPosition].p = -50;
@@ -96,7 +131,7 @@ export default {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: column;
 }
 .logo {
@@ -104,14 +139,13 @@ export default {
   height: 30vh;
   border-radius: 100%;
 }
-
 .drop {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   top: -30px;
   margin: 0 auto;
-  background: #fff;
+  background: red;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   border-radius: 20px;
@@ -121,25 +155,13 @@ export default {
   -moz-animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
   -webkit-animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
   animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
+  -moz-animation-duration: 3s;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
   -moz-animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-
-.drop:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 30px solid rgba(255, 255, 255, 1);
-  top: -22px;
-}
-
 @keyframes ripple {
   from {
     opacity: 1;
@@ -171,7 +193,7 @@ export default {
 
 @keyframes drip {
   to {
-    top: 190px;
+    top: 240px;
   }
 }
 .wave{
