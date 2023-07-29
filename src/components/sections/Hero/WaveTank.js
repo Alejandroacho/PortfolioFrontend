@@ -1,5 +1,5 @@
 export class WaveTank {
-  springs = [];
+  waves = [];
   waveLength = 100;
   k = 0.02;
   damping = 0.02;
@@ -7,15 +7,15 @@ export class WaveTank {
 
   constructor() {
     for (let i = 0; i < this.waveLength; i++) {
-      this.springs[i] = {
+      this.waves[i] = {
         p: 0,
         v: 0,
       };
     }
   }
 
-  update(springs) {
-    for (const i of springs) {
+  update(waves) {
+    for (const i of waves) {
       const a = -this.k * i.p - this.damping * i.v;
       i.p += i.v;
       i.v += a;
@@ -25,16 +25,16 @@ export class WaveTank {
     const rightDeltas = [];
 
     for (let t = 0; t < 8; t++) {
-      for (let i = 0; i < springs.length; i++) {
-        const prev = springs[(i - 1 + springs.length) % springs.length];
-        const next = springs[(i + 1) % springs.length];
-        leftDeltas[i] = this.spread * (springs[i].p - prev.p);
-        rightDeltas[i] = this.spread * (springs[i].p - next.p);
+      for (let i = 0; i < waves.length; i++) {
+        const prev = waves[(i - 1 + waves.length) % waves.length];
+        const next = waves[(i + 1) % waves.length];
+        leftDeltas[i] = this.spread * (waves[i].p - prev.p);
+        rightDeltas[i] = this.spread * (waves[i].p - next.p);
       }
 
-      for (let i = 0; i < springs.length; i++) {
-        const prev = springs[(i - 1 + springs.length) % springs.length];
-        const next = springs[(i + 1) % springs.length];
+      for (let i = 0; i < waves.length; i++) {
+        const prev = waves[(i - 1 + waves.length) % waves.length];
+        const next = waves[(i + 1) % waves.length];
         prev.v += leftDeltas[i];
         next.v += rightDeltas[i];
         prev.p += leftDeltas[i];

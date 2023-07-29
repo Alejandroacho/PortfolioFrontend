@@ -18,7 +18,7 @@
         aria-label="Drop animation"
         class="drop-container"
       >
-        <circle cx="50" :cy="dropy" r="4" fill="white"></circle>
+        <circle cx="50" :cy="dropValue" r="4" fill="white"></circle>
       </svg>
     </div>
   </div>
@@ -47,60 +47,52 @@ export default {
       SVG_WIDTH: 100,
       width: 100,
       widthRef: null,
-      springs: null,
+      waves: null,
       requestId: null,
       grid: null,
       springsPath: null,
       requestIdRef: null,
       wavePoints: null,
-      dropy: 60,
+      dropValue: 60,
       counter: 0,
     };
   },
   methods: {
     update(timestamp) {
       this.updateJuice(timestamp)
-      this.waveTank.update(this.waveTank.springs);
-      this.springs = [...this.waveTank.springs];
+      this.waveTank.update(this.waveTank.waves);
+      this.waves = [...this.waveTank.waves];
+      this.setWavePoints()
+      const offset = 500;
+      const saw = (timestamp + offset) / 2000 - Math.floor((timestamp + offset) / 2000);
+      if (saw < 0.01) this.dropOnWaveTank();
+      requestAnimationFrame(this.update);
+    },
+
+    setWavePoints() {
       this.wavePoints = [
         [0, 100],
         [0, 0],
-        ...this.springs.map((x, i) => [i * this.grid, x.p]),
+        ...this.waves.map((x, i) => [i * this.grid, x.p]),
         [this.width, 0],
         [this.width, 100],
       ];
-      const offset = 500;
-      const saw = (timestamp + offset) / 2000 - Math.floor((timestamp + offset) / 2000);
-      if (saw < 0.01) {
-        this.drop();
-      }
-      this.requestId = requestAnimationFrame(this.update);
     },
 
     updateJuice(timestamp) {
-      const amp = 40;
       const x = timestamp / 2000;
       const saw = x - Math.floor(x);
-      if (saw < 0.6) {
-        this.counter = this.easeInCirc(saw) * amp;
-        this.dropy = -50;
-      } else {
-        this.counter = this.easeInCirc(1 - saw) * amp * 0.1;
-        this.dropy = Math.pow(saw - 0.6, 2) * 10000;
-      }
-    },
-
-    easeInCirc(x) {
-      return 1 - Math.sqrt(1 - Math.pow(x, 2));
+      if (saw < 0.6) this.dropValue = -50;
+      else this.dropValue = Math.pow(saw - 0.6, 2) * 10000;
     },
 
     resize() {
       this.width = document.body.clientWidth;
     },
 
-    drop() {
+    dropOnWaveTank() {
       const dropPosition = 50;
-      this.waveTank.springs[dropPosition].p = -50;
+      this.waveTank.waves[dropPosition].p = -dropPosition;
     },
   },
 
