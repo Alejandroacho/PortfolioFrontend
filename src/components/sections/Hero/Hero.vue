@@ -1,38 +1,40 @@
 <template>
   <div class="hero" id="droplet-container">
-    <img
-      src="../../../../public/logo.png"
-      alt="Logo image"
-      draggable="false"
-      class="logo"
-    />
-    <div class="liquid"></div>
-    <svg
-      width="100"
-      height="300"
-      viewBox="0 0 100 300"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      aria-label="Drop animation"
-      class="drop"
-    >
-      <circle cx="50" :cy="dropy" r="4" fill="white"></circle>
-    </svg>
-  </div>
-    <svg
-      width="100%"
-      height="100px"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-      class="waves"
-    >
-      <polygon
-        :points="wavePoints"
-        fill="white"
-        transform="translate(0, 50)"
+    <div class="logo-with-animation">
+      <img
+        src="../../../../public/logo.png"
+        alt="Logo image"
+        draggable="false"
+        class="logo"
       />
-    </svg>
+      <div class="liquid"></div>
+      <svg
+        width="100"
+        height="300"
+        viewBox="0 0 100 300"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Drop animation"
+        class="drop-container"
+      >
+        <circle cx="50" :cy="dropy" r="4" fill="white"></circle>
+      </svg>
+    </div>
+  </div>
+  <svg
+    width="100%"
+    height="100px"
+    viewBox="0 0 100 100"
+    preserveAspectRatio="none"
+    class="waves"
+  >
+    <polygon
+      :points="wavePoints"
+      fill="white"
+      transform="translate(0, 50)"
+    />
+  </svg>
 </template>
 
 <script>
@@ -101,18 +103,15 @@ export default {
       this.waveTank.springs[dropPosition].p = -50;
     },
   },
+
   mounted() {
     this.resize();
     this.springs = this.waveTank.springs;
     this.grid = this.SVG_WIDTH / this.waveTank.waveLength;
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) return;
-    if (this.requestIdRef !== undefined) {
-      cancelAnimationFrame(this.requestIdRef);
-    }
-    this.requestIdRef = requestAnimationFrame(this.update);
+    this.update();
     window.addEventListener("resize", this.resize);
   },
+
   beforeUnmount() {
     window.removeEventListener("resize", this.resize);
     if (this.requestId !== undefined) {
@@ -127,46 +126,44 @@ export default {
 
 .hero {
   background-color: $background-gray;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+  flex-direction: column;
+}
+.logo-with-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 .logo {
+  z-index: 999;
+  margin-top: calc(50vh - 30vh);
   width: 30vh;
   height: 30vh;
   border-radius: 100%;
 }
 .liquid {
-  margin-top: -10px;
   position: relative;
-  width: 10px;
-  height: 40px;
-  top: -30px;
+  width: 80px;
+  height: 24px;
+  top: -25px;
   background: white;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-  -moz-animation-name: drip;
-  -webkit-animation-name: drip;
-  animation-name: drip;
-  -moz-animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
-  -webkit-animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
-  animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -moz-animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+  border-radius: 0 0 100% 100%;
+  animation: drip 1s infinite cubic-bezier(0, 0, 1, 0.5) alternate forwards;
+  animation-delay: 0s;
 }
 @keyframes drip {
   to {
-    top: 8px;
+    top: -15px;
+    width: 10px;
+    border-radius: 0 0 100% 100%;
+    display: none;
   }
 }
-.drop{
+.drop-container{
   margin-top: -50px;
 }
 .waves{
