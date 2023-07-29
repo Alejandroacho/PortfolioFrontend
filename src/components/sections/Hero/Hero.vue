@@ -6,8 +6,7 @@
       draggable="false"
       class="logo"
     />
-<!--    <div class="drop"></div>-->
-
+    <div class="liquid"></div>
     <svg
       width="100"
       height="300"
@@ -15,8 +14,8 @@
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="Fresh logo"
-      class="dropy"
+      aria-label="Drop animation"
+      class="drop"
     >
       <circle cx="50" :cy="dropy" r="4" fill="white"></circle>
     </svg>
@@ -26,7 +25,7 @@
       height="100px"
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
-      class="wave"
+      class="waves"
     >
       <polygon
         :points="wavePoints"
@@ -139,13 +138,13 @@ export default {
   height: 30vh;
   border-radius: 100%;
 }
-.drop {
+.liquid {
+  margin-top: -10px;
   position: relative;
   width: 10px;
-  height: 10px;
+  height: 40px;
   top: -30px;
-  margin: 0 auto;
-  background: red;
+  background: white;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   border-radius: 20px;
@@ -155,48 +154,22 @@ export default {
   -moz-animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
   -webkit-animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
   animation-timing-function: cubic-bezier(1, 0, 0.91, 0.19);
-  -moz-animation-duration: 3s;
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
+  -moz-animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
   -moz-animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-@keyframes ripple {
-  from {
-    opacity: 1;
-  }
-  to {
-    width: 600px;
-    height: 300px;
-    border-width: 1px;
-    top: -100px;
-    opacity: 0;
-  }
-}
-
-@keyframes ripple-2 {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    width: 200px;
-    height: 100px;
-    border-width: 1px;
-    top: 100px;
-    left: 200px;
-  }
-}
-
 @keyframes drip {
   to {
-    top: 240px;
+    top: 8px;
   }
 }
-.wave{
+.drop{
+  margin-top: -50px;
+}
+.waves{
   margin-top: -55px;
 }
 </style>
