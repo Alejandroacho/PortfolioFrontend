@@ -59,17 +59,21 @@ export default {
       this.updateDrip(timestamp)
       this.waveTank.update(this.waveTank.waves);
       this.wavePoints = this.waveTank.getWavePoints(this.width, this.grid);
-      const offset = 500;
-      const saw = (timestamp + offset) / 2000 - Math.floor((timestamp + offset) / 2000);
+      const saw = this.getTimeSaw(timestamp, 500)
       if (saw < 0.01) this.dropOnWaveTank();
       requestAnimationFrame(this.updateAnimation);
     },
 
     updateDrip(timestamp) {
-      const x = timestamp / 2000;
-      const saw = x - Math.floor(x);
+      const saw = this.getTimeSaw(timestamp)
       if (saw < 0.6) this.dropValue = -50;
       else this.dropValue = Math.pow(saw - 0.6, 2) * 10000;
+    },
+
+    getTimeSaw(timestamp, offset = 0) {
+      const milliseconds = 2000;
+      const cyclePosition = (timestamp + offset) / milliseconds;
+      return cyclePosition - Math.floor(cyclePosition);
     },
 
     resize() {
@@ -129,8 +133,7 @@ export default {
   top: -25px;
   background: white;
   border-radius: 0 0 100% 100%;
-  animation: drip 1s infinite cubic-bezier(0, 0, 1, 0.5) alternate forwards;
-  animation-delay: 0s;
+  animation: drip 1.2s cubic-bezier(0, 0, 1, 0.5), drip 2000ms 1.2s infinite cubic-bezier(0, 0, 1, 0.5);
 }
 @keyframes drip {
   to {
