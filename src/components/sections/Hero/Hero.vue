@@ -48,7 +48,7 @@ export default {
       waveTank: new WaveTank(),
       millisecondsForAnimation: 2000,
       width: 100,
-      requestId: null,
+      animationRequestId: null,
       grid: null,
       wavePoints: null,
       dropValue: -50,
@@ -61,15 +61,17 @@ export default {
       this.updateDrip(timestamp)
       this.waveTank.update(this.waveTank.waves);
       this.wavePoints = this.waveTank.getWavePoints(this.width, this.grid);
-      const saw = this.getTimeSaw(timestamp, 500)
-      if (saw < 0.01) this.dropOnWaveTank();
-      requestAnimationFrame(this.updateAnimation);
+      const sawTime = this.getTimeSaw(timestamp, 500)
+      const timeToDropOnWaveTank = 0.01;
+      if (sawTime < timeToDropOnWaveTank) this.dropOnWaveTank();
+      this.animationRequestId = requestAnimationFrame(this.updateAnimation);
     },
 
     updateDrip(timestamp) {
-      const saw = this.getTimeSaw(timestamp)
-      if (saw < 0.6) this.dropValue = -50;
-      else this.dropValue = Math.pow(saw - 0.6, 2) * 10000;
+      const sawTime = this.getTimeSaw(timestamp)
+      const timeToResetTheDrop = 0.6;
+      if (sawTime < timeToResetTheDrop) this.dropValue = -50;
+      else this.dropValue = Math.pow(sawTime - 0.6, 2) * 10000;
     },
 
     getTimeSaw(timestamp, offset = 0) {
@@ -90,6 +92,10 @@ export default {
   },
 
   mounted() {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) return;
+    this.animationRequestId = requestAnimationFrame(this.updateAnimation);
+    if (this.animationRequestId !== undefined) cancelAnimationFrame(this.animationRequestId);
     this.resize();
     this.updateAnimation();
     window.addEventListener("resize", this.resize);
@@ -135,8 +141,8 @@ export default {
   background: white;
   border-radius: 0 0 100% 100%;
   animation:
-    drip 1.2s cubic-bezier(0, 0, 1, 0.5),
-    drip 2000ms 1.2s infinite cubic-bezier(0, 0, 1, 0.5);
+    drip 1150ms cubic-bezier(0, 0, 1, 0.5),
+    drip 2000ms 1150ms infinite cubic-bezier(0, 0, 1, 0.5);
 }
 @keyframes drip {
   to {
