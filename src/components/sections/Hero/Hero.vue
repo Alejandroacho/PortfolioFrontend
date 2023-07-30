@@ -18,7 +18,7 @@
         aria-label="Drop animation"
         class="drop-container"
       >
-        <circle cx="50" :cy="dropValue" r="4" fill="white"></circle>
+        <circle cx="50" :cy="dropValue ? Number(dropValue) : 0" r="4" fill="white"/>
       </svg>
     </div>
   </div>
@@ -41,45 +41,31 @@
 import { WaveTank } from "./WaveTank.js";
 export default {
   name: "HeroSection",
+
   data() {
     return {
       waveTank: new WaveTank(),
-      SVG_WIDTH: 100,
       width: 100,
-      widthRef: null,
-      waves: null,
       requestId: null,
       grid: null,
-      springsPath: null,
-      requestIdRef: null,
       wavePoints: null,
-      dropValue: 60,
-      counter: 0,
+      dropValue: -50,
     };
   },
+
   methods: {
-    update(timestamp) {
-      this.updateJuice(timestamp)
+
+    updateAnimation(timestamp) {
+      this.updateDrip(timestamp)
       this.waveTank.update(this.waveTank.waves);
-      this.waves = [...this.waveTank.waves];
-      this.setWavePoints()
+      this.wavePoints = this.waveTank.getWavePoints(this.width, this.grid);
       const offset = 500;
       const saw = (timestamp + offset) / 2000 - Math.floor((timestamp + offset) / 2000);
       if (saw < 0.01) this.dropOnWaveTank();
-      requestAnimationFrame(this.update);
+      requestAnimationFrame(this.updateAnimation);
     },
 
-    setWavePoints() {
-      this.wavePoints = [
-        [0, 100],
-        [0, 0],
-        ...this.waves.map((x, i) => [i * this.grid, x.p]),
-        [this.width, 0],
-        [this.width, 100],
-      ];
-    },
-
-    updateJuice(timestamp) {
+    updateDrip(timestamp) {
       const x = timestamp / 2000;
       const saw = x - Math.floor(x);
       if (saw < 0.6) this.dropValue = -50;
@@ -87,29 +73,28 @@ export default {
     },
 
     resize() {
+      const SVG_WIDTH = 100;
       this.width = document.body.clientWidth;
+      this.grid = SVG_WIDTH / this.waveTank.waveLength;
     },
 
     dropOnWaveTank() {
       const dropPosition = 50;
-      this.waveTank.waves[dropPosition].p = -dropPosition;
+      this.waveTank.waves[dropPosition].point = -dropPosition;
     },
   },
 
   mounted() {
     this.resize();
-    this.springs = this.waveTank.springs;
-    this.grid = this.SVG_WIDTH / this.waveTank.waveLength;
-    this.update();
+    this.updateAnimation();
     window.addEventListener("resize", this.resize);
   },
 
   beforeUnmount() {
     window.removeEventListener("resize", this.resize);
-    if (this.requestId !== undefined) {
-      cancelAnimationFrame(this.requestId);
-    }
-  },
+    if (this.requestId !== undefined) cancelAnimationFrame(this.requestId);
+  }
+
 };
 </script>
 
