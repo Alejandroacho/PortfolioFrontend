@@ -18,7 +18,12 @@
         aria-label="Drop animation"
         class="drop-container"
       >
-        <circle cx="50" :cy="dropValue ? Number(dropValue) : 0" r="4" fill="white"/>
+        <circle
+          cx="50"
+          :cy="dropValue ? Number(dropValue) : 0"
+          r="4"
+          fill="white"
+        />
       </svg>
     </div>
   </div>
@@ -29,11 +34,7 @@
     preserveAspectRatio="none"
     class="waves"
   >
-    <polygon
-      :points="wavePoints"
-      fill="white"
-      transform="translate(0, 50)"
-    />
+    <polygon :points="wavePoints" fill="white" transform="translate(0, 50)" />
   </svg>
 </template>
 
@@ -56,26 +57,26 @@ export default {
   },
 
   methods: {
-
     updateAnimation(timestamp) {
-      this.updateDrip(timestamp)
+      this.updateDrip(timestamp);
       this.waveTank.update(this.waveTank.waves);
       this.wavePoints = this.waveTank.getWavePoints(this.width, this.grid);
-      const sawTime = this.getTimeSaw(timestamp, 500)
+      const sawTime = this.getTimeSaw(timestamp, 500);
       const timeToDropOnWaveTank = 0.01;
       if (sawTime < timeToDropOnWaveTank) this.dropOnWaveTank();
       this.animationRequestId = requestAnimationFrame(this.updateAnimation);
     },
 
     updateDrip(timestamp) {
-      const sawTime = this.getTimeSaw(timestamp)
+      const sawTime = this.getTimeSaw(timestamp);
       const timeToResetTheDrop = 0.6;
       if (sawTime < timeToResetTheDrop) this.dropValue = -50;
       else this.dropValue = Math.pow(sawTime - 0.6, 2) * 10000;
     },
 
     getTimeSaw(timestamp, offset = 0) {
-      const cyclePosition = (timestamp + offset) / this.millisecondsForAnimation;
+      const cyclePosition =
+        (timestamp + offset) / this.millisecondsForAnimation;
       return cyclePosition - Math.floor(cyclePosition);
     },
 
@@ -95,7 +96,8 @@ export default {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) return;
     this.animationRequestId = requestAnimationFrame(this.updateAnimation);
-    if (this.animationRequestId !== undefined) cancelAnimationFrame(this.animationRequestId);
+    if (this.animationRequestId !== undefined)
+      cancelAnimationFrame(this.animationRequestId);
     this.resize();
     this.updateAnimation();
     window.addEventListener("resize", this.resize);
@@ -104,8 +106,7 @@ export default {
   beforeUnmount() {
     window.removeEventListener("resize", this.resize);
     if (this.requestId !== undefined) cancelAnimationFrame(this.requestId);
-  }
-
+  },
 };
 </script>
 
@@ -140,8 +141,7 @@ export default {
   top: -25px;
   background: white;
   border-radius: 0 0 100% 100%;
-  animation:
-    drip 1150ms cubic-bezier(0, 0, 1, 0.5),
+  animation: drip 1150ms cubic-bezier(0, 0, 1, 0.5),
     drip 2000ms 1150ms infinite cubic-bezier(0, 0, 1, 0.5);
 }
 @keyframes drip {
@@ -152,10 +152,10 @@ export default {
     display: none;
   }
 }
-.drop-container{
+.drop-container {
   margin-top: -50px;
 }
-.waves{
+.waves {
   margin-top: -55px;
 }
 </style>

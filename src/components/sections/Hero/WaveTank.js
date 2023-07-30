@@ -16,7 +16,8 @@ export class WaveTank {
 
   update(waves) {
     for (const wave of waves) {
-      const acceleration = -this.tension * wave.point - this.damping * wave.vortex;
+      const acceleration =
+        -this.tension * wave.point - this.damping * wave.vortex;
       wave.point += wave.vortex;
       wave.vortex += acceleration;
     }
@@ -25,7 +26,7 @@ export class WaveTank {
 
   setDeltas(waves) {
     for (let step = 0; step < 8; step++) {
-      const {leftDeltas, rightDeltas} = this.getDeltasForWaves(waves);
+      const { leftDeltas, rightDeltas } = this.getDeltasForWaves(waves);
       this.setWavesAccordingDeltas(waves, rightDeltas, leftDeltas);
     }
   }
@@ -39,7 +40,7 @@ export class WaveTank {
       leftDeltas[wave] = this.spread * (waves[wave].point - prev.point);
       rightDeltas[wave] = this.spread * (waves[wave].point - next.point);
     }
-    return {leftDeltas, rightDeltas};
+    return { leftDeltas, rightDeltas };
   }
 
   setWavesAccordingDeltas(waves, rightDeltas, leftDeltas) {
@@ -55,11 +56,11 @@ export class WaveTank {
 
   getWavePoints(width, grid) {
     return [
-        [0, this.waveLength],
-        [0, 0],
-        ...this.waves.map((wave, index) => [index * grid, wave.point]),
-        [width, 0],
-        [width, this.waveLength],
-      ];
+      [0, this.waveLength],
+      [0, 0],
+      ...this.waves.map((wave, index) => [index * grid, wave.point]),
+      [width, 0],
+      [width, this.waveLength],
+    ];
   }
 }
