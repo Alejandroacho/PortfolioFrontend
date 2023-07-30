@@ -1,4 +1,4 @@
-import ProjectSection from "./ProjectSection.vue";
+import ProjectSection from "./ProjectContainer.vue";
 import generateSource from "../../../../.storybook/utils.js";
 
 export default {
