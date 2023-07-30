@@ -39,12 +39,14 @@
 
 <script>
 import { WaveTank } from "./WaveTank.js";
+
 export default {
   name: "HeroSection",
 
   data() {
     return {
       waveTank: new WaveTank(),
+      millisecondsForAnimation: 2000,
       width: 100,
       requestId: null,
       grid: null,
@@ -71,8 +73,7 @@ export default {
     },
 
     getTimeSaw(timestamp, offset = 0) {
-      const milliseconds = 2000;
-      const cyclePosition = (timestamp + offset) / milliseconds;
+      const cyclePosition = (timestamp + offset) / this.millisecondsForAnimation;
       return cyclePosition - Math.floor(cyclePosition);
     },
 
@@ -133,7 +134,9 @@ export default {
   top: -25px;
   background: white;
   border-radius: 0 0 100% 100%;
-  animation: drip 1.2s cubic-bezier(0, 0, 1, 0.5), drip 2000ms 1.2s infinite cubic-bezier(0, 0, 1, 0.5);
+  animation:
+    drip 1.2s cubic-bezier(0, 0, 1, 0.5),
+    drip 2000ms 1.2s infinite cubic-bezier(0, 0, 1, 0.5);
 }
 @keyframes drip {
   to {
