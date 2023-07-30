@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
-import ProjectSection from "../ProjectSection.vue";
+import ProjectSection from "../ProjectContainer.vue";
 
 describe("ProjectSection", () => {
   it("renders properly", () => {

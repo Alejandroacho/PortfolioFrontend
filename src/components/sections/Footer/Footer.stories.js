@@ -1,5 +1,5 @@
 import Footer from "./Footer.vue";
-import generateSource from "../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils.js";
 export default {
   title: "sections/Footer",
   component: Footer,
@@ -10,7 +10,7 @@ export default {
       },
       story: {
         inline: false,
-        iframeHeight: 100,
+        iframeHeight: 120,
       },
     },
   },
