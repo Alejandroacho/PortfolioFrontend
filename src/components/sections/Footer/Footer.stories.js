@@ -10,7 +10,7 @@ export default {
       },
       story: {
         inline: false,
-        iframeHeight: 120,
+        iframeHeight: 150,
       },
     },
   },
