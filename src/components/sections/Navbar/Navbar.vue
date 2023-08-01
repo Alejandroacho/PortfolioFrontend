@@ -4,13 +4,13 @@
       class="nav-content"
     >
       <h1 class="title">Alejandro Acho</h1>
-      <transition name="fade" :appear="true">
+      <transition name="bounce">
         <img
           src="../../../../public/logo.png"
           alt="Logo image"
           draggable="false"
           class="logo"
-          v-show="scrollPosition > 600"
+          v-if="scrollPosition > 600"
         />
       </transition>
       <ul class="nav-items">
@@ -26,7 +26,9 @@ export default {
   name: "NavbarSection",
 
   data() {
-    return {};
+    return {
+      show: false,
+    };
   },
 
   props: {
@@ -115,12 +117,29 @@ i {
     padding: 0 10px 10px 0;
   }
 }
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 2s;
+//.fade-enter-active,
+//.fade-leave-active {
+//    transition: opacity 1s ease;
+//}
+//.fade-enter,
+//.fade-leave-to {
+//    opacity: 0
+//}
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
 }
-.fade-enter,
-.fade-leave-to {
-    opacity: 0
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
