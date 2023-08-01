@@ -1,6 +1,11 @@
 body {
   margin: 0;
-  overflow: hidden;
+  -ms-overflow-style: none; /*  Hide scrollbar for IE and Edge */
+  scrollbar-width: none !important; /*  Hide scrollbar for Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 @font-face {
