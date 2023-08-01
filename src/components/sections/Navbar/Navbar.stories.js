@@ -16,7 +16,8 @@ export default {
   },
   argTypes: {
     scrollPosition: {
-      description: "Set this prop to higher than 600 in order to show the logo.",
+      description:
+        "Set this prop to higher than 600 in order to show the logo.",
     },
   },
 };
