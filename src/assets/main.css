@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  -ms-overflow-style: none;  /*  Hide scrollbar for IE and Edge */
-  scrollbar-width: none !important;  /*  Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /*  Hide scrollbar for IE and Edge */
+  scrollbar-width: none !important; /*  Hide scrollbar for Firefox */
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 @font-face {
