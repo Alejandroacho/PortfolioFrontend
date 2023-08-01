@@ -83,6 +83,7 @@ export default {
   display: flex;
   justify-content: center;
   text-align: end;
+  max-height: 100%;
   li {
     list-style: none;
     padding: 5px 0;
