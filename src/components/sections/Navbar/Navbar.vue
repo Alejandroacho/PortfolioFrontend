@@ -117,14 +117,6 @@ i {
     padding: 0 10px 10px 0;
   }
 }
-//.fade-enter-active,
-//.fade-leave-active {
-//    transition: opacity 1s ease;
-//}
-//.fade-enter,
-//.fade-leave-to {
-//    opacity: 0
-//}
 .bounce-enter-active {
   animation: bounce-in 0.5s;
 }
