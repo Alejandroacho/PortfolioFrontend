@@ -10,13 +10,18 @@ export default {
       },
       story: {
         inline: false,
-        iframeHeight: 700,
+        iframeHeight: 50,
       },
+    },
+  },
+  argTypes: {
+    scrollPosition: {
+      description: "Set this prop to higher than 600 in order to show the logo.",
     },
   },
 };
 
-const codeTemplate = '<Hero v-bind="args"/>';
+const codeTemplate = '<NavbarSection v-bind="args"/>';
 
 const Template = (args) => ({
   components: { NavbarSection },
@@ -32,4 +37,8 @@ NavbarStory.parameters = {
   docs: {
     source: { code: generateSource(codeTemplate, {}) },
   },
+};
+
+NavbarStory.args = {
+  scrollPosition: 0,
 };
