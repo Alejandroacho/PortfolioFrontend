@@ -2,15 +2,17 @@
   <div class="nav-menu">
     <div class="nav-content">
       <h1 class="title">Alejandro Acho</h1>
-      <transition name="bounce">
-        <img
-          src="../../../../public/logo.png"
-          alt="Logo image"
-          draggable="false"
-          class="logo"
-          v-if="scrollPosition > 600"
-        />
-      </transition>
+      <div class="logo-container">
+        <transition name="bounce">
+          <img
+            src="../../../../public/logo.png"
+            alt="Logo image"
+            draggable="false"
+            class="logo"
+            v-if="scrollPosition > 600"
+          />
+        </transition>
+      </div>
       <ul class="nav-items">
         <li>About me</li>
         <li>Projects</li>
@@ -53,14 +55,21 @@ export default {
   font-size: 1.5rem;
   margin: 0;
 }
+.logo-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  min-width: 25px;
+  min-height: 25px;
+}
 .logo {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 100%;
 }
 .nav-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px 30px;
   align-items: center;
 }

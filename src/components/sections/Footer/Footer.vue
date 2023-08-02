@@ -66,11 +66,12 @@ export default {
 .footer-container {
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  padding: 0 47px;
+  margin: 0 30px;
 }
 
 .column {
-  flex: 1;
   height: 100%;
   &__center {
     display: flex;
@@ -84,6 +85,7 @@ export default {
   justify-content: center;
   text-align: end;
   max-height: 100%;
+  padding-right: 13px;
   li {
     list-style: none;
     padding: 5px 0;
