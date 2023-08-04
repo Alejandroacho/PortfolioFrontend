@@ -33,7 +33,7 @@ import CustomButton from "../../atoms/CustomButton/CustomButton.vue";
 import ModalComponentVue from "../../atoms/ModalComponent/ModalComponent.vue";
 
 export default {
-  name: "ProjectSection",
+  name: "ProjectCard",
   components: {
     ImageDisplay,
     CustomButton,

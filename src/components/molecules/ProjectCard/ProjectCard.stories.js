@@ -1,9 +1,9 @@
-import ProjectSection from "./ProjectContainer.vue";
+import ProjectCard from "./ProjectCard.vue";
 import generateSource from "../../../../.storybook/utils.js";
 
 export default {
-  title: "molecules/ProjectSection",
-  component: ProjectSection,
+  title: "molecules/ProjectCard",
+  component: ProjectCard,
   parameters: {
     docs: {
       description: {
@@ -57,19 +57,19 @@ export default {
   },
 };
 
-const codeTemplate = '<ProjectSection v-bind="args"/>';
+const codeTemplate = '<ProjectCard v-bind="args"/>';
 
 const Template = (args) => ({
-  components: { ProjectSection },
+  components: { ProjectCard },
   setup() {
     return { args };
   },
   template: codeTemplate,
 });
 
-export const ProjectSectionStory = Template.bind({});
+export const ProjectCardStory = Template.bind({});
 
-ProjectSectionStory.args = {
+ProjectCardStory.args = {
   project: {
     id: 1,
     title: "Project 1",
@@ -114,8 +114,8 @@ ProjectSectionStory.args = {
   },
 };
 
-ProjectSectionStory.parameters = {
+ProjectCardStory.parameters = {
   docs: {
-    source: { code: generateSource(codeTemplate, ProjectSectionStory.args) },
+    source: { code: generateSource(codeTemplate, ProjectCardStory.args) },
   },
 };
