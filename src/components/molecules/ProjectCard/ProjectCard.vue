@@ -1,30 +1,31 @@
 <template>
-  <div>
-    <h2>{{ project.title }}</h2>
-    <div class="images">
-      <ImageDisplay
-        v-for="image in projectImagesToDisplay"
-        :key="image.id"
-        :image="image"
-        class="image"
-      />
+  <div class="card">
+    <ImageDisplay
+      :key="image.id"
+      :image="image"
+      class="image"
+    />
+    <div class="card-content">
+      <h2>{{ project.title }}</h2>
+      <p>{{ project.introduction }}</p>
     </div>
-    <div class="button-container">
+    <div class="card-button">
       <CustomButton
-        type="secondary"
+        class="button"
+        type="text"
         message="See project"
         @click="openProjectDetail"
       />
     </div>
-    <ModalComponentVue
-      :showModal="showProjectDetail"
-      @close="closeProjectDetail"
-    >
-      <template v-slot:header>
-        <h2>{{ project.title }}</h2>
-      </template>
-    </ModalComponentVue>
   </div>
+  <ModalComponentVue
+    :showModal="showProjectDetail"
+    @close="closeProjectDetail"
+  >
+    <template v-slot:header>
+      <h2>{{ project.title }}</h2>
+    </template>
+  </ModalComponentVue>
 </template>
 
 <script>
@@ -59,29 +60,55 @@ export default {
     },
   },
   computed: {
-    projectImagesToDisplay() {
-      return this.project.images.filter((image) => image.type !== "OTHER");
+    image() {
+      return this.project.images.filter((image) => image.type === "CARD").pop();
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.images {
+@import "../../../assets/colors.scss";
+
+.card{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-bottom: 2rem;
-  height: 60vh;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: $secondary-color;
+  border-style: solid;
+  margin: 10px;
+  width: 300px;
+  height: 400px;
+  background-color: $primary-color;
+  color: $secondary-color;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
 }
 .image {
   display: block;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  width: 300px;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-.button-container {
-  display: flex;
-  justify-content: center;
+.card-content{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+    width: 95%;
+    h2 {
+      max-height: 37px;
+      padding: 0;
+      margin: 0;
+      margin-top: 10px;
+    }
+    p {
+      font-size: medium;
+    }
 }
 </style>
