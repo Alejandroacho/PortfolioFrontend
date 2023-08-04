@@ -73,6 +73,7 @@ ProjectCardStory.args = {
   project: {
     id: 1,
     title: "Project 1",
+    introduction: "Project 1 introduction Project 1 introduction Project 1 introduction Project 1 introduction",
     description: "Project 1 description",
     url: "https://www.google.com",
     is_public: true,
@@ -95,7 +96,7 @@ ProjectCardStory.args = {
       {
         id: 1,
         description: "Image 1",
-        type: "PC",
+        type: "CARD",
         image: "public/design-system-light.png",
       },
       {
