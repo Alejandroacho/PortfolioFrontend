@@ -5,7 +5,7 @@
       <div class="logo-container">
         <transition name="bounce">
           <img
-            src="../../../../public/logo.png"
+            src="/logo.png"
             alt="Logo image"
             draggable="false"
             class="logo"

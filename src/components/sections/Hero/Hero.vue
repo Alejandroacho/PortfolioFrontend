@@ -2,7 +2,7 @@
   <div class="hero" id="droplet-container">
     <div class="logo-with-animation">
       <img
-        src="../../../../public/logo.png"
+        src="/logo.png"
         alt="Logo image"
         draggable="false"
         class="logo"

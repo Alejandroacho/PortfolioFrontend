@@ -4,7 +4,7 @@
       <div class="column">
         <div class="logo">
           <img
-            src="../../../../public/logo.png"
+            src="/logo.png"
             alt="Logo image"
             draggable="false"
           />
