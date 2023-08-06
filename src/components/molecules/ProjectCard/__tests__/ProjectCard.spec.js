@@ -30,7 +30,7 @@ describe("ProjectSection", () => {
         {
           id: 1,
           description: "Image 1",
-          type: "PC",
+          type: "CARD",
           image: "design-system-light.png",
         },
         {
@@ -46,6 +46,32 @@ describe("ProjectSection", () => {
           image: "design-system-light.png",
         },
       ],
+      technologies: [
+        {
+          id: 1,
+          name: "Python",
+        },
+        {
+          id: 2,
+          name: "JavaScript",
+        },
+        {
+          id: 3,
+          name: "Django",
+        },
+        {
+          id: 4,
+          name: "Vue",
+        },
+        {
+          id: 5,
+          name: "PostgreSQL",
+        },
+        {
+          id: 5,
+          name: "GitHub",
+        },
+      ],
     };
     const wrapper = mount(ProjectSection, {
       props: {
@@ -53,6 +79,6 @@ describe("ProjectSection", () => {
       },
     });
     expect(wrapper.find("h2").text()).toBe(project.title);
-    expect(wrapper.findAll("img").length).toBe(project.images.length);
+    expect(wrapper.findAll("img").length).toBe(1);
   });
 });

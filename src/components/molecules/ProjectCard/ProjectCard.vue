@@ -14,24 +14,25 @@
       />
     </div>
   </div>
-  <ModalComponentVue :showModal="showProjectDetail" @close="closeProjectDetail">
-    <template v-slot:header>
-      <h2>{{ project.title }}</h2>
-    </template>
-  </ModalComponentVue>
+  <ModalComponent
+    :showModal="showProjectDetail"
+    @close="closeProjectDetail"
+    :project="project"
+    :show-modal="showProjectDetail"
+  />
 </template>
 
 <script>
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
 import CustomButton from "../../atoms/CustomButton/CustomButton.vue";
-import ModalComponentVue from "../../atoms/ModalComponent/ModalComponent.vue";
+import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue";
 
 export default {
   name: "ProjectCard",
   components: {
+    ModalComponent,
     ImageDisplay,
     CustomButton,
-    ModalComponentVue,
   },
   data() {
     return {
