@@ -1,14 +1,14 @@
 <template>
   <ModalComponent show-modal="show-modal">
     <template v-slot:header>
-      <ImageSlider :show-arrows="false" :images="images"/>
+      <ImageSlider :show-arrows="false" :images="images" />
     </template>
     <template v-slot:body>
       <div class="body">
-        <h1>{{project.title}}</h1>
-        <p>{{project.description}}</p>
+        <h1>{{ project.title }}</h1>
+        <p>{{ project.description }}</p>
         <div class="technologies">
-          <p> Technologies: </p>
+          <p>Technologies:</p>
           <TechnologyBadge
             v-for="technology in project.technologies"
             class="technology"
@@ -48,7 +48,7 @@ export default {
     ModalComponent,
     ImageSlider,
     CustomButton,
-    TechnologyBadge
+    TechnologyBadge,
   },
 
   data() {
@@ -76,7 +76,6 @@ export default {
       return this.project.images.filter((image) => image.type !== "CARD");
     },
   },
-
 };
 </script>
 

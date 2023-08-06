@@ -73,7 +73,8 @@ ProjectCardStory.args = {
   project: {
     id: 1,
     title: "Project 1",
-    introduction: "Project 1 introduction Project 1 introduction Project 1 introduction Project 1 introduction",
+    introduction:
+      "Project 1 introduction Project 1 introduction Project 1 introduction Project 1 introduction",
     description: "Project 1 description",
     url: "https://www.google.com",
     is_public: true,

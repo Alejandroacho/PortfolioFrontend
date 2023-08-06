@@ -3,11 +3,7 @@
     <div class="footer-container">
       <div class="column">
         <div class="logo">
-          <img
-            src="/logo.png"
-            alt="Logo image"
-            draggable="false"
-          />
+          <img src="/logo.png" alt="Logo image" draggable="false" />
           <h1>Alejandro Acho</h1>
         </div>
       </div>

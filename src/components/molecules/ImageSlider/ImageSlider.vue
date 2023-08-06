@@ -1,6 +1,8 @@
 <template>
   <div class="carousel">
-    <button v-if="showArrows" class="carousel-control left" @click="prev">&lt;</button>
+    <button v-if="showArrows" class="carousel-control left" @click="prev">
+      &lt;
+    </button>
     <div class="carousel-inner">
       <transition
         :name="transitionEffect"
@@ -12,7 +14,9 @@
         </div>
       </transition>
     </div>
-    <button v-if="showArrows" class="carousel-control right" @click="next">&gt;</button>
+    <button v-if="showArrows" class="carousel-control right" @click="next">
+      &gt;
+    </button>
     <div v-id="showIndicators" class="carousel-indicators">
       <button
         class="carousel-indicator-item"

@@ -1,10 +1,6 @@
 <template>
   <div class="card">
-    <ImageDisplay
-      :key="image.id"
-      :image="image"
-      class="image"
-    />
+    <ImageDisplay :key="image.id" :image="image" class="image" />
     <div class="card-content">
       <h2>{{ project.title }}</h2>
       <p>{{ project.introduction }}</p>
@@ -18,10 +14,7 @@
       />
     </div>
   </div>
-  <ModalComponentVue
-    :showModal="showProjectDetail"
-    @close="closeProjectDetail"
-  >
+  <ModalComponentVue :showModal="showProjectDetail" @close="closeProjectDetail">
     <template v-slot:header>
       <h2>{{ project.title }}</h2>
     </template>
@@ -70,7 +63,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../../assets/colors.scss";
 
-.card{
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,21 +87,21 @@ export default {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.card-content{
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 10px;
-    width: 95%;
-    h2 {
-      max-height: 37px;
-      padding: 0;
-      margin: 0;
-      margin-top: 10px;
-    }
-    p {
-      font-size: medium;
-    }
+.card-content {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+  width: 95%;
+  h2 {
+    max-height: 37px;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+  }
+  p {
+    font-size: medium;
+  }
 }
 </style>
