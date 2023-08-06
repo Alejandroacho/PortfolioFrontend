@@ -35,7 +35,9 @@ export default {
 <style lang="scss" scoped>
 @import "../../../assets/colors.scss";
 .image-display {
-  max-width: 40vw;
+  max-width: 100%;
   max-height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 </style>

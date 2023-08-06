@@ -61,6 +61,8 @@ export default {
   max-width: 90%;
   max-height: 90%;
   min-width: 80%;
+  -ms-overflow-style: none; /*  Hide scrollbar for IE and Edge */
+  scrollbar-width: none !important; /*  Hide scrollbar for Firefox */
 
   &__header {
     padding: 15px;
@@ -81,6 +83,10 @@ export default {
     display: flex;
     flex-direction: column;
   }
+}
+
+.modal::-webkit-scrollbar {
+  display: none; /*  Hide scrollbar for Chrome, Safari and Opera */
 }
 
 .close-button {
