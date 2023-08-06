@@ -1,6 +1,8 @@
 <template>
   <div class="carousel">
-    <button class="carousel-control left" @click="prev">&lt;</button>
+    <button v-if="showArrows" class="carousel-control left" @click="prev">
+      &lt;
+    </button>
     <div class="carousel-inner">
       <transition
         :name="transitionEffect"
@@ -12,8 +14,10 @@
         </div>
       </transition>
     </div>
-    <button class="carousel-control right" @click="next">&gt;</button>
-    <div class="carousel-indicators">
+    <button v-if="showArrows" class="carousel-control right" @click="next">
+      &gt;
+    </button>
+    <div v-if="showIndicators" class="carousel-indicators">
       <button
         class="carousel-indicator-item"
         :class="{ active: currentSlide === index }"
@@ -47,6 +51,14 @@ export default {
     images: {
       type: Array,
       required: true,
+    },
+    showArrows: {
+      type: Boolean,
+      default: true,
+    },
+    showIndicators: {
+      type: Boolean,
+      default: true,
     },
   },
 
@@ -113,9 +125,8 @@ export default {
   justify-content: center;
 }
 .carousel-inner {
-  position: relative;
-  width: 900px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -125,6 +136,10 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 .slide-in-enter-active,
 .slide-in-leave-active,

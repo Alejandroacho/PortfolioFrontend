@@ -44,7 +44,7 @@ export const StoryWithImage = Template.bind({});
 
 StoryWithImage.args = {
   image: {
-    image: "public/design-system-light.png",
+    image: "design-system-light.png",
     description: "JavaScript",
     type: "PC",
   },

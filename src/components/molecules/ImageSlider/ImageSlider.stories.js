@@ -37,7 +37,7 @@ ImageSliderStory.parameters = {
 ImageSliderStory.args = {
   images: [
     {
-      image: "public/design-system-light.png",
+      image: "design-system-light.png",
       description: "JavaScript",
       type: "PC",
     },
