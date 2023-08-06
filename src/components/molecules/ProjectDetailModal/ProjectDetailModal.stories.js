@@ -92,7 +92,7 @@ ProjectDetailModalComponentStory.args = {
       {
         id: 1,
         first_name: "Author",
-        last_name: "Author",
+        last_name: "Last Name",
         social_networks: [
           {
             platform: "github",

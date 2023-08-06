@@ -16,6 +16,30 @@
             :language="technology.name"
           />
         </div>
+        <div class="authors">
+          <p>Authors:</p>
+          <PopperTooltip
+            v-for="author in project.authors"
+            class="author"
+            :key="author.id"
+            arrow
+            disableClickAway
+          >
+            <CustomButton type="text" :message="`${author.first_name} ${author.last_name}`"/>
+            <template #content>
+              <div>
+                <a
+                  v-for="socialNetwork in author.social_networks"
+                  :key="socialNetwork.platform"
+                  :href="socialNetwork.url"
+                  target="_blank"
+                >
+                  {{socialNetwork.platform}} | {{socialNetwork.nickname}}
+                </a>
+              </div>
+            </template>
+          </PopperTooltip>
+        </div>
       </div>
     </template>
     <template v-slot:footer>
@@ -23,14 +47,14 @@
         <CustomButton
           type="magic"
           message="See Project"
-          @click="openProjectDetail"
+          @click="openURL(project.url)"
         />
         <CustomButton
           v-if="project.repository"
           class="repo-button"
           type="secondary"
           message="See Repo"
-          @click="openProjectDetail"
+          @click="openURL(project.repository)"
         />
       </div>
     </template>
@@ -42,6 +66,7 @@ import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue
 import ImageSlider from "@/components/molecules/ImageSlider/ImageSlider.vue";
 import CustomButton from "@/components/atoms/CustomButton/CustomButton.vue";
 import TechnologyBadge from "@/components/atoms/TechnologyBadge/TechnologyBadge.vue";
+
 export default {
   name: "ProjectDetailModalComponent",
   components: {
@@ -69,7 +94,11 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    openURL(url) {
+      window.open(url, "_blank");
+    },
+  },
 
   computed: {
     images() {
@@ -83,6 +112,9 @@ export default {
 :deep(.carousel) {
   height: 50vh !important;
 }
+:deep(.text) {
+  font-size: large;
+}
 .body {
   padding: 0 5px;
 }
@@ -95,6 +127,12 @@ export default {
 }
 .technology {
   margin-left: 1rem;
+}
+.authors {
+  @extend .technologies;
+}
+.author {
+  @extend .technology;
 }
 .footer {
   display: flex;
