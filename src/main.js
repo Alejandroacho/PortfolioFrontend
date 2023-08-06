@@ -1,6 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import Popper from "vue3-popper";
 
 import "./assets/main.css";
 
-createApp(App).mount("#app");
+const app = createApp(App);
+app.component("PopperTooltip", Popper);
+app.mount("#app");

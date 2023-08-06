@@ -1,12 +1,7 @@
 <template>
   <div class="hero" id="droplet-container">
     <div class="logo-with-animation">
-      <img
-        src="../../../../public/logo.png"
-        alt="Logo image"
-        draggable="false"
-        class="logo"
-      />
+      <img src="/logo.png" alt="Logo image" draggable="false" class="logo" />
       <div class="liquid"></div>
       <svg
         width="100"

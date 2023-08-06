@@ -6,7 +6,7 @@ import ImageDisplay from "../ImageDisplay.vue";
 describe("ImageDisplay", () => {
   it("Renders properly with image", () => {
     const image = {
-      image: "public/design-system-light.png",
+      image: "design-system-light.png",
       description: "JavaScript",
       type: "PC",
     };

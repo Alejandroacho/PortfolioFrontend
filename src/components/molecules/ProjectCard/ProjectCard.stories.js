@@ -1,9 +1,9 @@
-import ProjectSection from "./ProjectContainer.vue";
+import ProjectCard from "./ProjectCard.vue";
 import generateSource from "../../../../.storybook/utils.js";
 
 export default {
-  title: "molecules/ProjectSection",
-  component: ProjectSection,
+  title: "molecules/ProjectCard",
+  component: ProjectCard,
   parameters: {
     docs: {
       description: {
@@ -47,7 +47,7 @@ export default {
             "      id: 1,\n" +
             '      description: "Image 1",\n' +
             '      type: "PC",\n' +
-            '      image: "public/design-system-light.png",\n' +
+            '      image: "design-system-light.png",\n' +
             "    },\n" +
             "  ],\n" +
             "}",
@@ -57,22 +57,24 @@ export default {
   },
 };
 
-const codeTemplate = '<ProjectSection v-bind="args"/>';
+const codeTemplate = '<ProjectCard v-bind="args"/>';
 
 const Template = (args) => ({
-  components: { ProjectSection },
+  components: { ProjectCard },
   setup() {
     return { args };
   },
   template: codeTemplate,
 });
 
-export const ProjectSectionStory = Template.bind({});
+export const ProjectCardStory = Template.bind({});
 
-ProjectSectionStory.args = {
+ProjectCardStory.args = {
   project: {
     id: 1,
     title: "Project 1",
+    introduction:
+      "Project 1 introduction Project 1 introduction Project 1 introduction Project 1 introduction",
     description: "Project 1 description",
     url: "https://www.google.com",
     is_public: true,
@@ -95,27 +97,27 @@ ProjectSectionStory.args = {
       {
         id: 1,
         description: "Image 1",
-        type: "PC",
-        image: "public/design-system-light.png",
+        type: "CARD",
+        image: "design-system-light.png",
       },
       {
         id: 2,
         description: "Image 2",
         type: "PC",
-        image: "public/design-system-light.png",
+        image: "design-system-light.png",
       },
       {
         id: 3,
         description: "Image 3",
         type: "OTHER",
-        image: "public/design-system-light.png",
+        image: "design-system-light.png",
       },
     ],
   },
 };
 
-ProjectSectionStory.parameters = {
+ProjectCardStory.parameters = {
   docs: {
-    source: { code: generateSource(codeTemplate, ProjectSectionStory.args) },
+    source: { code: generateSource(codeTemplate, ProjectCardStory.args) },
   },
 };

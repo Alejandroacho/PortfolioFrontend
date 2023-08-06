@@ -1,11 +1,16 @@
 body {
   margin: 0;
-  overflow: hidden;
+  -ms-overflow-style: none; /*  Hide scrollbar for IE and Edge */
+  scrollbar-width: none !important; /*  Hide scrollbar for Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 @font-face {
   font-family: "Site Font";
-  src: url("src/assets/font.woff") format("woff");
+  src: url("/src/assets/font.woff") format("woff");
 }
 
 * {
