@@ -17,7 +17,7 @@
     <button v-if="showArrows" class="carousel-control right" @click="next">
       &gt;
     </button>
-    <div v-id="showIndicators" class="carousel-indicators">
+    <div v-if="showIndicators" class="carousel-indicators">
       <button
         class="carousel-indicator-item"
         :class="{ active: currentSlide === index }"
