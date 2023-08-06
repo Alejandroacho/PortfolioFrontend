@@ -10,7 +10,7 @@ body::-webkit-scrollbar {
 
 @font-face {
   font-family: "Site Font";
-  src: url("src/assets/font.woff") format("woff");
+  src: url("/src/assets/font.woff") format("woff");
 }
 
 * {
