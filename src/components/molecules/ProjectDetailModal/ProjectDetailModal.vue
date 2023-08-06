@@ -25,7 +25,10 @@
             arrow
             disableClickAway
           >
-            <CustomButton type="text" :message="`${author.first_name} ${author.last_name}`"/>
+            <CustomButton
+              type="text"
+              :message="`${author.first_name} ${author.last_name}`"
+            />
             <template #content>
               <div>
                 <a
@@ -34,7 +37,7 @@
                   :href="socialNetwork.url"
                   target="_blank"
                 >
-                  {{socialNetwork.platform}} | {{socialNetwork.nickname}}
+                  {{ socialNetwork.platform }} | {{ socialNetwork.nickname }}
                 </a>
               </div>
             </template>
