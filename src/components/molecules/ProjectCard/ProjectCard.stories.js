@@ -47,7 +47,7 @@ export default {
             "      id: 1,\n" +
             '      description: "Image 1",\n' +
             '      type: "PC",\n' +
-            '      image: "public/design-system-light.png",\n' +
+            '      image: "design-system-light.png",\n' +
             "    },\n" +
             "  ],\n" +
             "}",
@@ -97,19 +97,19 @@ ProjectCardStory.args = {
         id: 1,
         description: "Image 1",
         type: "CARD",
-        image: "public/design-system-light.png",
+        image: "design-system-light.png",
       },
       {
         id: 2,
         description: "Image 2",
         type: "PC",
-        image: "public/design-system-light.png",
+        image: "design-system-light.png",
       },
       {
         id: 3,
         description: "Image 3",
         type: "OTHER",
-        image: "public/design-system-light.png",
+        image: "design-system-light.png",
       },
     ],
   },
