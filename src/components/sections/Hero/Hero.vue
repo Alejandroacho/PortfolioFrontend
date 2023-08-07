@@ -1,8 +1,8 @@
 <template>
-  <div class="hero" id="droplet-container">
+  <header class="hero" id="droplet-container">
     <div class="logo-with-animation">
       <img src="/logo.png" alt="Logo image" draggable="false" class="logo" />
-      <div class="liquid"></div>
+      <div class="liquid" ref="condensation" />
       <svg
         width="100"
         height="300"
@@ -21,16 +21,16 @@
         />
       </svg>
     </div>
-  </div>
-  <svg
-    width="100%"
-    height="100px"
-    viewBox="0 0 100 100"
-    preserveAspectRatio="none"
-    class="waves"
-  >
-    <polygon :points="wavePoints" fill="white" transform="translate(0, 50)" />
-  </svg>
+    <svg
+      width="100%"
+      height="100px"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      class="waves"
+    >
+      <polygon :points="wavePoints" fill="white" transform="translate(0, 50)" />
+    </svg>
+  </header>
 </template>
 
 <script>
@@ -53,6 +53,8 @@ export default {
 
   methods: {
     updateAnimation(timestamp) {
+      if (!this.$refs.condensation.classList.contains("condensation"))
+        this.$refs.condensation.classList.add("condensation");
       this.updateDrip(timestamp);
       this.waveTank.update(this.waveTank.waves);
       this.wavePoints = this.waveTank.getWavePoints(this.width, this.grid);
@@ -85,6 +87,10 @@ export default {
       const dropPosition = 50;
       this.waveTank.waves[dropPosition].point = -dropPosition;
     },
+
+    initiateCondensation() {
+      this.$refs.condensation.classList.add("condensation");
+    },
   },
 
   mounted() {
@@ -94,6 +100,7 @@ export default {
     if (this.animationRequestId !== undefined)
       cancelAnimationFrame(this.animationRequestId);
     this.resize();
+    this.initiateCondensation();
     this.updateAnimation();
     window.addEventListener("resize", this.resize);
   },
@@ -101,6 +108,7 @@ export default {
   beforeUnmount() {
     window.removeEventListener("resize", this.resize);
     if (this.requestId !== undefined) cancelAnimationFrame(this.requestId);
+    this.$refs.condensation.classList.remove("condensation");
   },
 };
 </script>
@@ -110,7 +118,7 @@ export default {
 
 .hero {
   background-color: $background-gray;
-  height: 95vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,7 +132,7 @@ export default {
 }
 .logo {
   z-index: 999;
-  margin-top: calc(50vh - 30vh);
+  margin-top: calc(50vh - 20vh);
   width: 30vh;
   height: 30vh;
   border-radius: 100%;
@@ -136,8 +144,10 @@ export default {
   top: -25px;
   background: white;
   border-radius: 0 0 100% 100%;
-  animation: drip 1150ms cubic-bezier(0, 0, 1, 0.5),
-    drip 2000ms 1150ms infinite cubic-bezier(0, 0, 1, 0.5);
+}
+.condensation {
+  animation: drip 1200ms cubic-bezier(0, 0, 1, 0.5),
+    drip 2000ms 1200ms infinite cubic-bezier(0, 0, 1, 0.5);
 }
 @keyframes drip {
   to {
@@ -149,8 +159,5 @@ export default {
 }
 .drop-container {
   margin-top: -50px;
-}
-.waves {
-  margin-top: -55px;
 }
 </style>

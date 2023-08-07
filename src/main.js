@@ -6,4 +6,4 @@ import "./assets/main.css";
 
 const app = createApp(App);
 app.component("PopperTooltip", Popper);
-app.mount("#app");
+app.mount("body");

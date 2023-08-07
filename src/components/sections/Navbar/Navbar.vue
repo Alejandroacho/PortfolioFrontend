@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-menu">
+  <nav class="nav-menu">
     <div class="nav-content">
       <h1 class="title">Alejandro Acho</h1>
       <div class="logo-container">
@@ -18,7 +18,7 @@
         <li>Projects</li>
       </ul>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>
