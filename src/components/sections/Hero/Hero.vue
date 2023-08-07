@@ -160,4 +160,7 @@ export default {
 .drop-container {
   margin-top: -50px;
 }
+.waves {
+  margin-top: -50px;
+}
 </style>
