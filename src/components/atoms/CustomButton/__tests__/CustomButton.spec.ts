@@ -12,13 +12,13 @@ describe("CustomButton", (): void => {
       },
     });
     expect(wrapper.props().message).toBe(message);
-    expect(wrapper.find("p").text()).toBe(message);
+    expect(wrapper.find("span").text()).toBe(message);
   });
 
   it("fails render without message", (): void => {
     const wrapper: VueWrapper = mount(CustomButton);
     expect(wrapper.props().message).toBe(undefined);
-    expect(wrapper.find("p").text()).toBe("");
+    expect(wrapper.find("span").text()).toBe("");
   });
 
   it("call the action when clicking", (): void => {
@@ -29,7 +29,7 @@ describe("CustomButton", (): void => {
       },
     });
     expect(wrapper.props().message).toBe(message);
-    expect(wrapper.find("p").text()).toBe(message);
+    expect(wrapper.find("span").text()).toBe(message);
     wrapper.trigger("click");
     expect(wrapper.emitted().handleClick).toBeTruthy();
   });
