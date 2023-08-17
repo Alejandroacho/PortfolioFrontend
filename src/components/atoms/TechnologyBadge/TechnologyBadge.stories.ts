@@ -1,4 +1,4 @@
-import generateSource from "../../../../.storybook/utils.ts";
+import generateSource from "../../../../.storybook/utils";
 import TechnologyBadge from "./TechnologyBadge.vue";
 
 export default {
@@ -27,9 +27,9 @@ export default {
   },
 };
 
-const template = '<technologyBadge v-bind="args" />';
+const template: string = '<technologyBadge v-bind="args" />';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { TechnologyBadge },
   setup() {
     return { args };
@@ -40,7 +40,7 @@ const Template = (args) => ({
 /**
  * Badge that displays the technology icon.
  */
-export const StoryWithExistentTechnology = Template.bind({});
+export const StoryWithExistentTechnology: any = Template.bind({});
 
 StoryWithExistentTechnology.args = {
   language: "JavaScript",
@@ -60,7 +60,7 @@ StoryWithExistentTechnology.parameters = {
 /**
  * Badge that does not display the technology icon as it does not exist.
  */
-export const StoryWithNonExistentTechnology = Template.bind({});
+export const StoryWithNonExistentTechnology: any = Template.bind({});
 
 StoryWithNonExistentTechnology.args = {
   language: "NonExistent",

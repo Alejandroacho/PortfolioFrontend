@@ -14,29 +14,33 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "TechnologyBadge",
+
   props: {
     language: {
       type: String,
       required: true,
     },
   },
+
   data() {
     return {
       imageWasLoaded: false,
     };
   },
+
   computed: {
-    technologyLanguage() {
+    technologyLanguage(): string {
       const path = "/src/assets/icons/technologies";
       const icon = this.language.toLowerCase();
       return `${path}/${icon}.svg`;
     },
   },
+
   methods: {
-    loadImage() {
+    loadImage(): void {
       this.imageWasLoaded = true;
     },
   },
@@ -44,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/colors.scss";
+@import "@/assets/colors.scss";
 
 .technology-badge {
   display: flex;
@@ -60,11 +64,13 @@ export default {
   border: 1px solid $secondary-color;
   border-radius: 30px;
   cursor: default;
+
   &__icon {
     width: 20px;
     height: 20px;
     margin-right: 0.5rem;
   }
+
   &__title {
     font-size: 0.8rem;
     font-weight: 400;
