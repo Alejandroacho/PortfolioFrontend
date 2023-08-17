@@ -1,6 +1,7 @@
 import { action } from "@storybook/addon-actions";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
 import CustomButton from "./CustomButton.vue";
+
 
 export default {
   title: "atoms/CustomButton",
@@ -34,9 +35,9 @@ export default {
   },
 };
 
-const codeTemplate = '<CustomButton v-bind="args" @handleClick="clicked"/>';
+const codeTemplate: string = '<CustomButton v-bind="args" @handleClick="clicked"/>';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { CustomButton },
   setup() {
     return { args };
@@ -48,7 +49,7 @@ const Template = (args) => ({
 /**
  * Button used for actions that are supposed to be the main action.
  */
-export const PrimaryButton = Template.bind({});
+export const PrimaryButton: any = Template.bind({});
 
 PrimaryButton.args = {
   message: "Hello World",
@@ -64,7 +65,7 @@ PrimaryButton.parameters = {
 /**
  * Secondary button, used for actions that are not supposed to be the main action.
  */
-export const SecondaryButton = Template.bind({});
+export const SecondaryButton: any = Template.bind({});
 
 SecondaryButton.args = {
   message: "Hello World",
@@ -80,7 +81,7 @@ SecondaryButton.parameters = {
 /**
  * Text button, useful for links or actions that are not supposed to be buttons.
  */
-export const TextButton = Template.bind({});
+export const TextButton: any = Template.bind({});
 
 TextButton.args = {
   message: "Hello World",
@@ -96,7 +97,7 @@ TextButton.parameters = {
 /**
  * This type of button is used for unique actions that are supposed to be magic.
  */
-export const MagicButton = Template.bind({});
+export const MagicButton: any = Template.bind({});
 
 MagicButton.args = {
   message: "Hello World",
