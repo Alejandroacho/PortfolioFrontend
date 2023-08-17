@@ -41,6 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/colors.scss";
+
 .image-display {
   max-width: 100%;
   max-height: 100%;

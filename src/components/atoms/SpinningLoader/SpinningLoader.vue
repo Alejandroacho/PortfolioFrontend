@@ -10,6 +10,7 @@
 <script lang="ts">
 export default {
   name: "SpinningLoader",
+
   props: {
     message: {
       type: String,
@@ -20,6 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/colors.scss";
+
 h3 {
   text-align: center;
 }

@@ -1,4 +1,4 @@
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils.ts";
 import TechnologyBadge from "./TechnologyBadge.vue";
 
 export default {
