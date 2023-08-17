@@ -1,4 +1,4 @@
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils.ts";
 import ImageDisplay from "./ImageDisplay.vue";
 
 export default {
