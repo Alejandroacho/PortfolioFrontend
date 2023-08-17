@@ -18,6 +18,7 @@ module.exports = {
     "node": true
   },
   "rules": {
-    "quotes": [2, "double", { "avoidEscape": true }]
+    "quotes": [2, "double", { "avoidEscape": true }],
+    "no-unused-vars": 0
   }
 };
