@@ -1,5 +1,5 @@
 import SpinningLoader from "./SpinningLoader.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils.ts";
 
 export default {
   title: "atoms/SpinningLoader",
