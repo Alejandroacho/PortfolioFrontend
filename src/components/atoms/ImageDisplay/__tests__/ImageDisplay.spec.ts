@@ -1,43 +1,47 @@
 import { describe, it, expect } from "vitest";
-
 import { mount } from "@vue/test-utils";
 import ImageDisplay from "../ImageDisplay.vue";
+import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
+import {Image} from "@/assets/types";
+import {ImageTypes} from "@/assets/contants";
 
-describe("ImageDisplay", () => {
-  it("Renders properly with image", () => {
-    const image = {
-      image: "design-system-light.png",
+describe("ImageDisplay", (): void => {
+  it("Renders properly with image", (): void => {
+    const image: Image = {
+      url: "design-system-light.png",
       description: "JavaScript",
-      type: "PC",
+      type: ImageTypes.OTHER,
     };
-    const wrapper = mount(ImageDisplay, {
+    const wrapper: VueWrapper = mount(ImageDisplay, {
       props: {
         image: image,
       },
     });
     expect(wrapper.props().image).toStrictEqual(image);
     expect(wrapper.find("img").exists()).toBe(true);
-    expect(wrapper.find("img").attributes("src")).toBe(image.image);
+    expect(wrapper.find("img").attributes("src")).toBe(image.url);
   });
 
-  it("Does not renders without url", () => {
-    const wrapper = mount(ImageDisplay, {
+  it("Does not renders without url", (): void => {
+    const wrapper: VueWrapper = mount(ImageDisplay, {
       props: {
         image: {
-          type: "PC",
+          url: null as string,
+          description: "JavaScript",
+          type: ImageTypes.OTHER,
         },
       },
     });
     expect(wrapper.find("img").exists()).toBe(false);
   });
 
-  it("Does not renders with non-existent image", () => {
-    const wrapper = mount(ImageDisplay, {
+  it("Does not renders with non-existent image", (): void => {
+    const wrapper: VueWrapper = mount(ImageDisplay, {
       props: {
         image: {
-          image: "public/nonexistent.png",
+          url: "public/nonexistent.png",
           description: "JavaScript",
-          type: "PC",
+          type: ImageTypes.CARD,
         },
       },
     });

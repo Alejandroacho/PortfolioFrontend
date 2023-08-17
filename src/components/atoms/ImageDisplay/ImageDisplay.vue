@@ -1,39 +1,46 @@
 <template>
   <img
-    v-if="image?.image"
+    v-if="image?.url"
     class="image-display"
     draggable="false"
     v-show="imageWasLoaded"
     @load="loadImage"
-    :src="image.image"
+    :src="image.url"
     :alt="image.description"
   />
 </template>
 
-<script>
+<script lang="ts">
+import {PropType} from "vue";
+import {Image} from "@/assets/types";
+
 export default {
   name: "ImageDisplay",
+
   props: {
     image: {
-      type: Object,
+      type: Object as PropType<Image>,
       required: true,
     },
   },
+
   data() {
     return {
       imageWasLoaded: false,
     };
   },
+
   methods: {
-    loadImage() {
+    loadImage(): void {
       this.imageWasLoaded = true;
     },
   },
+
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/colors.scss";
+@import "@/assets/colors.scss";
 .image-display {
   max-width: 100%;
   max-height: 100%;
