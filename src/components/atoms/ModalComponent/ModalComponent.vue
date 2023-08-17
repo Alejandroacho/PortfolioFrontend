@@ -2,6 +2,7 @@
   <transition name="fade">
     <div class="backdrop" v-if="showModal">
       <div class="modal" role="dialog">
+
         <header class="modal__header">
           <slot name="header"> </slot>
           <button @click="close" class="close-button">x</button>
@@ -14,22 +15,26 @@
         <footer class="modal__footer">
           <slot name="footer"> </slot>
         </footer>
+
       </div>
     </div>
   </transition>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "ModalComponent",
+  emits: ["close"],
+
   props: {
     showModal: {
       type: Boolean,
       required: true,
     },
   },
+
   methods: {
-    close() {
+    close(): void {
       this.$emit("close");
     },
   },
@@ -37,7 +42,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../assets/colors.scss";
+@import "@/assets/colors.scss";
 
 .backdrop {
   position: fixed;

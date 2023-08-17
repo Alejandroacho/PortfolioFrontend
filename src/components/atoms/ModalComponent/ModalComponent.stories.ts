@@ -1,5 +1,5 @@
 import ModalComponent from "./ModalComponent.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
 
 export default {
   title: "atoms/ModalComponent",
@@ -52,7 +52,7 @@ export default {
   },
 };
 
-const codeTemplate = `
+const codeTemplate: string = `
 <ModalComponent v-bind="args">
   <template v-slot:header>
     <h2>Project name</h2>
@@ -66,7 +66,7 @@ const codeTemplate = `
 </ModalComponent>
 `;
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { ModalComponent },
   setup() {
     return { args };
@@ -74,7 +74,7 @@ const Template = (args) => ({
   template: codeTemplate,
 });
 
-export const ModalComponentStory = Template.bind({});
+export const ModalComponentStory: any = Template.bind({});
 
 ModalComponentStory.args = {
   showModal: false,

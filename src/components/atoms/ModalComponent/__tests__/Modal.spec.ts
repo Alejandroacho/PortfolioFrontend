@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
-
 import { mount } from "@vue/test-utils";
 import ModalComponent from "../ModalComponent.vue";
+import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
 
-describe("ModalComponent", () => {
-  it("Renders properly", () => {
-    const wrapper = mount(ModalComponent, {
+describe("ModalComponent", (): void => {
+  it("Renders properly", (): void => {
+    const wrapper: VueWrapper = mount(ModalComponent, {
       props: {
         showModal: true,
       },
@@ -13,8 +13,8 @@ describe("ModalComponent", () => {
     expect(wrapper.find(".modal").exists()).toBe(true);
   });
 
-  it("Its instantiated hidden", () => {
-    const wrapper = mount(ModalComponent, {
+  it("Its instantiated hidden", (): void => {
+    const wrapper: VueWrapper = mount(ModalComponent, {
       props: {
         showModal: false,
       },
