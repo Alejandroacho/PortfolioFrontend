@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-menu">
+  <nav class="nav-menu">
     <div class="nav-content">
       <h1 class="title">Alejandro Acho</h1>
       <div class="logo-container">
@@ -18,10 +18,10 @@
         <li>Projects</li>
       </ul>
     </div>
-  </div>
+  </nav>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "NavbarSection",
 
@@ -42,6 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "src/assets/colors.scss";
+
 .nav-menu {
   z-index: 1000;
   background-color: rgba(80, 80, 80, 0.91);
@@ -50,11 +51,13 @@ export default {
   top: 0;
   backdrop-filter: blur(10px);
 }
+
 .title {
   color: white;
   font-size: 1.5rem;
   margin: 0;
 }
+
 .logo-container {
   display: flex;
   align-items: baseline;
@@ -62,17 +65,20 @@ export default {
   min-width: 25px;
   min-height: 25px;
 }
+
 .logo {
   width: 25px;
   height: 25px;
   border-radius: 100%;
 }
+
 .nav-content {
   display: flex;
   justify-content: space-around;
   padding: 10px 30px;
   align-items: center;
 }
+
 .nav-items {
   display: flex;
   justify-content: center;
@@ -86,12 +92,15 @@ export default {
     cursor: pointer;
   }
 }
+
 .bounce-enter-active {
   animation: bounce-in 0.5s;
 }
+
 .bounce-leave-active {
   animation: bounce-in 0.5s reverse;
 }
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);

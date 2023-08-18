@@ -19,17 +19,20 @@
   </transition>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "ModalComponent",
+  emits: ["close"],
+
   props: {
     showModal: {
       type: Boolean,
       required: true,
     },
   },
+
   methods: {
-    close() {
+    close(): void {
       this.$emit("close");
     },
   },
@@ -37,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../assets/colors.scss";
+@import "@/assets/colors.scss";
 
 .backdrop {
   position: fixed;
