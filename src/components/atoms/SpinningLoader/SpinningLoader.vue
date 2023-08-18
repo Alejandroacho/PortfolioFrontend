@@ -1,26 +1,27 @@
 <template>
   <div class="loader">
-    <h3>
+    <h3 v-if="message">
       {{ message }}
     </h3>
     <span class="loader__spinner"></span>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "SpinningLoader",
+
   props: {
     message: {
       type: String,
-      default: "Content is loading...",
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/colors.scss";
+@import "@/assets/colors.scss";
+
 h3 {
   text-align: center;
 }
