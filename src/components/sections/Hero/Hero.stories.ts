@@ -1,5 +1,5 @@
 import Hero from "./Hero.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils.ts";
 export default {
   title: "sections/Hero",
   component: Hero,

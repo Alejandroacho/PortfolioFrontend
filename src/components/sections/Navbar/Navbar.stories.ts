@@ -1,5 +1,6 @@
 import NavbarSection from "./Navbar.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
+
 export default {
   title: "sections/Navbar",
   component: NavbarSection,
@@ -22,9 +23,9 @@ export default {
   },
 };
 
-const codeTemplate = '<NavbarSection v-bind="args"/>';
+const codeTemplate: string = '<NavbarSection v-bind="args"/>';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { NavbarSection },
   setup() {
     return { args };
@@ -32,7 +33,7 @@ const Template = (args) => ({
   template: codeTemplate,
 });
 
-export const NavbarStory = Template.bind({});
+export const NavbarStory: any = Template.bind({});
 
 NavbarStory.parameters = {
   docs: {

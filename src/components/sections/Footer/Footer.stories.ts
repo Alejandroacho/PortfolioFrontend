@@ -1,5 +1,5 @@
 import Footer from "./Footer.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils.ts";
 export default {
   title: "sections/Footer",
   component: Footer,
