@@ -8,6 +8,7 @@ import {ImageTypes} from "@/assets/contants";
 describe("ImageDisplay", (): void => {
   it("Renders properly with image", (): void => {
     const image: Image = {
+      id: 1,
       url: "design-system-light.png",
       description: "JavaScript",
       type: ImageTypes.OTHER,
@@ -26,6 +27,7 @@ describe("ImageDisplay", (): void => {
     const wrapper: VueWrapper = mount(ImageDisplay, {
       props: {
         image: {
+          id: 1,
           url: null as string,
           description: "JavaScript",
           type: ImageTypes.OTHER,
@@ -39,6 +41,7 @@ describe("ImageDisplay", (): void => {
     const wrapper: VueWrapper = mount(ImageDisplay, {
       props: {
         image: {
+          id: 1,
           url: "public/nonexistent.png",
           description: "JavaScript",
           type: ImageTypes.CARD,

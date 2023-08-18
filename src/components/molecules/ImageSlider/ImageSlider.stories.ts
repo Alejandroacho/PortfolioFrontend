@@ -1,5 +1,5 @@
 import ImageSlider from "./ImageSlider.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils.ts";
 export default {
   title: "molecules/ImageSlider",
   component: ImageSlider,
