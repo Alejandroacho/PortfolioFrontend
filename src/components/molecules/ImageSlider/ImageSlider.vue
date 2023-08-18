@@ -29,14 +29,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
+import {PropType} from "vue";
+import {Image} from "@/assets/types";
 
 export default {
   name: "ImageSlider",
   components: { ImageDisplay },
 
-  mounted() {
+  mounted(): void {
     this.startSlideTimer();
   },
 
@@ -49,7 +51,7 @@ export default {
 
   props: {
     images: {
-      type: Array,
+      type: Array as PropType<Image[]>,
       required: true,
     },
     showArrows: {
@@ -63,26 +65,25 @@ export default {
   },
 
   computed: {
-    transitionEffect() {
+    transitionEffect(): string {
       return this.direction === "right" ? "slide-out" : "slide-in";
     },
   },
 
   methods: {
-    setCurrentSlide(index) {
+    setCurrentSlide(index: number): void {
       this.currentSlide = index;
     },
 
-    prev() {
-      const index =
-        this.currentSlide > 0 ? this.currentSlide - 1 : this.images.length - 1;
+    prev(): void {
+      const index: number = this.currentSlide > 0 ? this.currentSlide - 1 : this.images.length - 1;
       this.setCurrentSlide(index);
       this.direction = "left";
       this.startSlideTimer();
     },
 
-    _next(step = 1) {
-      const index =
+    _next(step: number = 1): void {
+      const index: number =
         this.currentSlide < this.images.length - 1
           ? this.currentSlide + step
           : 0;
@@ -90,40 +91,41 @@ export default {
       this.direction = "right";
     },
 
-    next() {
+    next(): void {
       this._next();
       this.startSlideTimer();
     },
 
-    startSlideTimer() {
+    startSlideTimer(): void {
       this.stopSlideTimer();
       this.slideInterval = setInterval(() => {
         this._next();
       }, this.interval);
     },
 
-    stopSlideTimer() {
+    stopSlideTimer(): void {
       clearInterval(this.slideInterval);
     },
 
-    switchSlide(index) {
+    switchSlide(index: number): void {
       this.stopSlideTimer();
       this.currentSlide = index;
       this.startSlideTimer();
     },
   },
 
-  beforeUnmount() {
+  beforeUnmount(): void {
     this.stopSlideTimer();
   },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .carousel {
   display: flex;
   justify-content: center;
 }
+
 .carousel-inner {
   width: 100%;
   height: 100%;
@@ -141,21 +143,26 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .slide-in-enter-active,
 .slide-in-leave-active,
 .slide-out-enter-active,
 .slide-out-leave-active {
   transition: all 1s ease-in-out;
 }
+
 .slide-in-enter-from {
   transform: translateX(-100%);
 }
+
 .slide-in-leave-to {
   transform: translateX(100%);
 }
+
 .slide-out-enter-from {
   transform: translateX(100%);
 }
+
 .slide-out-leave-to {
   transform: translateX(-100%);
 }
@@ -172,16 +179,19 @@ export default {
   color: #f3f3f3;
   cursor: pointer;
 }
+
 .left {
   z-index: 999;
   left: 0;
   cursor: pointer;
 }
+
 .right {
   z-index: 999;
   right: 0;
   cursor: pointer;
 }
+
 .carousel-indicators {
   position: absolute;
   transform: translateX(-50%);
@@ -189,6 +199,7 @@ export default {
   bottom: 1.5em;
   z-index: 2;
 }
+
 .carousel-indicator-item {
   width: 15px;
   height: 15px;
@@ -199,6 +210,7 @@ export default {
   border-radius: 50%;
   cursor: pointer;
 }
+
 .active {
   opacity: 1;
 }
