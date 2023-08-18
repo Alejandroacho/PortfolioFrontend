@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import ImageSlider from "../ImageSlider.vue";
 import {Image} from "@/assets/types";
-import {ImageTypes} from "@/assets/contants";
+import {ImageTypes} from "@/assets/constants";
 import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
 
 describe("ImageSlider", (): void => {

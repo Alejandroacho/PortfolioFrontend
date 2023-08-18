@@ -1,5 +1,5 @@
 import ProjectCard from "./ProjectCard.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils.ts";
 
 export default {
   title: "molecules/ProjectCard",
