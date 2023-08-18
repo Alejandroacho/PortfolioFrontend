@@ -12,7 +12,7 @@ interface SocialNetwork {
     id: number;
     platform: string;
     url: string;
-    nickname: ImageTypes;
+    nickname: string;
 }
 
 interface Author {
