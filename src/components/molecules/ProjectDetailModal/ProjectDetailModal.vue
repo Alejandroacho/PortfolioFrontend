@@ -1,5 +1,5 @@
 <template>
-  <ModalComponent show-modal="show-modal">
+  <ModalComponent :show-modal="showModal">
     <template v-slot:header>
       <ImageSlider :show-arrows="false" :images="images" />
     </template>
@@ -64,11 +64,13 @@
   </ModalComponent>
 </template>
 
-<script>
+<script lang="ts">
 import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue";
 import ImageSlider from "@/components/molecules/ImageSlider/ImageSlider.vue";
 import CustomButton from "@/components/atoms/CustomButton/CustomButton.vue";
 import TechnologyBadge from "@/components/atoms/TechnologyBadge/TechnologyBadge.vue";
+import {PropType} from "vue";
+import {Image, Project} from "@/assets/types";
 
 export default {
   name: "ProjectDetailModalComponent",
@@ -92,35 +94,41 @@ export default {
     },
 
     project: {
-      type: Object,
+      type: Object as PropType<Project>,
       required: true,
     },
   },
 
   methods: {
-    openURL(url) {
+    openURL(url: string): void {
       window.open(url, "_blank");
     },
   },
 
   computed: {
-    images() {
-      return this.project.images.filter((image) => image.type !== "CARD");
+    images(): Image[] {
+      return this.project.images.filter(
+        (image: Image) => image.type !== "CARD"
+      );
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+
 :deep(.carousel) {
   height: 50vh !important;
 }
+
 :deep(.text) {
   font-size: large;
 }
+
 .body {
   padding: 0 5px;
 }
+
 .technologies {
   display: flex;
   flex-wrap: wrap;
@@ -128,20 +136,25 @@ export default {
   justify-content: flex-start;
   margin-top: 1rem;
 }
+
 .technology {
   margin-left: 1rem;
 }
+
 .authors {
   @extend .technologies;
 }
+
 .author {
   @extend .technology;
 }
+
 .footer {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
 }
+
 .repo-button {
   margin-left: 1rem;
 }

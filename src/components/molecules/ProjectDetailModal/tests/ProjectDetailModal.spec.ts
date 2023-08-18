@@ -1,16 +1,19 @@
-import { describe, it, expect } from "vitest";
+import {describe, expect, it} from "vitest";
 
-import { mount } from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import ProjectDetailModal from "../ProjectDetailModal.vue";
+import {Project} from "@/assets/types";
+import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
+import {ImageTypes} from "@/assets/constants";
 
-describe("ProjectDetailModal", () => {
-  it("renders properly", () => {
-    const project = {
+describe("ProjectDetailModal", (): void => {
+  it("renders properly", (): void => {
+    const project: Project = {
       id: 1,
       title: "Project 1",
+      introduction: "Project 1 introduction",
       description: "Project 1 description",
       url: "https://www.google.com",
-      is_public: true,
       repository: "https://www.github.com",
       authors: [
         {
@@ -19,6 +22,7 @@ describe("ProjectDetailModal", () => {
           last_name: "Author",
           social_networks: [
             {
+              id: 1,
               platform: "github",
               url: "https://www.github.com",
               nickname: "author",
@@ -30,20 +34,20 @@ describe("ProjectDetailModal", () => {
         {
           id: 1,
           description: "Image 1",
-          type: "CARD",
-          image: "design-system-light.png",
+          type: ImageTypes.CARD,
+          url: "design-system-light.png",
         },
         {
           id: 2,
           description: "Image 2",
-          type: "PC",
-          image: "design-system-light.png",
+          type: ImageTypes.OTHER,
+          url: "design-system-light.png",
         },
         {
           id: 3,
           description: "Image 3",
-          type: "PC",
-          image: "design-system-light.png",
+          type: ImageTypes.OTHER,
+          url: "design-system-light.png",
         },
       ],
       technologies: [
@@ -73,7 +77,7 @@ describe("ProjectDetailModal", () => {
         },
       ],
     };
-    const wrapper = mount(ProjectDetailModal, {
+    const wrapper: VueWrapper = mount(ProjectDetailModal, {
       props: {
         project: project,
         showModal: true,
