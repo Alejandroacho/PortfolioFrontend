@@ -1,5 +1,6 @@
 import Hero from "./Hero.vue";
-import generateSource from "../../../../.storybook/utils.ts";
+import generateSource from "../../../../.storybook/utils";
+
 export default {
   title: "sections/Hero",
   component: Hero,
@@ -16,9 +17,9 @@ export default {
   },
 };
 
-const codeTemplate = '<Hero v-bind="args"/>';
+const codeTemplate: string = '<Hero v-bind="args"/>';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { Hero },
   setup() {
     return { args };
@@ -26,7 +27,7 @@ const Template = (args) => ({
   template: codeTemplate,
 });
 
-export const HeroStory = Template.bind({});
+export const HeroStory: any = Template.bind({});
 
 HeroStory.parameters = {
   docs: {
