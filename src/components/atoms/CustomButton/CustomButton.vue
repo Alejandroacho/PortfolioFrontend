@@ -1,33 +1,38 @@
 <template>
   <button :class="cssStyle" @click="handleClick">
-    <p class="custom-button__message">
+    <span class="custom-button__message">
       {{ message }}
-    </p>
+    </span>
   </button>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "CustomButton",
+  emits: ["handleClick"],
+
   props: {
     message: {
       type: String,
       required: true,
     },
+
     type: {
       type: String,
       default: "primary",
       options: ["primary", "secondary", "text", "magic"],
     },
   },
+
   computed: {
-    cssStyle() {
-      const basicClass = "custom-button";
+    cssStyle(): string {
+      const basicClass: string = "custom-button";
       return `${basicClass} ${this.type}`;
     },
   },
+
   methods: {
-    handleClick() {
+    handleClick(): void {
       this.$emit("handleClick");
     },
   },
@@ -35,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/colors.scss";
+@import "@/assets/colors.scss";
 
 .custom-button {
   cursor: pointer;
@@ -53,7 +58,7 @@ export default {
 
   &__message {
     padding: 10px;
-    margin: 0px;
+    margin: 0;
   }
 }
 
@@ -77,8 +82,8 @@ export default {
   background-color: $white;
   border: none;
   color: $secondary-color;
-  padding: 0px;
-  height: 0px;
+  padding: 0;
+  height: 0;
 
   &:hover {
     text-decoration: underline;

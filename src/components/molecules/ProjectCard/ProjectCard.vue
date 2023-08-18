@@ -15,54 +15,64 @@
     </div>
   </div>
   <ModalComponent
-    :showModal="showProjectDetail"
     @close="closeProjectDetail"
     :project="project"
     :show-modal="showProjectDetail"
   />
 </template>
 
-<script>
+<script lang="ts">
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
 import CustomButton from "../../atoms/CustomButton/CustomButton.vue";
 import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue";
+import { Image, Project } from "@/assets/types";
+import { ImageTypes } from "@/assets/constants";
+import { PropType } from "vue";
 
 export default {
   name: "ProjectCard",
+
   components: {
     ModalComponent,
     ImageDisplay,
     CustomButton,
   },
+
   data() {
     return {
       showProjectDetail: false,
     };
   },
+
   props: {
     project: {
-      type: Object,
+      type: Object as PropType<Project>,
       required: true,
     },
   },
+
   methods: {
-    openProjectDetail() {
+    openProjectDetail(): void {
       this.showProjectDetail = true;
     },
-    closeProjectDetail() {
+
+    closeProjectDetail(): void {
       this.showProjectDetail = false;
     },
   },
+
   computed: {
-    image() {
-      return this.project.images.filter((image) => image.type === "CARD").pop();
+    image(): Image {
+      return this.project.images
+        .filter((image: Image) => image.type === ImageTypes.CARD)
+        .pop();
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/colors.scss";
+@import "@/assets/colors.scss";
 
 .card {
   display: flex;
@@ -81,6 +91,7 @@ export default {
   font-size: 1.2rem;
   text-align: center;
 }
+
 .image {
   display: block;
   width: 300px;
@@ -88,6 +99,7 @@ export default {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
 .card-content {
   height: 40%;
   display: flex;
@@ -98,8 +110,7 @@ export default {
   h2 {
     max-height: 37px;
     padding: 0;
-    margin: 0;
-    margin-top: 10px;
+    margin: 10px 0 0;
   }
   p {
     font-size: medium;

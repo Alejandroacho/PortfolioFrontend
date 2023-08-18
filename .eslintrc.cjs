@@ -7,16 +7,18 @@ module.exports = {
     "eslint:recommended",
     "@vue/eslint-config-prettier/skip-formatting",
     "plugin:storybook/recommended",
-    "plugin:cypress/recommended"
   ],
   parserOptions: {
-    ecmaVersion: "latest"
+    ecmaVersion: "latest",
+    "sourceType": "module",
+    parser: "@typescript-eslint/parser"
   },
   env: {
     "jest": true,
     "node": true
   },
   "rules": {
-    "quotes": [2, "double", { "avoidEscape": true }]
+    "quotes": [2, "double", { "avoidEscape": true }],
+    "no-unused-vars": 0
   }
 };
