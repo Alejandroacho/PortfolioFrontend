@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import ImageDisplay from "../ImageDisplay.vue";
-import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
-import {Image} from "@/assets/types";
-import {ImageTypes} from "@/assets/constants";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
+import { Image } from "@/assets/types";
+import { ImageTypes } from "@/assets/constants";
 
 describe("ImageDisplay", (): void => {
   it("Renders properly with image", (): void => {

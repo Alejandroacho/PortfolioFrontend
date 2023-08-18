@@ -1,6 +1,6 @@
 interface Wave {
-    point: number;
-    vortex: number;
+  point: number;
+  vortex: number;
 }
 
 export class WaveTank {
@@ -21,7 +21,8 @@ export class WaveTank {
 
   update(waves: Wave[]) {
     for (const wave of waves) {
-      const acceleration: number = -this.tension * wave.point - this.damping * wave.vortex;
+      const acceleration: number =
+        -this.tension * wave.point - this.damping * wave.vortex;
       wave.point += wave.vortex;
       wave.vortex += acceleration;
     }
@@ -47,9 +48,14 @@ export class WaveTank {
     return { leftDeltas, rightDeltas };
   }
 
-  setWavesAccordingDeltas(waves: Wave[], rightDeltas: number[], leftDeltas: number[]) {
+  setWavesAccordingDeltas(
+    waves: Wave[],
+    rightDeltas: number[],
+    leftDeltas: number[]
+  ) {
     for (let wave: number = 0; wave < waves.length; wave++) {
-      const previousWave: Wave = waves[(wave - 1 + waves.length) % waves.length];
+      const previousWave: Wave =
+        waves[(wave - 1 + waves.length) % waves.length];
       const nextWave: Wave = waves[(wave + 1) % waves.length];
       previousWave.vortex += leftDeltas[wave];
       nextWave.vortex += rightDeltas[wave];
@@ -62,7 +68,10 @@ export class WaveTank {
     return [
       [0, this.waveLength],
       [0, 0],
-      ...this.waves.map((wave: Wave, index: number) => [index * grid, wave.point]),
+      ...this.waves.map((wave: Wave, index: number) => [
+        index * grid,
+        wave.point,
+      ]),
       [width, 0],
       [width, this.waveLength],
     ];

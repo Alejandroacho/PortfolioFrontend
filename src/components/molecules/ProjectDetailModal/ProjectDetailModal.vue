@@ -69,8 +69,8 @@ import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue
 import ImageSlider from "@/components/molecules/ImageSlider/ImageSlider.vue";
 import CustomButton from "@/components/atoms/CustomButton/CustomButton.vue";
 import TechnologyBadge from "@/components/atoms/TechnologyBadge/TechnologyBadge.vue";
-import {PropType} from "vue";
-import {Image, Project} from "@/assets/types";
+import { PropType } from "vue";
+import { Image, Project } from "@/assets/types";
 
 export default {
   name: "ProjectDetailModalComponent",
@@ -116,7 +116,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 :deep(.carousel) {
   height: 50vh !important;
 }

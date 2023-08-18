@@ -1,9 +1,9 @@
-import {describe, expect, it} from "vitest";
-import {mount} from "@vue/test-utils";
+import { describe, expect, it } from "vitest";
+import { mount } from "@vue/test-utils";
 import ProjectSection from "../ProjectCard.vue";
-import {Project} from "@/assets/types";
-import {ImageTypes} from "@/assets/constants";
-import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
+import { Project } from "@/assets/types";
+import { ImageTypes } from "@/assets/constants";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
 
 describe("ProjectSection", (): void => {
   it("renders properly", (): void => {

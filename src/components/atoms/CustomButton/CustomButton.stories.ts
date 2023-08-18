@@ -2,7 +2,6 @@ import { action } from "@storybook/addon-actions";
 import generateSource from "../../../../.storybook/utils";
 import CustomButton from "./CustomButton.vue";
 
-
 export default {
   title: "atoms/CustomButton",
   component: CustomButton,
@@ -35,7 +34,8 @@ export default {
   },
 };
 
-const codeTemplate: string = '<CustomButton v-bind="args" @handleClick="clicked"/>';
+const codeTemplate: string =
+  '<CustomButton v-bind="args" @handleClick="clicked"/>';
 
 const Template: Function = (args: Object): Object => ({
   components: { CustomButton },

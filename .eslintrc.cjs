@@ -10,8 +10,8 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: "latest",
-    'sourceType': 'module',
-    parser: '@typescript-eslint/parser'
+    "sourceType": "module",
+    parser: "@typescript-eslint/parser"
   },
   env: {
     "jest": true,

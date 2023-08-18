@@ -25,9 +25,9 @@
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
 import CustomButton from "../../atoms/CustomButton/CustomButton.vue";
 import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue";
-import {Image, Project} from "@/assets/types";
-import {ImageTypes} from "@/assets/constants";
-import {PropType} from "vue";
+import { Image, Project } from "@/assets/types";
+import { ImageTypes } from "@/assets/constants";
+import { PropType } from "vue";
 
 export default {
   name: "ProjectCard",
@@ -63,9 +63,9 @@ export default {
 
   computed: {
     image(): Image {
-      return this.project.images.filter(
-        (image: Image) => image.type === ImageTypes.CARD
-      ).pop();
+      return this.project.images
+        .filter((image: Image) => image.type === ImageTypes.CARD)
+        .pop();
     },
   },
 };

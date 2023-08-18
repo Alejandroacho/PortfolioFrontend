@@ -72,7 +72,8 @@ export default {
     },
 
     getTimeSaw(timestamp: number, offset: number = 0): number {
-      const cyclePosition: number = (timestamp + offset) / this.millisecondsForAnimation;
+      const cyclePosition: number =
+        (timestamp + offset) / this.millisecondsForAnimation;
       return cyclePosition - Math.floor(cyclePosition);
     },
 
@@ -93,7 +94,9 @@ export default {
   },
 
   mounted(): void {
-    const mediaQuery: MediaQueryList = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mediaQuery: MediaQueryList = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
     if (mediaQuery.matches) return;
     this.animationRequestId = requestAnimationFrame(this.updateAnimation);
     if (this.animationRequestId !== undefined)

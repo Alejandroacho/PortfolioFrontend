@@ -1,10 +1,10 @@
-import {describe, expect, it} from "vitest";
+import { describe, expect, it } from "vitest";
 
-import {mount} from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import ProjectDetailModal from "../ProjectDetailModal.vue";
-import {Project} from "@/assets/types";
-import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
-import {ImageTypes} from "@/assets/constants";
+import { Project } from "@/assets/types";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
+import { ImageTypes } from "@/assets/constants";
 
 describe("ProjectDetailModal", (): void => {
   it("renders properly", (): void => {

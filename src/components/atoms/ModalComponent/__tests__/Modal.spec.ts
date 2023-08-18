@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import ModalComponent from "../ModalComponent.vue";
-import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
 
 describe("ModalComponent", (): void => {
   it("Renders properly", (): void => {

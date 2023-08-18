@@ -2,7 +2,6 @@
   <transition name="fade">
     <div class="backdrop" v-if="showModal">
       <div class="modal" role="dialog">
-
         <header class="modal__header">
           <slot name="header"> </slot>
           <button @click="close" class="close-button">x</button>
@@ -15,7 +14,6 @@
         <footer class="modal__footer">
           <slot name="footer"> </slot>
         </footer>
-
       </div>
     </div>
   </transition>

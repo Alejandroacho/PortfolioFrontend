@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts">
-import {PropType} from "vue";
-import {Image} from "@/assets/types";
+import { PropType } from "vue";
+import { Image } from "@/assets/types";
 
 export default {
   name: "ImageDisplay",
@@ -35,7 +35,6 @@ export default {
       this.imageWasLoaded = true;
     },
   },
-
 };
 </script>
 

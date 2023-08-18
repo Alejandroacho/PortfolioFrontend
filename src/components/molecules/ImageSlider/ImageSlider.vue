@@ -31,8 +31,8 @@
 
 <script lang="ts">
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
-import {PropType} from "vue";
-import {Image} from "@/assets/types";
+import { PropType } from "vue";
+import { Image } from "@/assets/types";
 
 export default {
   name: "ImageSlider",
@@ -76,7 +76,8 @@ export default {
     },
 
     prev(): void {
-      const index: number = this.currentSlide > 0 ? this.currentSlide - 1 : this.images.length - 1;
+      const index: number =
+        this.currentSlide > 0 ? this.currentSlide - 1 : this.images.length - 1;
       this.setCurrentSlide(index);
       this.direction = "left";
       this.startSlideTimer();

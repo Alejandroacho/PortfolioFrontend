@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import CustomButton from "../CustomButton.vue";
-import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
 
 describe("CustomButton", (): void => {
   it("renders properly with message", (): void => {

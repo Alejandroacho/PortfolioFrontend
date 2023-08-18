@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import SpinningLoader from "../SpinningLoader.vue";
-import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
 
 describe("ImageDisplay", (): void => {
   it("renders properly with message", (): void => {

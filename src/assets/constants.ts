@@ -1,6 +1,6 @@
 const enum ImageTypes {
-    CARD = "CARD",
-    OTHER = "OTHER",
+  CARD = "CARD",
+  OTHER = "OTHER",
 }
 
-export {ImageTypes};
+export { ImageTypes };

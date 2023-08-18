@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import TechnologyBadge from "../TechnologyBadge.vue";
-import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
 
 describe("TechnologyBadge", (): void => {
   it("Renders properly with existent icon", (): void => {
