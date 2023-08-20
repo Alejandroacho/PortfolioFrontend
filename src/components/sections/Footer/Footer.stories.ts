@@ -1,5 +1,6 @@
 import Footer from "./Footer.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
+
 export default {
   title: "sections/Footer",
   component: Footer,
@@ -16,9 +17,9 @@ export default {
   },
 };
 
-const codeTemplate = '<Footer v-bind="args"/>';
+const codeTemplate: string = '<Footer v-bind="args"/>';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { Footer },
   setup() {
     return { args };
@@ -26,7 +27,7 @@ const Template = (args) => ({
   template: codeTemplate,
 });
 
-export const FooterStory = Template.bind({});
+export const FooterStory: any = Template.bind({});
 
 FooterStory.parameters = {
   docs: {

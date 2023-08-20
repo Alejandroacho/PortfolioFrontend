@@ -1,16 +1,18 @@
-import { describe, it, expect } from "vitest";
-
+import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
 import ProjectSection from "../ProjectCard.vue";
+import { Project } from "@/assets/types";
+import { ImageTypes } from "@/assets/constants";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
 
-describe("ProjectSection", () => {
-  it("renders properly", () => {
-    const project = {
+describe("ProjectSection", (): void => {
+  it("renders properly", (): void => {
+    const project: Project = {
       id: 1,
       title: "Project 1",
+      introduction: "Project 1 Introduction",
       description: "Project 1 description",
       url: "https://www.google.com",
-      is_public: true,
       repository: "https://www.github.com",
       authors: [
         {
@@ -19,6 +21,7 @@ describe("ProjectSection", () => {
           last_name: "Author",
           social_networks: [
             {
+              id: 1,
               platform: "github",
               url: "https://www.github.com",
               nickname: "author",
@@ -30,20 +33,20 @@ describe("ProjectSection", () => {
         {
           id: 1,
           description: "Image 1",
-          type: "CARD",
-          image: "design-system-light.png",
+          type: ImageTypes.CARD,
+          url: "design-system-light.png",
         },
         {
           id: 2,
           description: "Image 2",
-          type: "PC",
-          image: "design-system-light.png",
+          type: ImageTypes.OTHER,
+          url: "design-system-light.png",
         },
         {
           id: 3,
           description: "Image 3",
-          type: "PC",
-          image: "design-system-light.png",
+          type: ImageTypes.OTHER,
+          url: "design-system-light.png",
         },
       ],
       technologies: [
@@ -73,7 +76,7 @@ describe("ProjectSection", () => {
         },
       ],
     };
-    const wrapper = mount(ProjectSection, {
+    const wrapper: VueWrapper = mount(ProjectSection, {
       props: {
         project: project,
       },

@@ -28,7 +28,7 @@ jobs:
     - name: 🆎 Check imports order
       run:  npm run check-format
 
-  Unit-Testing:
+  Testing:
     needs: [Check-Lint, Check-Format]
     runs-on: ubuntu-latest
     steps:
@@ -37,21 +37,10 @@ jobs:
     - name: ⚙️ Set up project
       run: npm install
     - name: ✅ Test
-      run: npm run test:unit
-
-  E2E-Testing:
-    needs: [Check-Lint, Check-Format]
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🔀 Checkout
-      uses: actions/checkout@v3
-    - name: ⚙️ Set up project
-      run: npm install
-    - name: ✅ Test
-      run: npm run test:e2e
+      run: npm run test
 
   Done:
-    needs: [Unit-Testing, E2E-Testing]
+    needs: [Testing]
     runs-on: ubuntu-latest
     steps:
     - name: 🎉 Congratulations

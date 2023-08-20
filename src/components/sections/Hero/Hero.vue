@@ -33,8 +33,8 @@
   </header>
 </template>
 
-<script>
-import { WaveTank } from "./WaveTank.js";
+<script lang="ts">
+import { WaveTank } from "./WaveTank";
 
 export default {
   name: "HeroSection",
@@ -52,49 +52,51 @@ export default {
   },
 
   methods: {
-    updateAnimation(timestamp) {
+    updateAnimation(timestamp: number = 0) {
       if (!this.$refs.condensation.classList.contains("condensation"))
         this.$refs.condensation.classList.add("condensation");
       this.updateDrip(timestamp);
       this.waveTank.update(this.waveTank.waves);
       this.wavePoints = this.waveTank.getWavePoints(this.width, this.grid);
-      const sawTime = this.getTimeSaw(timestamp, 500);
-      const timeToDropOnWaveTank = 0.01;
+      const sawTime: number = this.getTimeSaw(timestamp, 500);
+      const timeToDropOnWaveTank: number = 0.01;
       if (sawTime < timeToDropOnWaveTank) this.dropOnWaveTank();
       this.animationRequestId = requestAnimationFrame(this.updateAnimation);
     },
 
-    updateDrip(timestamp) {
-      const sawTime = this.getTimeSaw(timestamp);
-      const timeToResetTheDrop = 0.6;
+    updateDrip(timestamp: number) {
+      const sawTime: number = this.getTimeSaw(timestamp);
+      const timeToResetTheDrop: number = 0.6;
       if (sawTime < timeToResetTheDrop) this.dropValue = -50;
       else this.dropValue = Math.pow(sawTime - 0.6, 2) * 10000;
     },
 
-    getTimeSaw(timestamp, offset = 0) {
-      const cyclePosition =
+    getTimeSaw(timestamp: number, offset: number = 0): number {
+      const cyclePosition: number =
         (timestamp + offset) / this.millisecondsForAnimation;
       return cyclePosition - Math.floor(cyclePosition);
     },
 
-    resize() {
-      const SVG_WIDTH = 100;
+    resize(): void {
+      const SVG_WIDTH: number = 100;
       this.width = document.body.clientWidth;
       this.grid = SVG_WIDTH / this.waveTank.waveLength;
     },
 
-    dropOnWaveTank() {
-      const dropPosition = 50;
+    dropOnWaveTank(): void {
+      const dropPosition: number = 50;
       this.waveTank.waves[dropPosition].point = -dropPosition;
     },
 
-    initiateCondensation() {
+    initiateCondensation(): void {
       this.$refs.condensation.classList.add("condensation");
     },
   },
 
-  mounted() {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mounted(): void {
+    const mediaQuery: MediaQueryList = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
     if (mediaQuery.matches) return;
     this.animationRequestId = requestAnimationFrame(this.updateAnimation);
     if (this.animationRequestId !== undefined)
@@ -105,7 +107,7 @@ export default {
     window.addEventListener("resize", this.resize);
   },
 
-  beforeUnmount() {
+  beforeUnmount(): void {
     window.removeEventListener("resize", this.resize);
     if (this.requestId !== undefined) cancelAnimationFrame(this.requestId);
     this.$refs.condensation.classList.remove("condensation");
@@ -124,12 +126,14 @@ export default {
   justify-content: center;
   flex-direction: column;
 }
+
 .logo-with-animation {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+
 .logo {
   z-index: 999;
   margin-top: calc(50vh - 20vh);
@@ -137,6 +141,7 @@ export default {
   height: 30vh;
   border-radius: 100%;
 }
+
 .liquid {
   position: relative;
   width: 80px;
@@ -145,10 +150,12 @@ export default {
   background: white;
   border-radius: 0 0 100% 100%;
 }
+
 .condensation {
   animation: drip 1200ms cubic-bezier(0, 0, 1, 0.5),
     drip 2000ms 1200ms infinite cubic-bezier(0, 0, 1, 0.5);
 }
+
 @keyframes drip {
   to {
     top: -15px;
@@ -157,9 +164,11 @@ export default {
     display: none;
   }
 }
+
 .drop-container {
   margin-top: -50px;
 }
+
 .waves {
   margin-top: -50px;
 }

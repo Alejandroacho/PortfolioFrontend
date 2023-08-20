@@ -1,4 +1,4 @@
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
 import ImageDisplay from "./ImageDisplay.vue";
 
 export default {
@@ -27,9 +27,9 @@ export default {
   },
 };
 
-const codeTemplate = '<ImageDisplay v-bind="args" />';
+const codeTemplate: string = '<ImageDisplay v-bind="args" />';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { ImageDisplay },
   setup() {
     return { args };
@@ -40,7 +40,7 @@ const Template = (args) => ({
 /**
  * Image display with a correct image object.
  */
-export const StoryWithImage = Template.bind({});
+export const StoryWithImage: any = Template.bind({});
 
 StoryWithImage.args = {
   image: {
@@ -59,7 +59,7 @@ StoryWithImage.parameters = {
 /**
  * Image display without an image object.
  */
-export const StoryWithoutImage = Template.bind({});
+export const StoryWithoutImage: any = Template.bind({});
 
 StoryWithoutImage.args = {
   image: undefined,

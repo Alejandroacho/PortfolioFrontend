@@ -1,5 +1,5 @@
 import SpinningLoader from "./SpinningLoader.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
 
 export default {
   title: "atoms/SpinningLoader",
@@ -18,9 +18,9 @@ export default {
   },
 };
 
-const codeTemplate = '<SpinningLoader v-bind="args"/>';
+const codeTemplate: string = '<SpinningLoader v-bind="args"/>';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { SpinningLoader },
   setup() {
     return { args };
@@ -31,7 +31,7 @@ const Template = (args) => ({
 /**
  * This is the default loader if you use it as it is.
  */
-export const DefaultSpinningLoaderStory = Template.bind({});
+export const DefaultSpinningLoaderStory: any = Template.bind({});
 
 DefaultSpinningLoaderStory.args = {};
 
@@ -46,7 +46,7 @@ DefaultSpinningLoaderStory.parameters = {
 /**
  * Loader with custom message would look like this.
  */
-export const SpinningLoaderWithCustomTextStory = Template.bind({});
+export const SpinningLoaderWithCustomTextStory: any = Template.bind({});
 
 SpinningLoaderWithCustomTextStory.args = {
   message: "Custom message",

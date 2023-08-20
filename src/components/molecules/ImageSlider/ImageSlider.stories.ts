@@ -1,5 +1,6 @@
 import ImageSlider from "./ImageSlider.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
+
 export default {
   title: "molecules/ImageSlider",
   component: ImageSlider,
@@ -17,9 +18,9 @@ export default {
   },
 };
 
-const codeTemplate = '<ImageSlider v-bind="args"/>';
+const codeTemplate: string = '<ImageSlider v-bind="args"/>';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { ImageSlider },
   setup() {
     return { args };
@@ -27,7 +28,7 @@ const Template = (args) => ({
   template: codeTemplate,
 });
 
-export const ImageSliderStory = Template.bind({});
+export const ImageSliderStory: any = Template.bind({});
 
 ImageSliderStory.parameters = {
   docs: {
@@ -37,17 +38,17 @@ ImageSliderStory.parameters = {
 ImageSliderStory.args = {
   images: [
     {
-      image: "design-system-light.png",
+      url: "design-system-light.png",
       description: "JavaScript",
       type: "PC",
     },
     {
-      image: "public/design-system-dark.png",
+      url: "public/design-system-dark.png",
       description: "JavaScript",
       type: "PC",
     },
     {
-      image: "public/circular-logo.png",
+      url: "public/circular-logo.png",
       description: "JavaScript",
       type: "PC",
     },

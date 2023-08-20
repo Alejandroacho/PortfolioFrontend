@@ -1,5 +1,5 @@
 import ProjectCard from "./ProjectCard.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
 
 export default {
   title: "molecules/ProjectCard",
@@ -24,6 +24,7 @@ export default {
             "{\n" +
             "  id: 1,\n" +
             '  title: "Project 1",\n' +
+            '  introduction: "Project 1 Introduction",\n' +
             '  description: "Project 1 description",\n' +
             '  url: "https://www.google.com",\n' +
             "  is_public: true,\n" +
@@ -47,7 +48,7 @@ export default {
             "      id: 1,\n" +
             '      description: "Image 1",\n' +
             '      type: "PC",\n' +
-            '      image: "design-system-light.png",\n' +
+            '      url: "design-system-light.png",\n' +
             "    },\n" +
             "  ],\n" +
             "}",
@@ -57,9 +58,9 @@ export default {
   },
 };
 
-const codeTemplate = '<ProjectCard v-bind="args"/>';
+const codeTemplate: string = '<ProjectCard v-bind="args"/>';
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { ProjectCard },
   setup() {
     return { args };
@@ -67,7 +68,7 @@ const Template = (args) => ({
   template: codeTemplate,
 });
 
-export const ProjectCardStory = Template.bind({});
+export const ProjectCardStory: any = Template.bind({});
 
 ProjectCardStory.args = {
   project: {
@@ -98,19 +99,19 @@ ProjectCardStory.args = {
         id: 1,
         description: "Image 1",
         type: "CARD",
-        image: "design-system-light.png",
+        url: "design-system-light.png",
       },
       {
         id: 2,
         description: "Image 2",
         type: "PC",
-        image: "design-system-light.png",
+        url: "design-system-light.png",
       },
       {
         id: 3,
         description: "Image 3",
         type: "OTHER",
-        image: "design-system-light.png",
+        url: "design-system-light.png",
       },
     ],
   },

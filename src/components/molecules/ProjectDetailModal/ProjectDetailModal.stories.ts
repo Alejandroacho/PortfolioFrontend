@@ -1,5 +1,5 @@
 import ProjectDetailModal from "./ProjectDetailModal.vue";
-import generateSource from "../../../../.storybook/utils.js";
+import generateSource from "../../../../.storybook/utils";
 
 export default {
   title: "molecules/ProjectDetailModal",
@@ -52,7 +52,7 @@ export default {
   },
 };
 
-const codeTemplate = `
+const codeTemplate: string = `
 <ProjectDetailModal v-bind="args">
   <template v-slot:header>
     <h2>Project name</h2>
@@ -66,7 +66,7 @@ const codeTemplate = `
 </ProjectDetailModal>
 `;
 
-const Template = (args) => ({
+const Template: Function = (args: Object): Object => ({
   components: { ProjectDetailModal },
   setup() {
     return { args };
@@ -74,7 +74,7 @@ const Template = (args) => ({
   template: codeTemplate,
 });
 
-export const ProjectDetailModalComponentStory = Template.bind({});
+export const ProjectDetailModalComponentStory: any = Template.bind({});
 
 ProjectDetailModalComponentStory.args = {
   showModal: false,
