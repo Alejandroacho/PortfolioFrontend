@@ -41,6 +41,7 @@ export default {
 
   data() {
     return {
+      startTime: 0,
       waveTank: new WaveTank(),
       millisecondsForAnimation: 2000,
       width: 100,
@@ -53,12 +54,14 @@ export default {
 
   methods: {
     updateAnimation(timestamp: number = 0) {
+      if (timestamp !== 0 && this.startTime == 0) this.startTime = timestamp;
+      let animationTime: number = timestamp - this.startTime;
       if (!this.$refs.condensation.classList.contains("condensation"))
-        this.$refs.condensation.classList.add("condensation");
-      this.updateDrip(timestamp);
+        this.initiateCondensation();
+      this.updateDrip(animationTime);
       this.waveTank.update(this.waveTank.waves);
       this.wavePoints = this.waveTank.getWavePoints(this.width, this.grid);
-      const sawTime: number = this.getTimeSaw(timestamp, 500);
+      const sawTime: number = this.getTimeSaw(animationTime, 500);
       const timeToDropOnWaveTank: number = 0.01;
       if (sawTime < timeToDropOnWaveTank) this.dropOnWaveTank();
       this.animationRequestId = requestAnimationFrame(this.updateAnimation);
@@ -91,26 +94,26 @@ export default {
     initiateCondensation(): void {
       this.$refs.condensation.classList.add("condensation");
     },
+
+    removeAnimationIfExists(): void {
+      this.animationRequestId = requestAnimationFrame(this.updateAnimation);
+      if (this.animationRequestId !== undefined) {
+        cancelAnimationFrame(this.animationRequestId);
+        this.$refs.condensation.classList.remove("condensation");
+      }
+    },
   },
 
   mounted(): void {
-    const mediaQuery: MediaQueryList = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    );
-    if (mediaQuery.matches) return;
-    this.animationRequestId = requestAnimationFrame(this.updateAnimation);
-    if (this.animationRequestId !== undefined)
-      cancelAnimationFrame(this.animationRequestId);
+    this.removeAnimationIfExists();
     this.resize();
-    this.initiateCondensation();
     this.updateAnimation();
     window.addEventListener("resize", this.resize);
   },
 
   beforeUnmount(): void {
     window.removeEventListener("resize", this.resize);
-    if (this.requestId !== undefined) cancelAnimationFrame(this.requestId);
-    this.$refs.condensation.classList.remove("condensation");
+    this.removeAnimationIfExists();
   },
 };
 </script>
@@ -152,8 +155,8 @@ export default {
 }
 
 .condensation {
-  animation: drip 1200ms cubic-bezier(0, 0, 1, 0.5),
-    drip 2000ms 1200ms infinite cubic-bezier(0, 0, 1, 0.5);
+  animation: drip 1300ms cubic-bezier(0, 0, 1, 0.5),
+    drip 2000ms 1300ms infinite cubic-bezier(0, 0, 1, 0.5);
 }
 
 @keyframes drip {
