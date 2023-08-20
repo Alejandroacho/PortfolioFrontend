@@ -20,6 +20,7 @@
     "typeRoots": [
       "node_modules/@types",
       "src/assets/types"
-    ]
+    ],
+    "types": ["vite/client"]
   }
 }
