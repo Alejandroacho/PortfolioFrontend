@@ -6,8 +6,8 @@ const backendUrl: string = import.meta.env.VITE_BACKEND_URL;
 
 class ExperiencesController {
     constructor() {}
-    public async getExperiences(): Promise<Experience> {
-        return axios.get(`${backendUrl}/api/experiences/`) as Promise<Experience>
+    public async getExperiences(): Promise<Experience[]> {
+        return axios.get(`${backendUrl}/api/experiences/`) as Promise<Experience[]>
     }
 }
 

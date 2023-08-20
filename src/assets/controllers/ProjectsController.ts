@@ -6,8 +6,8 @@ const backendUrl: string = import.meta.env.VITE_BACKEND_URL;
 
 class ProjectsController {
     constructor() {}
-    public async getProjects(): Promise<Project> {
-        return axios.get(`${backendUrl}/api/projects/`) as Promise<Project>
+    public async getProjects(): Promise<Project[]> {
+        return axios.get(`${backendUrl}/api/projects/`) as Promise<Project[]>
     }
 }
 

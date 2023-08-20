@@ -6,8 +6,8 @@ const backendUrl: string = import.meta.env.VITE_BACKEND_URL;
 
 class CertificationsController {
     constructor() {}
-    public async getCertifications(): Promise<Certification> {
-        return axios.get(`${backendUrl}/api/certifications/`) as Promise<Certification>
+    public async getCertifications(): Promise<Certification[]> {
+        return axios.get(`${backendUrl}/api/certifications/`) as Promise<Certification[]>
     }
 }
 
