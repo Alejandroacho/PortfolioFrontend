@@ -21,6 +21,6 @@
       "node_modules/@types",
       "src/assets/types"
     ],
-    "types": ["vite/client"]
+    "types": ["vite/client", "@types/node"]
   }
 }
