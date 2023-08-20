@@ -25,10 +25,13 @@ export default {
 h3 {
   text-align: center;
 }
+
 .loader {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  justify-content: center;
   &__spinner {
     width: 48px;
     height: 48px;
@@ -40,6 +43,7 @@ h3 {
     animation: rotation 1s linear infinite;
   }
 }
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
