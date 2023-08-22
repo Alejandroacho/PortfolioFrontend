@@ -87,7 +87,7 @@ export default {
   margin: 0;
   padding: 0;
   li {
-    padding: 0 10px;
+    padding-left: 10px;
     color: white;
     cursor: pointer;
   }
