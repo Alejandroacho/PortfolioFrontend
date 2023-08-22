@@ -1,10 +1,9 @@
 <template>
-  <SpinningLoader v-if="loading" message="" />
+  <SpinningLoader v-if="loading" />
   <NavbarSection v-if="!loading" :scrollPosition="scrollPosition" />
   <HeroSection v-if="!loading" />
   <BodySection
     v-if="!loading"
-    :key="new Date().getTime()"
     :user="user"
     :experiences="experiences"
     :projects="projects"
@@ -38,7 +37,6 @@ export default {
     return {
       loading: true,
       scrollPosition: 0,
-      bodyKey: 0,
       user: <User>{},
       experiences: Array<Experience>,
       projects: Array<Project>,
@@ -67,8 +65,9 @@ export default {
       console.error(error);
       throw error
     }).finally((): void => {
-      this.loading = false;
-      this.bodyKey++;
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
     });
   },
 
