@@ -65,9 +65,7 @@ export default {
       console.error(error);
       throw error
     }).finally((): void => {
-      setTimeout(() => {
-        this.loading = false;
-      }, 1000);
+      this.loading = false;
     });
   },
 
