@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <ImageDisplay :key="image.id" :image="image" class="image" />
+    <ImageDisplay :key="image.id" :image="image" v-if="image" class="image" />
     <div class="card-content">
       <h2>{{ project.title }}</h2>
       <p>{{ project.introduction }}</p>
@@ -83,7 +83,7 @@ export default {
   border-color: $secondary-color;
   border-style: solid;
   margin: 10px;
-  width: 300px;
+  width: 340px;
   height: 400px;
   background-color: $primary-color;
   color: $secondary-color;
