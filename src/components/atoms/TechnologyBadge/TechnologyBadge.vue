@@ -61,7 +61,7 @@ export default {
   max-height: 10px;
   padding: 10px;
   background-color: $primary-color;
-  border: 1px solid $secondary-color;
+  border: 1px solid $lighter-grey;
   border-radius: 30px;
   cursor: default;
 
