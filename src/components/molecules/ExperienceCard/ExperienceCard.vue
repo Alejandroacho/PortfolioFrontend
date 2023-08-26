@@ -9,21 +9,32 @@
           <p class="time">{{time}}</p>
         </div>
       </div>
-      <p class="description" id="text">{{ experience.description }}</p>
-      <div class="technologies">
-        <technology-badge
-          v-for="technology in experience.technologies"
-          :key="technology.id"
-          :language="technology.name"
-        />
+      <div :class="{
+        'collapsable': !showFullText,
+        'expanded': showFullText
+      }" id="text">
+        <p :class="{
+          'description': true,
+          'description-clamped': !showFullText
+        }">
+          {{ experience.description }}
+        </p>
+        <br>
+        <div class="technologies">
+          <technology-badge
+            v-for="technology in experience.technologies"
+            :key="technology.id"
+            :language="technology.name"
+          />
+        </div>
+        <br>
       </div>
-      <small
-        @click="()=>{showFullText = !showFullText}"
-        v-if="true"
-        class="font-weight-bold"
-      >
-        {{ showFullText ? 'See Less' : 'See More' }}
-      </small>
+      <custom-button
+        type="text"
+        :message="showFullText ? 'See Less' : 'See More'"
+        @handle-click="()=>{showFullText = !showFullText}"
+        class="see-more-button"
+      />
     </div>
   </div>
 </template>
@@ -110,7 +121,7 @@ export default {
 
 :deep(.technology-badge) {
   margin-top: 5px;
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .card {
@@ -162,7 +173,16 @@ export default {
 
 .description {
   font-size: medium;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-right: 5px;
+  white-space: pre-wrap;
+}
+
+.description-clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .technologies {
@@ -170,10 +190,26 @@ export default {
   flex-wrap: wrap;
 }
 
+.collapsable {
+  height: 112px;
+  overflow: hidden;
+}
+
+.expanded {
+  height: auto;
+}
+
+.see-more-button {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: $grey-blue;
+}
+
 h3 {
   max-height: 37px;
   padding: 0;
-  margin: 5px 0 10px 0;
+  margin: 10px 0 12px 0;
 }
 
 p {
