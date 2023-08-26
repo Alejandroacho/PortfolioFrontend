@@ -94,10 +94,10 @@ export default {
 
 .image {
   display: block;
-  width: 300px;
-  height: 200px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  height: 215px;
+  object-fit: cover;
 }
 
 .card-content {
