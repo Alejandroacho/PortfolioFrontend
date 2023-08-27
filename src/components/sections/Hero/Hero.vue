@@ -138,7 +138,7 @@ export default {
 }
 
 .logo {
-  z-index: 999;
+  z-index: 2;
   margin-top: calc(50vh - 20vh);
   width: 30vh;
   height: 30vh;
@@ -173,6 +173,7 @@ export default {
 }
 
 .waves {
-  margin-top: -50px;
+  position: absolute;
+  bottom: 0;
 }
 </style>

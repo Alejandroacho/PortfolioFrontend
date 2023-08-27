@@ -14,7 +14,8 @@
         </transition>
       </div>
       <ul class="nav-items">
-        <li>About me</li>
+        <li>About</li>
+        <li>Experience</li>
         <li>Projects</li>
       </ul>
     </div>
@@ -44,7 +45,7 @@ export default {
 @import "src/assets/colors.scss";
 
 .nav-menu {
-  z-index: 1000;
+  z-index: 5;
   background-color: rgba(80, 80, 80, 0.91);
   position: fixed;
   width: 100%;
