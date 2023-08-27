@@ -62,8 +62,7 @@ export default {
   }
 }
 
-.primary,
-.magic {
+.primary {
   background-color: $dark-gray;
   border: 1px solid $dark-black;
   color: $white;
@@ -91,7 +90,13 @@ export default {
 }
 
 .magic {
+  background-color: $white;
+  border: 1px solid $secondary-color;
+  color: $secondary-color;
   position: relative;
+  &:hover {
+    background-color: $white;
+  }
 }
 
 .magic::before {

@@ -55,13 +55,13 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: min-content;
+  width: fit-content;
   height: 100%;
   max-width: 100%;
   max-height: 10px;
   padding: 10px;
   background-color: $primary-color;
-  border: 1px solid $secondary-color;
+  border: 1px solid $lighter-grey;
   border-radius: 30px;
   cursor: default;
 

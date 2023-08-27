@@ -47,6 +47,7 @@ interface Experience {
   url: string;
   start_date: string;
   end_date: string;
+  time_of_experience: string;
   current: boolean;
   technologies: Technology[];
 }

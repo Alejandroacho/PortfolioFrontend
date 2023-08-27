@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-    <div class="backdrop" v-if="showModal">
-      <div class="modal" role="dialog">
+    <div class="backdrop" v-if="showModal" @click="close">
+      <div class="modal" role="dialog" @click.stop>
         <header class="modal__header">
           <slot name="header"> </slot>
           <button @click="close" class="close-button">x</button>
@@ -52,6 +52,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 90 !important;
 }
 
 .modal {
@@ -61,11 +62,11 @@ export default {
   overflow-x: auto;
   display: flex;
   flex-direction: column;
-  max-width: 90%;
+  width: 60%;
   max-height: 90%;
-  min-width: 80%;
   -ms-overflow-style: none; /*  Hide scrollbar for IE and Edge */
   scrollbar-width: none !important; /*  Hide scrollbar for Firefox */
+  z-index: 100 !important;
 
   &__header {
     padding: 15px;
@@ -103,6 +104,10 @@ export default {
   color: $black;
   background: transparent;
   margin-right: 2%;
+}
+
+.close-button:hover {
+  color: red;
 }
 
 .fade-enter,
