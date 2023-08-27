@@ -132,7 +132,7 @@ export default {
   border-width: 1px;
   border-color: $secondary-color;
   border-style: solid;
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
   min-height: 140px;
   background-color: $primary-color;
