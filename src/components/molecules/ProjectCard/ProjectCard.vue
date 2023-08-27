@@ -14,7 +14,7 @@
       />
     </div>
   </div>
-  <ModalComponent
+  <ProjectDetailModal
     @close="closeProjectDetail"
     :project="project"
     :show-modal="showProjectDetail"
@@ -24,7 +24,7 @@
 <script lang="ts">
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
 import CustomButton from "../../atoms/CustomButton/CustomButton.vue";
-import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue";
+import ProjectDetailModal from "@/components/molecules/ProjectDetailModal/ProjectDetailModal.vue";
 import { Image, Project } from "@/assets/types";
 import { ImageTypes } from "@/assets/constants";
 import { PropType } from "vue";
@@ -33,7 +33,7 @@ export default {
   name: "ProjectCard",
 
   components: {
-    ModalComponent,
+    ProjectDetailModal,
     ImageDisplay,
     CustomButton,
   },
@@ -82,7 +82,6 @@ export default {
   border-width: 1px;
   border-color: $secondary-color;
   border-style: solid;
-  margin: 10px;
   width: 340px;
   height: 400px;
   background-color: $primary-color;
