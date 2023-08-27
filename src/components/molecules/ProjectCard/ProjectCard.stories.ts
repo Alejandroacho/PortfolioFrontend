@@ -8,7 +8,7 @@ export default {
     docs: {
       description: {
         component:
-          "Project section that will display images and a button. The button should open the project detail section component.",
+          "Project card",
       },
     },
   },
