@@ -1,9 +1,9 @@
-import {describe, expect, it} from "vitest";
-import {mount} from "@vue/test-utils";
+import { describe, expect, it } from "vitest";
+import { mount } from "@vue/test-utils";
 import ExperienceCard from "../ExperienceCard.vue";
-import {Experience} from "@/assets/types";
-import {ImageTypes} from "@/assets/constants";
-import {VueWrapper} from "@vue/test-utils/dist/vueWrapper";
+import { Experience } from "@/assets/types";
+import { ImageTypes } from "@/assets/constants";
+import { VueWrapper } from "@vue/test-utils/dist/vueWrapper";
 
 describe("ProjectSection", (): void => {
   it("renders properly", (): void => {
@@ -17,7 +17,8 @@ describe("ProjectSection", (): void => {
       },
       company: "Company",
       position: "Position",
-      description: "Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description",
+      description:
+        "Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description",
       url: "https://www.google.com",
       start_date: "2021-01-01",
       end_date: "2021-01-01",
@@ -27,7 +28,7 @@ describe("ProjectSection", (): void => {
         {
           id: 1,
           name: "Technology 1",
-        }
+        },
       ],
     };
     const wrapper: VueWrapper = mount(ExperienceCard, {

@@ -5,21 +5,30 @@
       <div class="card-header">
         <h3>{{ experience.position }}</h3>
         <div class="experience-period">
-          <custom-button :message="experience.company" @handle-click="goToPage" type="text"/>
-          <p class="time">{{time}}</p>
+          <custom-button
+            :message="experience.company"
+            @handle-click="goToPage"
+            type="text"
+          />
+          <p class="time">{{ time }}</p>
         </div>
       </div>
-      <div :class="{
-        'collapsable': !showFullText,
-        'expanded': showFullText
-      }" id="text">
-        <p :class="{
-          'description': true,
-          'description-clamped': !showFullText
-        }">
+      <div
+        :class="{
+          collapsable: !showFullText,
+          expanded: showFullText,
+        }"
+        id="text"
+      >
+        <p
+          :class="{
+            description: true,
+            'description-clamped': !showFullText,
+          }"
+        >
           {{ experience.description }}
         </p>
-        <br>
+        <br />
         <div class="technologies">
           <technology-badge
             v-for="technology in experience.technologies"
@@ -27,12 +36,16 @@
             :language="technology.name"
           />
         </div>
-        <br>
+        <br />
       </div>
       <custom-button
         type="text"
         :message="showFullText ? 'See Less' : 'See More'"
-        @handle-click="()=>{showFullText = !showFullText}"
+        @handle-click="
+          () => {
+            showFullText = !showFullText;
+          }
+        "
         class="see-more-button"
       />
     </div>
@@ -52,7 +65,7 @@ export default {
   components: {
     ImageDisplay,
     CustomButton,
-    TechnologyBadge
+    TechnologyBadge,
   },
 
   data() {
@@ -71,7 +84,7 @@ export default {
   },
 
   mounted() {
-    this.setClampBehaviour()
+    this.setClampBehaviour();
   },
 
   methods: {
@@ -80,26 +93,28 @@ export default {
     },
 
     setClampBehaviour() {
-        const text = this.$refs.text as HTMLElement
-        this.isClamped = text && text.scrollHeight > text.offsetHeight
+      const text = this.$refs.text as HTMLElement;
+      this.isClamped = text && text.scrollHeight > text.offsetHeight;
     },
 
     updateClampBehaviour(): void {
-        this.$nextTick(() => {
-            this.setClampBehaviour()
-        })
+      this.$nextTick(() => {
+        this.setClampBehaviour();
+      });
     },
   },
 
   computed: {
     image(): Image {
-      return this.experience.logo
+      return this.experience.logo;
     },
 
     time(): string {
-      return `${this.experience.start_date} - ${this.experience.current ? "Currently" : this.experience.end_date}
-        (${this.experience.time_of_experience})`
-    }
+      return `${this.experience.start_date} - ${
+        this.experience.current ? "Currently" : this.experience.end_date
+      }
+        (${this.experience.time_of_experience})`;
+    },
   },
 };
 </script>

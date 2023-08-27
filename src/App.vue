@@ -55,24 +55,27 @@ export default {
       await this.usersController.getUsers(),
       await this.experiencesController.getExperiences(),
       await this.projectsController.getProjects(),
-      await this.certificationsController.getCertifications()
-    ]).then(([users, experiences, projects, certifications]): void => {
-      this.user = users[0] as User;
-      this.experiences = experiences as Experience[];
-      this.projects = projects as Project[];
-      this.certifications = certifications as Certification[];
-    }).catch((error: any): void => {
-      console.error(error);
-      throw error
-    }).finally((): void => {
-      this.loading = false;
-    });
+      await this.certificationsController.getCertifications(),
+    ])
+      .then(([users, experiences, projects, certifications]): void => {
+        this.user = users[0] as User;
+        this.experiences = experiences as Experience[];
+        this.projects = projects as Project[];
+        this.certifications = certifications as Certification[];
+      })
+      .catch((error: any): void => {
+        console.error(error);
+        throw error;
+      })
+      .finally((): void => {
+        this.loading = false;
+      });
   },
 
   methods: {
-     handleScroll() {
+    handleScroll() {
       this.scrollPosition = window.scrollY;
-     }
+    },
   },
 
   created() {

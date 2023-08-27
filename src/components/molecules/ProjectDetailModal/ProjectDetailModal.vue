@@ -1,10 +1,10 @@
 <template>
   <ModalComponent :show-modal="showModal">
     <template v-slot:header>
-      <ImageSlider :show-arrows="false" :images="images" class="image"/>
+      <ImageSlider :show-arrows="false" :images="images" class="image" />
     </template>
     <template v-slot:body>
-      <div class="body" >
+      <div class="body">
         <h1>{{ project.title }}</h1>
         <p>{{ project.description }}</p>
         <div class="technologies">
@@ -30,13 +30,11 @@
             />
             <template #content>
               <div
-                  v-for="socialNetwork in author.social_networks"
-                  :key="socialNetwork.platform"
+                v-for="socialNetwork in author.social_networks"
+                :key="socialNetwork.platform"
               >
-                <a
-                  :href="socialNetwork.url"
-                  target="_blank"
-                >{{ socialNetwork.platform }}: {{ socialNetwork.nickname }}
+                <a :href="socialNetwork.url" target="_blank"
+                  >{{ socialNetwork.platform }}: {{ socialNetwork.nickname }}
                 </a>
               </div>
             </template>
@@ -164,7 +162,7 @@ export default {
   margin-left: 1rem;
 }
 
-a{
+a {
   color: $secondary-color;
   text-decoration: none;
   &:hover {

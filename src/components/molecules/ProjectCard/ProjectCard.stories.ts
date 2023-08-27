@@ -7,8 +7,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          "Project card",
+        component: "Project card",
       },
     },
   },

@@ -7,8 +7,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          "Experience card.",
+        component: "Experience card.",
       },
     },
   },
@@ -24,18 +23,18 @@ export default {
             "{\n" +
             "  id: 1,\n" +
             "  logo: {\n" +
-            "  company: \"Company\",\n" +
-            "  position: \"Position\",\n" +
-            "  description: \"Description\",\n" +
-            "  url: \"https://www.google.com\",\n" +
-            "  start_date: \"2021-01-01\",\n" +
-            "  end_date: \"2021-01-01\",\n" +
-            "  time_of_experience: \"1 year\",\n" +
+            '  company: "Company",\n' +
+            '  position: "Position",\n' +
+            '  description: "Description",\n' +
+            '  url: "https://www.google.com",\n' +
+            '  start_date: "2021-01-01",\n' +
+            '  end_date: "2021-01-01",\n' +
+            '  time_of_experience: "1 year",\n' +
             "  current: true,\n" +
             "  technologies: [\n" +
             "    {\n" +
             "      id: 1,\n" +
-            "      name: \"Technology 1\",\n" +
+            '      name: "Technology 1",\n' +
             "    },\n" +
             "  ],\n" +
             "}",
@@ -61,24 +60,25 @@ ExperienceCardStory.args = {
   experience: {
     id: 1,
     logo: {
-        id: 1,
-        description: "Logo",
-        type: "OTHER",
-        url: "design-system-light.png",
+      id: 1,
+      description: "Logo",
+      type: "OTHER",
+      url: "design-system-light.png",
     },
     company: "Company",
     position: "Position",
-    description: "Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description",
+    description:
+      "Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description",
     url: "https://www.google.com",
     start_date: "2021-01-01",
     end_date: "2021-01-01",
     time_of_experience: "1 year",
     current: true,
     technologies: [
-        {
-            id: 1,
-            name: "Technology 1",
-        }
+      {
+        id: 1,
+        name: "Technology 1",
+      },
     ],
   },
 };
