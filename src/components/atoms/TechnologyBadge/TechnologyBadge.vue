@@ -55,7 +55,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: min-content;
+  width: fit-content;
   height: 100%;
   max-width: 100%;
   max-height: 10px;
