@@ -1,7 +1,7 @@
 <template>
   <ModalComponent :show-modal="showModal">
     <template v-slot:header>
-      <ImageSlider :show-arrows="false" :images="images" />
+      <ImageSlider :show-arrows="false" :images="images" class="image" />
     </template>
     <template v-slot:body>
       <div class="body">
@@ -23,21 +23,18 @@
             class="author"
             :key="author.id"
             arrow
-            disableClickAway
           >
             <CustomButton
               type="text"
               :message="`${author.first_name} ${author.last_name}`"
             />
             <template #content>
-              <div>
-                <a
-                  v-for="socialNetwork in author.social_networks"
-                  :key="socialNetwork.platform"
-                  :href="socialNetwork.url"
-                  target="_blank"
-                >
-                  {{ socialNetwork.platform }} | {{ socialNetwork.nickname }}
+              <div
+                v-for="socialNetwork in author.social_networks"
+                :key="socialNetwork.platform"
+              >
+                <a :href="socialNetwork.url" target="_blank"
+                  >{{ socialNetwork.platform }}: {{ socialNetwork.nickname }}
                 </a>
               </div>
             </template>
@@ -84,6 +81,7 @@ export default {
   data() {
     return {
       showProjectDetail: false,
+      currentPopperOpened: null as number | null,
     };
   },
 
@@ -116,6 +114,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/colors.scss";
+
+:deep(.image-display) {
+  object-fit: cover;
+}
+
 :deep(.carousel) {
   height: 50vh !important;
 }
@@ -156,5 +160,14 @@ export default {
 
 .repo-button {
   margin-left: 1rem;
+}
+
+a {
+  color: $secondary-color;
+  text-decoration: none;
+  &:hover {
+    color: $grey-blue;
+    text-decoration: underline;
+  }
 }
 </style>

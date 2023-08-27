@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <ImageDisplay :key="image.id" :image="image" class="image" />
+    <ImageDisplay :key="image.id" :image="image" v-if="image" class="image" />
     <div class="card-content">
       <h2>{{ project.title }}</h2>
       <p>{{ project.introduction }}</p>
@@ -14,7 +14,7 @@
       />
     </div>
   </div>
-  <ModalComponent
+  <ProjectDetailModal
     @close="closeProjectDetail"
     :project="project"
     :show-modal="showProjectDetail"
@@ -24,7 +24,7 @@
 <script lang="ts">
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
 import CustomButton from "../../atoms/CustomButton/CustomButton.vue";
-import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue";
+import ProjectDetailModal from "@/components/molecules/ProjectDetailModal/ProjectDetailModal.vue";
 import { Image, Project } from "@/assets/types";
 import { ImageTypes } from "@/assets/constants";
 import { PropType } from "vue";
@@ -33,7 +33,7 @@ export default {
   name: "ProjectCard",
 
   components: {
-    ModalComponent,
+    ProjectDetailModal,
     ImageDisplay,
     CustomButton,
   },
@@ -82,8 +82,7 @@ export default {
   border-width: 1px;
   border-color: $secondary-color;
   border-style: solid;
-  margin: 10px;
-  width: 300px;
+  width: 340px;
   height: 400px;
   background-color: $primary-color;
   color: $secondary-color;
@@ -94,10 +93,10 @@ export default {
 
 .image {
   display: block;
-  width: 300px;
-  height: 200px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  height: 215px;
+  object-fit: cover;
 }
 
 .card-content {
