@@ -1,11 +1,17 @@
 <template>
   <main class="main">
     <h1 class="main-title">Full Stack Developer</h1>
-    <br>
     <div class="about">
       <p>{{user.about}}</p>
       <image-display :image="user.image"/>
     </div>
+    <h2 class="title">Experience</h2>
+    <experience-card v-for="experience in experiences" :key="experience.id" :experience="experience"/>
+    <h2 class="title">Projects</h2>
+    <div class="projects">
+      <project-card v-for="project in projects" :key="project.id" :project="project"/>
+    </div>
+    <br>
   </main>
 </template>
 
@@ -13,10 +19,12 @@
 import { User, Certification, Experience, Project } from "@/assets/types";
 import { PropType } from "vue";
 import ImageDisplay from "@/components/atoms/ImageDisplay/ImageDisplay.vue";
+import ExperienceCard from "@/components/molecules/ExperienceCard/ExperienceCard.vue";
+import ProjectCard from "@/components/molecules/ProjectCard/ProjectCard.vue";
 
 export default {
   name: "BodySection",
-  components: {ImageDisplay},
+  components: {ImageDisplay, ExperienceCard, ProjectCard},
 
   props: {
     user: {
@@ -41,6 +49,7 @@ export default {
 
 <style scoped lang="scss">
 @import "src/assets/colors.scss";
+
 .main {
   align-items: center;
   justify-content: center;
@@ -56,6 +65,8 @@ export default {
 .about {
   display: flex;
   font-size: 18px;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .about :deep(.image-display) {
@@ -64,6 +75,20 @@ export default {
   border-radius: 100%;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 </style>
