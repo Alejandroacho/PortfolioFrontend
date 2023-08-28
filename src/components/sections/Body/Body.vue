@@ -12,14 +12,13 @@
       :experience="experience"
     />
     <h2 class="title">Projects</h2>
-    <div class="projects">
+    <div class="projects end-of-site">
       <project-card
         v-for="project in projects"
         :key="project.id"
         :project="project"
       />
     </div>
-    <br />
   </main>
 </template>
 
@@ -82,7 +81,6 @@ export default {
   width: 150px;
   border-radius: 100%;
   margin-left: 20px;
-  margin-right: 20px;
 }
 
 .title {
@@ -97,5 +95,9 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.end-of-site {
+  margin-bottom: 150px;
 }
 </style>

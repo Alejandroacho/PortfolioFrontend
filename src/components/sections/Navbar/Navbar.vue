@@ -65,6 +65,8 @@ export default {
   justify-content: center;
   min-width: 25px;
   min-height: 25px;
+  position: absolute;
+  left: calc(50% - (25px / 2));
 }
 
 .logo {
@@ -75,8 +77,8 @@ export default {
 
 .nav-content {
   display: flex;
-  justify-content: space-around;
-  padding: 10px 30px;
+  justify-content: space-between;
+  margin: 10px 13.9vw;
   align-items: center;
 }
 
