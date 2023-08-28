@@ -27,6 +27,7 @@
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
       class="waves"
+      id="end-of-hero"
     >
       <polygon :points="wavePoints" fill="white" transform="translate(0, 50)" />
     </svg>

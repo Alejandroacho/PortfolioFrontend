@@ -14,9 +14,9 @@
         </transition>
       </div>
       <ul class="nav-items">
-        <li>About</li>
-        <li>Experience</li>
-        <li>Projects</li>
+        <li><a href="#end-of-hero">About</a></li>
+        <li><a href="#end-of-about">Experience</a></li>
+        <li><a href="#end-of-experience">Projects</a></li>
       </ul>
     </div>
   </nav>
@@ -114,5 +114,11 @@ export default {
   100% {
     transform: scale(1);
   }
+}
+
+a {
+  margin-left: 5px;
+  color: $primary-color;
+  text-decoration: none;
 }
 </style>
