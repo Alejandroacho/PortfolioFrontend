@@ -5,21 +5,22 @@
       <p>{{ user.about }}</p>
       <image-display :image="user.image" />
     </div>
+    <span id="end-of-about" />
     <h2 class="title">Experience</h2>
     <experience-card
       v-for="experience in experiences"
       :key="experience.id"
       :experience="experience"
     />
+    <span id="end-of-experience" />
     <h2 class="title">Projects</h2>
-    <div class="projects">
+    <div class="projects end-of-site">
       <project-card
         v-for="project in projects"
         :key="project.id"
         :project="project"
       />
     </div>
-    <br />
   </main>
 </template>
 
@@ -82,7 +83,6 @@ export default {
   width: 150px;
   border-radius: 100%;
   margin-left: 20px;
-  margin-right: 20px;
 }
 
 .title {
@@ -97,5 +97,46 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.end-of-site {
+  margin-bottom: 150px;
+}
+
+@media screen and (max-width: 1000px) {
+  .main {
+    margin: 18px 5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    margin: 18px 6vw;
+  }
+
+  .main-title {
+    padding-bottom: 20px;
+  }
+
+  .about {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 25px;
+    p {
+      margin-top: 25px;
+    }
+  }
+
+  .about :deep(.image-display) {
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .end-of-site {
+    margin-bottom: 70px;
+  }
 }
 </style>
