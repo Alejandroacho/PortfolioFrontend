@@ -19,14 +19,18 @@
         <li><a href="#end-of-experience">Projects</a></li>
       </ul>
       <div id="burguer-menu">
-        <input type="checkbox" v-model="openBurguer"/>
+        <input type="checkbox" v-model="openBurguer" />
         <span></span>
         <span></span>
         <span></span>
         <ul id="menu">
           <a href="#end-of-hero" @click="openBurguer = false"><li>About</li></a>
-          <a href="#end-of-about" @click="openBurguer = false"><li>Experience</li></a>
-          <a href="#end-of-experience" @click="openBurguer = false"><li>Projects</li></a>
+          <a href="#end-of-about" @click="openBurguer = false"
+            ><li>Experience</li></a
+          >
+          <a href="#end-of-experience" @click="openBurguer = false"
+            ><li>Projects</li></a
+          >
         </ul>
       </div>
     </div>
@@ -174,8 +178,7 @@ a {
     display: block;
   }
 
-  #burguer-menu a
-  {
+  #burguer-menu a {
     text-decoration: none;
     color: #232323;
     transition: color 0.3s ease;
@@ -201,9 +204,8 @@ a {
     border-radius: 3px;
     z-index: 1;
     transform-origin: 4px 0;
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                opacity 0.55s ease;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
   }
 
   #burguer-menu span:first-child {
@@ -239,7 +241,7 @@ a {
     -webkit-font-smoothing: antialiased;
     transform-origin: 0 0;
     transform: translate(-100%, 0);
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
 
   #menu li {
