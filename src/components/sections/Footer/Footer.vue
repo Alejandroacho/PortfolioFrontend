@@ -19,11 +19,19 @@
               <li>Contact</li>
               <template #content>
                 <div class="contact-div">
-                  <a href="https://www.linkedin.com/in/alejandroacho/" target="_blank" class="contact-link">
+                  <a
+                    href="https://www.linkedin.com/in/alejandroacho/"
+                    target="_blank"
+                    class="contact-link"
+                  >
                     💼 Reach me on LinkedIn
                   </a>
-                  <br>
-                  <a href="mailto: alejandroacho@hotmail.com" target="_blank" class="contact-link">
+                  <br />
+                  <a
+                    href="mailto: alejandroacho@hotmail.com"
+                    target="_blank"
+                    class="contact-link"
+                  >
                     ✉️ Send me an email
                   </a>
                 </div>
@@ -39,11 +47,13 @@
         <template v-slot:body>
           <div class="body">
             <p class="terms-text">
-              This page do not use cookies. By staying here you agree to not leave without following me in linkedin.
-              The whole authorship of this page is mine, so if you want to use it, please contact me first.
-              I got very inspired to do the wave effects from FreshJS landing page.
-              PopperJS used for tooltips. Vue3 JS used for the whole page.
-              For the rest, IDK what to say, I hope you like it. See ya (remember to follow me in linkedin)!
+              This page do not use cookies. By staying here you agree to not
+              leave without following me in linkedin. The whole authorship of
+              this page is mine, so if you want to use it, please contact me
+              first. I got very inspired to do the wave effects from FreshJS
+              landing page. PopperJS used for tooltips. Vue3 JS used for the
+              whole page. For the rest, IDK what to say, I hope you like it. See
+              ya (remember to follow me in linkedin)!
             </p>
           </div>
         </template>
@@ -57,7 +67,7 @@ import ModalComponent from "@/components/atoms/ModalComponent/ModalComponent.vue
 
 export default {
   name: "FooterSection",
-  components: {ModalComponent},
+  components: { ModalComponent },
 
   data() {
     return {
@@ -143,9 +153,8 @@ export default {
 }
 
 .terms-text {
-  color: $secondary-color
+  color: $secondary-color;
 }
-
 
 @media screen and (max-width: 1000px) {
   .footer-container {
@@ -171,7 +180,7 @@ export default {
   }
 
   #logo {
-    order: 1
+    order: 1;
   }
 
   #made-with-love {

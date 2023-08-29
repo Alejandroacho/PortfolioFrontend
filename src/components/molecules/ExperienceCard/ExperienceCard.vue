@@ -233,7 +233,6 @@ p {
   overflow: hidden;
 }
 
-
 @media screen and (max-width: 800px) {
   .card {
     flex-direction: column;

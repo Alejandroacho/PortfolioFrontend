@@ -3,16 +3,16 @@
     <h1 class="main-title">Full Stack Developer</h1>
     <div class="about">
       <p>{{ user.about }}</p>
-      <image-display :image="user.image"/>
+      <image-display :image="user.image" />
     </div>
-    <span id="end-of-about"/>
+    <span id="end-of-about" />
     <h2 class="title">Experience</h2>
     <experience-card
       v-for="experience in experiences"
       :key="experience.id"
       :experience="experience"
     />
-    <span id="end-of-experience"/>
+    <span id="end-of-experience" />
     <h2 class="title">Projects</h2>
     <div class="projects end-of-site">
       <project-card
@@ -122,7 +122,7 @@ export default {
     flex-direction: column-reverse;
     align-items: center;
     margin-top: 25px;
-    p{
+    p {
       margin-top: 25px;
     }
   }

@@ -20,11 +20,22 @@
         </div>
         <div class="authors">
           <p class="authors-label">Authors:</p>
-          <div class="author" >
-            <PopperTooltip v-for="author in project.authors" :key="author.id" arrow class="author-popper">
-              <CustomButton type="text" :message="`${author.first_name} ${author.last_name}`" />
+          <div class="author">
+            <PopperTooltip
+              v-for="author in project.authors"
+              :key="author.id"
+              arrow
+              class="author-popper"
+            >
+              <CustomButton
+                type="text"
+                :message="`${author.first_name} ${author.last_name}`"
+              />
               <template #content>
-                <div v-for="socialNetwork in author.social_networks" :key="socialNetwork.platform">
+                <div
+                  v-for="socialNetwork in author.social_networks"
+                  :key="socialNetwork.platform"
+                >
                   <a :href="socialNetwork.url" target="_blank">
                     {{ socialNetwork.platform }}: {{ socialNetwork.nickname }}
                   </a>
@@ -180,7 +191,7 @@ a {
     height: 20vh !important;
   }
 
-  .footer{
+  .footer {
     justify-content: space-around;
   }
 
