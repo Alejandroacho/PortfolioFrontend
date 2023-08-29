@@ -9,36 +9,29 @@
         <p>{{ project.description }}</p>
         <div class="technologies">
           <p>Technologies:</p>
-          <TechnologyBadge
-            v-for="technology in project.technologies"
-            class="technology"
-            :key="technology.id"
-            :language="technology.name"
-          />
+          <div class="technologies-badges">
+            <TechnologyBadge
+              v-for="technology in project.technologies"
+              class="technology"
+              :key="technology.id"
+              :language="technology.name"
+            />
+          </div>
         </div>
         <div class="authors">
-          <p>Authors:</p>
-          <PopperTooltip
-            v-for="author in project.authors"
-            class="author"
-            :key="author.id"
-            arrow
-          >
-            <CustomButton
-              type="text"
-              :message="`${author.first_name} ${author.last_name}`"
-            />
-            <template #content>
-              <div
-                v-for="socialNetwork in author.social_networks"
-                :key="socialNetwork.platform"
-              >
-                <a :href="socialNetwork.url" target="_blank"
-                  >{{ socialNetwork.platform }}: {{ socialNetwork.nickname }}
-                </a>
-              </div>
-            </template>
-          </PopperTooltip>
+          <p class="authors-label">Authors:</p>
+          <div class="author" >
+            <PopperTooltip v-for="author in project.authors" :key="author.id" arrow class="author-popper">
+              <CustomButton type="text" :message="`${author.first_name} ${author.last_name}`" />
+              <template #content>
+                <div v-for="socialNetwork in author.social_networks" :key="socialNetwork.platform">
+                  <a :href="socialNetwork.url" target="_blank">
+                    {{ socialNetwork.platform }}: {{ socialNetwork.nickname }}
+                  </a>
+                </div>
+              </template>
+            </PopperTooltip>
+          </div>
         </div>
       </div>
     </template>
@@ -140,8 +133,19 @@ export default {
   margin-top: 1rem;
 }
 
+.technologies-badges {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.authors-poppers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .technology {
   margin-left: 1rem;
+  margin-top: 5px;
 }
 
 .authors {
@@ -149,7 +153,7 @@ export default {
 }
 
 .author {
-  @extend .technology;
+  margin-left: 1rem;
 }
 
 .footer {
@@ -168,6 +172,21 @@ a {
   &:hover {
     color: $grey-blue;
     text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  :deep(.carousel) {
+    height: 20vh !important;
+  }
+  .footer{
+    justify-content: space-around;
+  }
+  .authors-label {
+    margin: 0;
+  }
+  .author-popper {
+    margin-top: 5px !important;
   }
 }
 </style>

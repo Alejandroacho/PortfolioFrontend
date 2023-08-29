@@ -78,7 +78,7 @@ export default {
 .nav-content {
   display: flex;
   justify-content: space-between;
-  margin: 10px 13.9vw;
+  margin: 15px 13.9vw;
   align-items: center;
 }
 
@@ -120,5 +120,46 @@ a {
   margin-left: 5px;
   color: $primary-color;
   text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .nav-content {
+    margin: 15px 5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .logo-container {
+    display: none;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .nav-content {
+    display: flex;
+    margin: 18px 6vw;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    li {
+      padding-left: 0;
+      color: white;
+      cursor: pointer;
+    }
+    a {
+      margin: 0;
+    }
+  }
 }
 </style>

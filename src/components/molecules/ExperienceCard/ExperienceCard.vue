@@ -232,4 +232,62 @@ p {
   margin: 0;
   overflow: hidden;
 }
+
+
+@media screen and (max-width: 800px) {
+  .card {
+    flex-direction: column;
+    width: 93.5%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .image {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .card-content {
+    width: 100%;
+    height: auto;
+  }
+
+  .experience-period {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .time {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .description {
+    margin-top: 10px;
+    margin-right: 0;
+  }
+
+  .see-more-button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: $grey-blue;
+  }
+
+  h3 {
+    max-height: 37px;
+    padding: 0;
+    margin: 10px 0 12px 0;
+  }
+
+  p {
+    font-size: medium;
+    margin: 0;
+    overflow: hidden;
+  }
+}
 </style>

@@ -102,4 +102,37 @@ export default {
 .end-of-site {
   margin-bottom: 150px;
 }
+
+@media screen and (max-width: 1000px) {
+  .main {
+    margin: 18px 5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    margin: 18px 6vw;
+  }
+  .main-title {
+    padding-bottom: 20px;
+  }
+  .about {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 25px;
+    p{
+      margin-top: 25px;
+    }
+  }
+  .about :deep(.image-display) {
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  .end-of-site {
+    margin-bottom: 70px;
+  }
+}
 </style>

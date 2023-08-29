@@ -1,16 +1,16 @@
 <template>
   <footer class="footer">
     <div class="footer-container">
-      <div class="column">
+      <div class="column" id="logo">
         <div class="logo">
           <img src="/logo.png" alt="Logo image" draggable="false" />
           <h1>Alejandro Acho</h1>
         </div>
       </div>
-      <div class="column__center">
+      <div class="column__center" id="made-with-love">
         <p>Made with ❤️ in BCN</p>
       </div>
-      <div class="column">
+      <div class="column" id="links">
         <div class="links">
           <ul>
             <li><a href="#end-of-hero">About</a></li>
@@ -22,11 +22,9 @@
                   <a href="https://www.linkedin.com/in/alejandroacho/" target="_blank" class="contact-link">
                     💼 Reach me on LinkedIn
                   </a>
+                  <br>
                   <a href="mailto: alejandroacho@hotmail.com" target="_blank" class="contact-link">
                     ✉️ Send me an email
-                  </a>
-                  <a href="tel:+34640518009" target="_blank" class="contact-link">
-                    📞 Make me a call
                   </a>
                 </div>
               </template>
@@ -146,5 +144,37 @@ export default {
 
 .terms-text {
   color: $secondary-color
+}
+
+
+@media screen and (max-width: 1000px) {
+  .footer-container {
+    margin: 10px 5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .footer{
+    height: 260px;
+  }
+  .footer-container {
+    flex-direction: column;
+  }
+  .links {
+    text-align: center;
+    margin-bottom: 10px;
+    ul {
+      padding: 0;
+    }
+  }
+  #logo {
+    order: 1
+  }
+  #made-with-love {
+    order: 3;
+  }
+  #links {
+    order: 2;
+  }
 }
 </style>

@@ -89,6 +89,7 @@ export default {
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .image {
@@ -113,6 +114,12 @@ export default {
   }
   p {
     font-size: medium;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: 100%;
   }
 }
 </style>
