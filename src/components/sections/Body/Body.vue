@@ -113,9 +113,11 @@ export default {
   .main {
     margin: 18px 6vw;
   }
+
   .main-title {
     padding-bottom: 20px;
   }
+
   .about {
     flex-direction: column-reverse;
     align-items: center;
@@ -124,6 +126,7 @@ export default {
       margin-top: 25px;
     }
   }
+
   .about :deep(.image-display) {
     height: 150px;
     width: 150px;
@@ -131,6 +134,7 @@ export default {
     margin-left: 0;
     margin-bottom: 10px;
   }
+
   .end-of-site {
     margin-bottom: 70px;
   }

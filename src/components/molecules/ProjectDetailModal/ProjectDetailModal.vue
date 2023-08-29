@@ -179,12 +179,15 @@ a {
   :deep(.carousel) {
     height: 20vh !important;
   }
+
   .footer{
     justify-content: space-around;
   }
+
   .authors-label {
     margin: 0;
   }
+
   .author-popper {
     margin-top: 5px !important;
   }

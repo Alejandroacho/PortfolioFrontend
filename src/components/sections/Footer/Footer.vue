@@ -154,12 +154,14 @@ export default {
 }
 
 @media screen and (max-width: 800px) {
-  .footer{
+  .footer {
     height: 260px;
   }
+
   .footer-container {
     flex-direction: column;
   }
+
   .links {
     text-align: center;
     margin-bottom: 10px;
@@ -167,12 +169,15 @@ export default {
       padding: 0;
     }
   }
+
   #logo {
     order: 1
   }
+
   #made-with-love {
     order: 3;
   }
+
   #links {
     order: 2;
   }
