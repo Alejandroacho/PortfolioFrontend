@@ -119,4 +119,17 @@ export default {
 .fade-leave-active {
   transition: opacity 0.5s ease;
 }
+
+@media screen and (max-width: 1000px) {
+  .modal {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .modal {
+    width: 90%;
+    max-height: 80%;
+  }
+}
 </style>
